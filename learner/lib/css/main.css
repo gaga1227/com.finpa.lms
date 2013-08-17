@@ -10,19 +10,73 @@
 
 /* -------------------------------------------------------------------------- */
 /* html canvas */
-html, body { height:100% }
+html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* blockings */
-#container, #header, #nav, #menu, #content { 
-	position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+#container,
+	#nav, #menu, #main { 
+		position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 
 /* container */
 #container {
 	background:silver; height:100%; width:100%; }
 
 
+/* ==========================================================================
+   structure - MAIN
+   ========================================================================== */
    
+/* -------------------------------------------------------------------------- */
+/* container */
+#main { 
+	height:100%; z-index:10;
+	background:#fff;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:-webkit-transform 0.3s ease-in-out;
+	-moz-transition:-moz-transform 0.3s ease-in-out;
+	-ms-transition:-ms-transform 0.3s ease-in-out;
+	transition:transform 0.3s ease-in-out; }
+	
+/* -------------------------------------------------------------------------- */
+/* interaction */
+.navActive #main { 
+	/*transform*/
+	-webkit-transform:translate(340px,0);
+	-moz-transform:translate(340px,0);
+	-ms-transform:translate(340px,0);
+	transform:translate(340px,0); }
+	
+.menuActive #main { 
+	/*transform*/
+	-webkit-transform:translate(-340px,0);
+	-moz-transform:translate(-340px,0);
+	-ms-transform:translate(-340px,0);
+	transform:translate(-340px,0); }
+	
+	
+/* ==========================================================================
+   structure - NAV/MENU
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* common */
+#nav, #menu {
+	position:absolute; top:0; width:340px; height:100%;
+	background:#222; }
+	
+/* -------------------------------------------------------------------------- */
+/* nav */
+#nav { left:0; }
+
+/* -------------------------------------------------------------------------- */
+/* menu */
+#menu { right:0; }
+
+
+
+
    
 /* ==========================================================================
    Common Styles
