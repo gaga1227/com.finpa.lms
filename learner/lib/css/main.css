@@ -8,6 +8,10 @@
    structure - GLOBAL
    ========================================================================== */
 
+body {
+	color:#333; 
+	font-family:'Source Sans Pro',sans-serif; }
+
 /* -------------------------------------------------------------------------- */
 /* html canvas */
 html, body { height:100%; }
@@ -15,12 +19,37 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* blockings */
 #container,
-	#nav, #menu, #main { 
-		position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+	#nav, #menu, #main,
+		#header, #utils, #utilsExtra, #sysmsg, #content { 
+			position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 
 /* container */
 #container {
-	background:silver; height:100%; width:100%; }
+	height:100%; width:100%; min-width:1024px; }
+
+@media only screen and (orientation:portrait) {
+	#container { min-width:600px; }
+}
+
+
+
+/* ==========================================================================
+   structure - NAV/MENU
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* common */
+#nav, #menu {
+	position:absolute; top:0; width:340px; height:100%;
+	background:#34495e; }
+	
+/* -------------------------------------------------------------------------- */
+/* nav */
+#nav { left:0; }
+
+/* -------------------------------------------------------------------------- */
+/* menu */
+#menu { right:0; }
 
 
 /* ==========================================================================
@@ -55,27 +84,118 @@ html, body { height:100%; }
 	-ms-transform:translate(-340px,0);
 	transform:translate(-340px,0); }
 	
-	
+
 /* ==========================================================================
-   structure - NAV/MENU
+   structure - HEADER
    ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
-/* common */
-#nav, #menu {
-	position:absolute; top:0; width:340px; height:100%;
-	background:#222; }
+/* container */
+#header { 
+	height:50px; 
+	color:#0079FE; background:#fff; /*border-bottom:1px solid #bdc3c7;*/
+	line-height:50px; }
+
+	/* -------------------------------------------------------------------------- */
+	/* heading */
+	#header .heading { 
+		position:relative; width:auto; margin:0 50px; padding:0 15px; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis; text-align:center;
+		font-family:'montserrat',sans-serif; font-size:18px; font-weight:400; line-height:50px; }
+		
+		/* progress */
+		#header .heading .progress { 
+			display:block; position:absolute; top:0; left:0; width:0; height:4px; margin:0; padding:0 4px; overflow:hidden;
+			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
+			color:#0079FE; background:#0079FE; 
+			font-family:'Source Sans Pro',sans-serif; font-size:8px; line-height:10px; font-weight:600; text-align:right;
+			/*border-radius*/-webkit-border-radius:0; border-radius:0;
+			/*box-shadow*/-webkit-box-shadow:none; box-shadow:none;
+			/*transition*/
+			/*-webkit-transform:translate3d(0,0,0);*/
+			-webkit-transition:all 0.3s ease-in-out;
+			-moz-transition:all 0.3s ease-in-out;
+			transition:all 0.3s ease-in-out; }
+		#header .heading:hover .progress,
+		#header .heading .progress.active { 
+			height:10px;
+			color:#fff; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* btn */
+	#header .btn { 
+		position:absolute; top:0; width:50px; height:50px; margin:0; padding:0; overflow:hidden;
+		color:#0079FE; border:none;
+		font-size:28px; line-height:50px; }
+	#header .btn-left 	{ left:0; border-right:1px solid #bdc3c7; }
+	#header .btn-right 	{ right:0; border-left:1px solid #bdc3c7; }
 	
-/* -------------------------------------------------------------------------- */
-/* nav */
-#nav { left:0; }
+	/* interaction */
+	#header .btn:hover,
+	#header .btn.active 	{ color:#fff; background:#0079FE; border-color:#0079FE; }
+	#header .btn.activated 	{ color:#fff; background:#34495E; border-color:#34495E; }
+
+
+/* ==========================================================================
+   structure - UTILS
+   ========================================================================== */
 
 /* -------------------------------------------------------------------------- */
-/* menu */
-#menu { right:0; }
+/* container */
+#utils { 
+	height:50px;
+	color:#fff; background:#0079FE; /*border-bottom:1px solid #bdc3c7;*/ }
+	
+	/* common */
+	#utils > * { height:50px; line-height:50px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* heading */
+	#utils .heading { 
+		margin:0 215px 0 15px; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis;
+		font-size:28px; font-weight:300; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* utilsNav */
+	#utilsNav { 
+		display:table; position:absolute; top:0; right:0; width:100px;
+		border-left:1px solid #ecf0f1; }
+		
+	 	/* btn */
+		#utilsNav .btn { 
+			display:block; position:absolute; top:0; width:50px; height:100%; margin:0; padding:0;  
+			color:#fff; border:none; font-size:28px; line-height:50px; }
+		#utilsNav .btn + .btn 	{ right:0; }
+		#utilsNav .btn 			{ right:50px; }
+		
+		
+		/* interaction */
+		#utilsNav .btn:hover,
+		#utilsNav .btn.active { 
+			color:#0079FE; background:#ecf0f1; }
 
-
-
+	/* -------------------------------------------------------------------------- */
+	/* utilsExtra */
+	#utilsExtra { 
+		display:table; position:absolute; top:0; right:110px; width:90px; margin:0; overflow:visible; }
+		
+		/* btn */
+		#utilsExtra .btn { 
+			display:block; position:absolute; top:0; width:30px; height:30px; margin:10px 0; padding:0;  
+			color:#fff; border:none; font-size:14px; line-height:30px;
+			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		#utilsExtra .btn + .btn + .btn	{ right:0; }
+		#utilsExtra .btn + .btn 		{ right:30px; }
+		#utilsExtra .btn 				{ right:60px; }
+		
+		
+		
+		/* interaction */
+		#utilsExtra .btn:hover,
+		#utilsExtra .btn.active { 
+			color:#0079FE; background:#ecf0f1; }
 
    
 /* ==========================================================================
