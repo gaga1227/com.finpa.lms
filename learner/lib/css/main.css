@@ -9,6 +9,7 @@
    ========================================================================== */
 
 body {
+	overflow:hidden;
 	color:#333; background:#2980b9; 
 	font-family:'Source Sans Pro',sans-serif; }
 
