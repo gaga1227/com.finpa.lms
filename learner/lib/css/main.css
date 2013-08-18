@@ -25,13 +25,8 @@ html, body { height:100%; }
 
 /* container */
 #container {
-	height:100%; width:100%; min-width:1024px; }
-
-@media only screen and (orientation:portrait) {
-	#container { min-width:600px; }
-}
-
-
+	position:absolute; top:0; left:0; height:100%; width:100%; }
+	
 
 /* ==========================================================================
    structure - NAV/MENU
@@ -93,22 +88,29 @@ html, body { height:100%; }
 /* container */
 #header { 
 	height:50px; 
-	color:#0079FE; background:#fff; /*border-bottom:1px solid #bdc3c7;*/
+	color:#34495e; background:#fff; /*border-bottom:1px solid #bdc3c7;*/
 	line-height:50px; }
 
 	/* -------------------------------------------------------------------------- */
 	/* heading */
 	#header .heading { 
-		position:relative; width:auto; margin:0 50px; padding:0 15px; overflow:hidden;
+		position:relative; width:auto; height:50px; margin:0 50px; padding:0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis; text-align:center;
-		font-family:'montserrat',sans-serif; font-size:18px; font-weight:400; line-height:50px; }
-		
+		font-size:18px; font-weight:700; line-height:50px;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:line-height 0.3s ease-in-out;
+		-moz-transition:line-height 0.3s ease-in-out;
+		transition:line-height 0.3s ease-in-out; }
+	.no-touch #header .heading:hover {
+		line-height:60px; }
+	
 		/* progress */
 		#header .heading .progress { 
 			display:block; position:absolute; top:0; left:0; width:0; height:4px; margin:0; padding:0 4px; overflow:hidden;
 			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
-			color:#0079FE; background:#0079FE; 
-			font-family:'Source Sans Pro',sans-serif; font-size:8px; line-height:10px; font-weight:600; text-align:right;
+			color:#bdc3c7; background:#bdc3c7; 
+			font-size:10px; line-height:14px; font-weight:600; text-align:right;
 			/*border-radius*/-webkit-border-radius:0; border-radius:0;
 			/*box-shadow*/-webkit-box-shadow:none; box-shadow:none;
 			/*transition*/
@@ -116,10 +118,9 @@ html, body { height:100%; }
 			-webkit-transition:all 0.3s ease-in-out;
 			-moz-transition:all 0.3s ease-in-out;
 			transition:all 0.3s ease-in-out; }
-		#header .heading:hover .progress,
-		#header .heading .progress.active { 
-			height:10px;
-			color:#fff; }
+		.no-touch #header .heading:hover .progress { 
+			height:14px;
+			color:#fff; background:#0079FE; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* btn */
@@ -131,7 +132,7 @@ html, body { height:100%; }
 	#header .btn-right 	{ right:0; border-left:1px solid #bdc3c7; }
 	
 	/* interaction */
-	#header .btn:hover,
+	.no-touch #header .btn:hover,
 	#header .btn.active 	{ color:#fff; background:#0079FE; border-color:#0079FE; }
 	#header .btn.activated 	{ color:#fff; background:#34495E; border-color:#34495E; }
 
@@ -171,7 +172,7 @@ html, body { height:100%; }
 		
 		
 		/* interaction */
-		#utilsNav .btn:hover,
+		.no-touch #utilsNav .btn:hover,
 		#utilsNav .btn.active { 
 			color:#0079FE; background:#ecf0f1; }
 
@@ -190,13 +191,81 @@ html, body { height:100%; }
 		#utilsExtra .btn + .btn 		{ right:30px; }
 		#utilsExtra .btn 				{ right:60px; }
 		
-		
-		
 		/* interaction */
-		#utilsExtra .btn:hover,
+		.no-touch #utilsExtra .btn:hover,
 		#utilsExtra .btn.active { 
-			color:#0079FE; background:#ecf0f1; }
+			color:#0079FE; background:#fff; }
 
+
+/* ==========================================================================
+   structure - SYSMSG
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#sysmsg { 
+	display:block; position:absolute; left:0; top:100px; width:100%; height:30px; max-height:40px; padding:5px 115px 5px 15px; z-index:100;
+	white-space:nowrap; text-overflow:ellipsis;
+	color:#7F8C8D; background:#ecf0f1;
+	text-decoration:none!important;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:max-height 0.3s ease-in-out;
+	-moz-transition:max-height 0.3s ease-in-out;
+	transition:max-height 0.3s ease-in-out; }  
+		
+/* interaction */
+/*
+#sysmsg:hover,
+#sysmsg.active:hover { color:#0079FE; }
+*/
+
+#sysmsg.active { 
+	height:auto; max-height:500px;
+	color:#2C3E50; white-space:normal;
+	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.2); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.0.2); }
+
+	/* -------------------------------------------------------------------------- */
+	/* label */
+	#sysmsg .label { 
+		position:absolute; top:0; right:0; width:100px; height:100%; padding:5px 15px; overflow:hidden;
+		color:#7F8C8D; text-align:center; 
+		font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; line-height:20px; }
+	
+	/* interaction */
+	.no-touch #sysmsg:hover .label { color:#0079FE; }
+	
+	#sysmsg .label.more { display:block; }
+	#sysmsg .label.less { display:none; }
+	
+	#sysmsg.active .label.more { display:none; }
+	#sysmsg.active .label.less { display:block; }
+	
+
+   
+/* ==========================================================================
+   structure - CONTENT
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#content { 
+	position:absolute; top:100px; bottom:0; left:0; width:100%; }
+#sysmsg + #content { 
+	top:130px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* player */
+	#player { 
+		position:absolute; top:50%; left:50%; width:800px; height:570px; margin:-285px 0 0 -400px; padding:0; overflow:hidden; }
+   
+   
+/* ==========================================================================
+   common - SCROLLER
+   ========================================================================== */
+.scroller { overflow:auto!important; }
+.iOS .scroller { overflow:scroll; -webkit-overflow-scrolling:touch; }
+   
    
 /* ==========================================================================
    Common Styles
@@ -458,7 +527,7 @@ html, body { height:100%; }
 
 /* debugInfo */
 #debugInfo {
-    position:fixed; top:0; left:0; width:auto; height:30px; margin:0; padding:0 10px; overflow:hidden; z-index:10000;
+    position:fixed; bottom:0; left:0; width:auto; height:30px; margin:0; padding:0 10px; overflow:hidden; z-index:10000;
     color:#ff0; background:rgba(0,0,0,0.7);
     font-size:12px; font-weight:bold; line-height:30px; text-align:center; text-transform:uppercase; }
 #debugInfo:before   { content:''; }
@@ -472,7 +541,8 @@ html, body { height:100%; }
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
-
+@media only screen and (orientation:portrait) {
+}
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),

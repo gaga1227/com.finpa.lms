@@ -14,9 +14,65 @@ WebFontConfig = {
 	fontinactive: 	function( familyName, fvd ) { console.log( '[webfont] inactive:', familyName, fvd ); } 
 };
 /* ------------------------------------------------------------------------------ */
+/* initMenus */
+/* ------------------------------------------------------------------------------ */
+function initMenus(){
+	//vars
+	var $container = $('#container'),
+		$nav = $('#nav'),
+		$menu = $('#menu'),
+		$btnNav = $('#btnNav'),
+		$btnMenu = $('#btnMenu'),
+		navActiveCls = 'navActive'
+		menuActiveCls = 'menuActive',
+		activeCls = 'activated',
+		thisCls = '', 
+		otherCls = '';
+	//handler
+	function toggleMenus(e) {
+		var $btn = $(this),
+			id = $btn.attr('id');
+		if ( id.indexOf('Nav') != -1 ) {
+			thisCls = navActiveCls;
+			otherCls = menuActiveCls;
+		}
+		else if ( id.indexOf('Menu') != -1  ) {
+			thisCls = menuActiveCls;
+			otherCls = navActiveCls;
+		}
+		$container.removeClass(otherCls);
+		if ($container.hasClass(thisCls)) {
+			$container.removeClass(thisCls);
+			$btn.removeClass(activeCls);
+		} else {
+			$container.addClass(thisCls);
+			$btn.addClass(activeCls);
+		};
+	}
+	//bind interaction
+	$.each([$btnNav, $btnMenu], function(){
+		$(this).on('click', toggleMenus);	
+	});
+}
+/* ------------------------------------------------------------------------------ */
+/* initSysMsg */
+/* ------------------------------------------------------------------------------ */
+function initSysMsg(){
+	//vars
+	var $sysmsg = $('#sysmsg'),
+		activeCls = 'active';
+	//bind interaction
+	$sysmsg.on('click', function(e){
+		$(this).toggleClass(activeCls);
+	});
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
+	//interaction demo
+	initMenus();
+	initSysMsg();	
 	//debug
 	displayDebugInfo('#debugInfo');
 }
