@@ -21,13 +21,17 @@ html, body { height:100%; }
 /* blockings */
 #container,
 	#nav, #menu, #main,
-		#header, #utils, #utilsExtra, #sysmsg, #content,
+		#header, #utils, #utilsExtra, #sysmsg, #content, #copyright,
 			#player { 
 				display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 
 /* container */
 #container {
 	width:100%; height:100%; max-width:1024px; max-height:700px; }
+
+/* copyright */
+#copyright { 
+	max-width:1024px; }
 	
 
 /* ==========================================================================
@@ -112,7 +116,7 @@ html, body { height:100%; }
 			display:block; position:absolute; top:0; left:0; width:0; height:4px; margin:0; padding:0 8px; overflow:hidden;
 			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
 			color:#2ecc71; background:#2ecc71; 
-			font-size:10px; line-height:14px; font-weight:600; text-align:right;
+			font-family:'Montserrat',sans-serif; font-size:10px; line-height:14px; font-weight:400; text-align:right;
 			/*border-radius*/-webkit-border-radius:0; border-radius:0;
 			/*box-shadow*/-webkit-box-shadow:none; box-shadow:none;
 			/*transition*/
@@ -122,7 +126,7 @@ html, body { height:100%; }
 			transition:all 0.3s ease-in-out; }
 		.no-touch #header .heading:hover .progress { 
 			height:14px;
-			color:#fff; background:#27ae60; }
+			color:#fff; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* btn */
@@ -217,16 +221,18 @@ html, body { height:100%; }
 	transition:max-height 0.3s ease-in-out; }  
 		
 /* interaction */
-/*
 #sysmsg:hover,
 #sysmsg.active:hover { color:#3498db; }
-*/
 
 #sysmsg.active { 
 	height:auto; max-height:500px;
-	color:#2C3E50; white-space:normal;
-	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.2); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.0.2); }
+	color:#2C3E50!important; /*background:#fff;*/ white-space:normal;
+	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.3); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.0.3); }
 
+	/* -------------------------------------------------------------------------- */
+	/* msg */
+	#sysmsg .msg {  }
+	
 	/* -------------------------------------------------------------------------- */
 	/* label */
 	#sysmsg .label { 
@@ -244,7 +250,6 @@ html, body { height:100%; }
 	#sysmsg.active .label.less { display:block; }
 	
 
-   
 /* ==========================================================================
    structure - CONTENT
    ========================================================================== */
@@ -261,7 +266,36 @@ html, body { height:100%; }
 	#player { 
 		width:800px; height:570px; }
    
+/* ==========================================================================
+   structure - COPYRIGHT
+   ========================================================================== */
    
+/* -------------------------------------------------------------------------- */
+/* footerLinks */
+
+/* common */
+#copyLinks,
+#copyLinks li { 
+	list-style:none; margin:0; padding:0;
+	color:#ecf0f1; font-size:14px; font-weight:300; line-height:1em; text-transform:capitalize; }
+
+/* container */
+#copyLinks { padding:15px 0; }
+
+	/* li */
+	#copyLinks li { 
+		margin-left:10px; padding-left:10px; float:left; 
+		border-left:1px solid #ecf0f1; }
+	#copyLinks li:first-child { 
+		margin:0; padding:0; border:none; }
+		
+		/* a */
+		#copyLinks a 			{ color:#ecf0f1; text-decoration:none; }
+		#copyLinks a:hover,
+		#copyLinks a:focus,
+		#copyLinks a:active 	{ text-decoration:underline; }
+
+
 /* ==========================================================================
    common - SCROLLER
    ========================================================================== */
