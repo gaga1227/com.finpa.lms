@@ -27,11 +27,13 @@ html, body { height:100%; }
 
 /* container */
 #container {
-	width:100%; height:100%; max-width:1024px; max-height:700px; }
-
-/* copyright */
-#copyright { 
-	max-width:1024px; }
+	position:absolute; top:0; left:0; width:100%; height:100%; max-width:1024px; max-height:700px; margin:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out; }
 	
 
 /* ==========================================================================
@@ -64,10 +66,10 @@ html, body { height:100%; }
 	background:#fff;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:-webkit-transform 0.3s ease-in-out;
-	-moz-transition:-moz-transform 0.3s ease-in-out;
-	-ms-transition:-ms-transform 0.3s ease-in-out;
-	transition:transform 0.3s ease-in-out; }
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	-ms-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out; }
 	
 /* -------------------------------------------------------------------------- */
 /* interaction */
@@ -84,7 +86,7 @@ html, body { height:100%; }
 	-moz-transform:translate(-340px,0);
 	-ms-transform:translate(-340px,0);
 	transform:translate(-340px,0); }
-	
+
 
 /* ==========================================================================
    structure - HEADER
@@ -269,31 +271,86 @@ html, body { height:100%; }
 /* ==========================================================================
    structure - COPYRIGHT
    ========================================================================== */
-   
+
 /* -------------------------------------------------------------------------- */
-/* footerLinks */
-
-/* common */
-#copyLinks,
-#copyLinks li { 
-	list-style:none; margin:0; padding:0;
-	color:#ecf0f1; font-size:14px; font-weight:300; line-height:1em; text-transform:capitalize; }
-
 /* container */
-#copyLinks { padding:15px 0; }
+#copyright {
+	position:absolute; left:0; bottom:-50px; width:100%;
+	background:rgba(255,255,255,0.2);
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:bottom 0.3s ease-in-out;
+	-moz-transition:bottom 0.3s ease-in-out;
+	transition:bottom 0.3s ease-in-out;  }
 
-	/* li */
+	/* -------------------------------------------------------------------------- */
+	/* copyLinks */
+	
+	/* common */
+	#copyLinks,
 	#copyLinks li { 
-		margin-left:10px; padding-left:10px; float:left; 
-		border-left:1px solid #ecf0f1; }
-	#copyLinks li:first-child { 
-		margin:0; padding:0; border:none; }
-		
-		/* a */
-		#copyLinks a 			{ color:#ecf0f1; text-decoration:none; }
-		#copyLinks a:hover,
-		#copyLinks a:focus,
-		#copyLinks a:active 	{ text-decoration:underline; }
+		list-style:none; margin:0; padding:0;
+		color:#ecf0f1; font-size:12px; font-weight:300; line-height:1em; text-transform:capitalize;
+		text-align:center; }
+	
+	/* container */
+	#copyLinks { padding:14px 0; }
+	
+		/* li */
+		#copyLinks li { 
+			display:inline-block; margin-left:10px; padding-left:10px; 
+			border-left:1px solid #bdc3c7; }
+		#copyLinks li:first-child { 
+			margin:0; padding:0; border:none; }
+			
+			/* a */
+			#copyLinks a 			{ color:#ecf0f1; text-decoration:none; }
+			#copyLinks a:hover,
+			#copyLinks a:focus,
+			#copyLinks a:active 	{ text-decoration:underline; }
+
+
+/* ==========================================================================
+   structure - RESPONSIVE
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+@media only screen and (min-width:1025px) {
+	
+	/* horizontal center align */
+	#container { left:50%; margin-left:-512px; }
+
+}
+@media only screen and (min-height:701px) {
+
+	/* vertical center align */
+	#container { top:50%; margin-top:-350px; }
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* navigator */
+@media only screen and (min-width:1364px) {
+	
+	/* show navigator */
+    #container { max-width:1364px; margin-left:-682px; }
+    #main { margin-left:340px; }
+	
+	/* hide btnNav */
+	#header #btnNav { left:-50px; }
+	#header .heading { margin-left:0; }
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* copyright */
+@media only screen and (min-height:800px) {
+	
+	/* show copyright */
+	#copyright { bottom:0; }
+
+}
 
 
 /* ==========================================================================
