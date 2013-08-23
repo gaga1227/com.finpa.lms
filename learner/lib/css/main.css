@@ -18,6 +18,16 @@ body {
 html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
+/* pageBg */
+#pageBg { 
+	position:absolute; top:0; left:0; width:100%; height:100%;
+	background:url(../img/tile.png);
+	/*opacity*/
+	opacity:0.75;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter:alpha(opacity=50); }
+
+/* -------------------------------------------------------------------------- */
 /* blockings */
 #container,
 	#nav, #menu, #main,
@@ -43,16 +53,53 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* common */
 #nav, #menu {
-	position:absolute; top:0; width:340px; height:100%;
-	background:#34495e; }
+	position:absolute; top:0; width:340px; height:100%; }
 	
 /* -------------------------------------------------------------------------- */
 /* nav */
-#nav { left:0; }
+#nav { 
+	left:0;
+	background:#ecf0f1; border-right:1px solid #bdc3c7; }
+
+	/* -------------------------------------------------------------------------- */
+	/* buttons */
+	#btnSubmitAssess 	{ position:absolute; bottom:54px; left:0; }
+	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* navList */
+	
+	/* common */
+	#navList,
+	#navList li,
+	#navList ul { 
+		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+		list-style:none; }
+	
+	/* container */
+	#navList { 
+		position:absolute; top:0; left:0; width:100%; height:100% }
+		
+	/* position */
+	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
+	#btnGroupAssess + #navList 						{ bottom:54px; height:auto; }
+	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
+	
+		/* -------------------------------------------------------------------------- */
+		/* item */
+		#navList > li {
+			border-top:1px solid #bdc3c7;
+		}
+		#navList > li:first-child { 
+			border-top:none; }
+	
+		
 
 /* -------------------------------------------------------------------------- */
 /* menu */
-#menu { right:0; }
+#menu { 
+	right:0;
+	background:#34495e; }
 
 
 /* ==========================================================================
@@ -276,7 +323,7 @@ html, body { height:100%; }
 /* container */
 #copyright {
 	position:absolute; left:0; bottom:-50px; width:100%;
-	background:rgba(255,255,255,0.2);
+	background:rgba(0,0,0,0.1);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:bottom 0.3s ease-in-out;
