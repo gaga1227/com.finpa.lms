@@ -82,4 +82,6 @@ $(document).ready(function(){
 	initWebFontLoader();
 	Platform.addDOMClass();
 	init();	
+	
+	//alert($(window).height());
 });
