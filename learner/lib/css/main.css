@@ -14,9 +14,9 @@
 
 /* -------------------------------------------------------------------------- */
 /* scrollbars */
-::-webkit-scrollbar 		{ background:#fff; width:6px; }
-::-webkit-scrollbar-track 	{ background:#ecf0f1; border-radius:5px; }
-::-webkit-scrollbar-thumb 	{ background:#7a7a7a; border-radius:5px; }
+::-webkit-scrollbar 			{ width:6px; }
+::-webkit-scrollbar-track 		{  }
+::-webkit-scrollbar-thumb 		{ background:#95a5a6; border-radius:5px; }
 
 
 /* ==========================================================================
@@ -53,6 +53,7 @@ html, body { height:100%; }
 /* container */
 #container {
 	position:absolute; top:0; left:0; width:100%; height:100%; max-width:1024px; max-height:690px; margin:0;
+	background:#fff;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:all 0.3s ease-in-out;
@@ -143,7 +144,7 @@ html, body { height:100%; }
 	#header .btn { 
 		position:absolute; top:0; width:45px; height:45px; margin:0; padding:0; overflow:hidden;
 		color:#3498db; border:none;
-		font-size:28px; line-height:45px; }
+		font-size:25px; line-height:45px; }
 	#header .btn-left 	{ left:0; border-right:1px solid #bdc3c7; }
 	#header .btn-right 	{ right:0; border-left:1px solid #bdc3c7; }
 	
@@ -361,7 +362,7 @@ html, body { height:100%; }
 		
 	/* position */
 	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
-	#btnGroupAssess + #navList 						{ bottom:54px; height:auto; }
+	#btnGroupAssess  + #navList 					{ bottom:54px; height:auto; }
 	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
 	
 		/* -------------------------------------------------------------------------- */
@@ -435,8 +436,66 @@ html, body { height:100%; }
 /* menu */
 #menu { 
 	right:0;
-	background:#34495e; }
-
+	background:#e0e7e9; border-left:1px solid #bdc3c7; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* header */
+	#menu .header { 
+		position:absolute; top:0; left:0; width:100%; height:46px; margin:0; padding:0 20px; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis;
+		color:#3498db; background:#fff; border-bottom:1px solid #bdc3c7;
+		font-size:30px; font-weight:300; line-height:45px; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* menuList */
+	#menuList { 
+		position:absolute; top:46px; left:0; bottom:0; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
+		
+		/* -------------------------------------------------------------------------- */
+		/* common */
+		#menuList ul,
+		#menuList ul li,
+		#menuList ul li a { 
+			display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+			color:#2980b9; list-style:none; }
+		
+		/* list group */
+		#menuList ul 			{ background:#fff; padding:0; /*border-bottom:1px solid #BDC3C7;*/ }
+		#menuList ul + ul 		{ background:#ecf0f1; }
+		#menuList ul + ul + ul 	{ background:#e0e7e9; }
+			
+			/* -------------------------------------------------------------------------- */
+			/* list item */
+			#menuList ul li a { 
+				padding:15px 30px 15px 60px;
+				font-size:20px; font-weight:300; line-height:25px; }
+			#menuList ul li a:hover,
+			#menuList ul li a:focus,
+			#menuList ul li a:active { 
+				text-decoration:none; }
+				
+				/* icon */
+				#menuList ul li a i { 
+					display:block; position:absolute; top:11px; left:20px; width:32px; height:32px; margin:0; padding:0; overflow:hidden;
+					border:1px solid #3498db; color:#3498db; font-size:14px; line-height:30px; text-align:center;
+					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+				#menuList ul li a:hover i,
+				#menuList ul li a:focus i,
+				#menuList ul li a:active i { 
+					border:1px solid transparent; color:#fff; background:#3498db; }
+					
+			/* current */
+			#menuList ul li.current a { 
+				color:#fff; background:#3498db; pointer-events:none; }
+			
+				/* icon */
+				#menuList ul li.current a i,
+				#menuList ul li.current a:hover i,
+				#menuList ul li.current a:focus i,
+				#menuList ul li.current a:active i { 
+					border:1px solid #fff; color:#fff; background:#3498db; }
+		
 
 /* ==========================================================================
    structure - RESPONSIVE
@@ -458,16 +517,85 @@ html, body { height:100%; }
 }
 
 /* -------------------------------------------------------------------------- */
-/* navigator */
-@media only screen and (min-width:1364px) {
+/* navigator / menu */
+@media only screen and (min-width:1280px) {
+	
+	/* update width */
+	#nav, #menu { width:256px; }
+	
+	/* update interaction */
+	.navActive #main { 
+		/*transform*/
+		-webkit-transform:translate(256px,0);
+		-moz-transform:translate(256px,0);
+		-ms-transform:translate(256px,0);
+		transform:translate(256px,0); }
+	.menuActive #main { 
+		/*transform*/
+		-webkit-transform:translate(-256px,0);
+		-moz-transform:translate(-256px,0);
+		-ms-transform:translate(-256px,0);
+		transform:translate(-256px,0); }
 	
 	/* show navigator */
-    #container { max-width:1364px; margin-left:-682px; }
-    #main { margin-left:340px; }
+    #container { max-width:1280px; margin-left:-640px; }
+    #main { margin-left:256px; }
 	
 	/* hide btnNav */
 	#header #btnNav { left:-50px; }
 	#header .heading { margin-left:0; }
+
+}
+@media only screen and (min-width:1366px) {
+	
+	/* update width */
+	#nav, #menu { width:342px; }
+	
+	/* update interaction */
+	.navActive #main { 
+		/*transform*/
+		-webkit-transform:translate(342px,0);
+		-moz-transform:translate(342px,0);
+		-ms-transform:translate(342px,0);
+		transform:translate(342px,0); }
+	.menuActive #main { 
+		/*transform*/
+		-webkit-transform:translate(-342px,0);
+		-moz-transform:translate(-342px,0);
+		-ms-transform:translate(-342px,0);
+		transform:translate(-342px,0); }
+	
+	/* show navigator */
+    #container { max-width:1366px; margin-left:-683px; }
+    #main { margin-left:342px; }
+
+}
+@media only screen and (min-width:1680px) {
+	
+	/* update width */
+	#nav, #menu { width:328px; }
+	
+	/* update interaction */
+	.navActive #main { 
+		/*transform*/
+		-webkit-transform:translate(328px,0);
+		-moz-transform:translate(328px,0);
+		-ms-transform:translate(328px,0);
+		transform:translate(328px,0); }
+	.menuActive #main { 
+		/*transform*/
+		-webkit-transform:translate(-328px,0);
+		-moz-transform:translate(-328px,0);
+		-ms-transform:translate(-328px,0);
+		transform:translate(-328px,0); }
+	
+	/* show navigator */
+    #container { max-width:1680px; margin-left:-840px; }
+    #main { margin-left:328px; }
+	
+	/* hide btnMenu */
+	#header #btnMenu { right:-50px; }
+	#header .heading { margin-right:0; }
 
 }
 
