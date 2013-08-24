@@ -3,6 +3,21 @@
    Author: JX 201308
    ========================================================================== */
 
+/* ==========================================================================
+   reset
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* outline */
+:hover,
+:focus { outline:0 none!important; }
+
+/* -------------------------------------------------------------------------- */
+/* scrollbars */
+::-webkit-scrollbar 		{ background:#fff; width:6px; }
+::-webkit-scrollbar-track 	{ background:#ecf0f1; border-radius:5px; }
+::-webkit-scrollbar-thumb 	{ background:#7a7a7a; border-radius:5px; }
+
 
 /* ==========================================================================
    structure - GLOBAL
@@ -45,66 +60,6 @@ html, body { height:100%; }
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
 	
-
-/* ==========================================================================
-   structure - NAV/MENU
-   ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* common */
-#nav, #menu {
-	position:absolute; top:0; width:340px; height:100%; }
-	
-/* -------------------------------------------------------------------------- */
-/* nav */
-#nav { 
-	left:0;
-	background:#ecf0f1; border-right:1px solid #bdc3c7; }
-
-	/* -------------------------------------------------------------------------- */
-	/* buttons */
-	#btnSubmitAssess 	{ position:absolute; bottom:54px; left:0; }
-	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
-	
-	/* -------------------------------------------------------------------------- */
-	/* navList */
-	
-	/* common */
-	#navList,
-	#navList li,
-	#navList ul { 
-		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
-		list-style:none; }
-	
-	/* container */
-	#navList { 
-		position:absolute; top:0; left:0; width:100%; height:100% }
-		
-	/* position */
-	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
-	#btnGroupAssess + #navList 						{ bottom:54px; height:auto; }
-	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
-	
-		/* -------------------------------------------------------------------------- */
-		/* item */
-		#navList > li {
-			border-top:1px solid #bdc3c7;
-		}
-		#navList > li:first-child { 
-			border-top:none; }
-	
-		
-
-
-
-
-
-/* -------------------------------------------------------------------------- */
-/* menu */
-#menu { 
-	right:0;
-	background:#34495e; }
-
 
 /* ==========================================================================
    structure - MAIN
@@ -161,7 +116,8 @@ html, body { height:100%; }
 		-webkit-transition:line-height 0.3s ease-in-out;
 		-moz-transition:line-height 0.3s ease-in-out;
 		transition:line-height 0.3s ease-in-out; }
-	.no-touch #header .heading:hover {
+	.no-touch #header .heading:hover,
+	.no-touch #header .heading:focus {
 		line-height:55px; }
 	
 		/* progress */
@@ -177,7 +133,8 @@ html, body { height:100%; }
 			-webkit-transition:all 0.3s ease-in-out;
 			-moz-transition:all 0.3s ease-in-out;
 			transition:all 0.3s ease-in-out; }
-		.no-touch #header .heading:hover .progress { 
+		.no-touch #header .heading:hover .progress,
+		.no-touch #header .heading:focus .progress { 
 			height:14px;
 			color:#fff; }
 		
@@ -192,8 +149,9 @@ html, body { height:100%; }
 	
 	/* interaction */
 	.no-touch #header .btn:hover,
-	#header .btn.active 	{ color:#fff; background:#3498db; border-color:#3498db; }
-	#header .btn.activated 	{ color:#fff; background:#34495E; border-color:#34495E; }
+	.no-touch #header .btn:focus,
+	#header .btn.active 			{ color:#fff; background:#3498db; border-color:#3498db; }
+	#header .btn.activated 			{  }
 
 
 /* ==========================================================================
@@ -232,6 +190,7 @@ html, body { height:100%; }
 		
 		/* interaction */
 		.no-touch #utilsNav .btn:hover,
+		.no-touch #utilsNav .btn:focus,
 		#utilsNav .btn.active { 
 			color:#3498db; background:#ecf0f1; }
 
@@ -251,7 +210,8 @@ html, body { height:100%; }
 		#utilsExtra .btn 				{ right:60px; }
 		
 		/* interaction */
-		.no-touch #utilsExtra .btn:hover { 
+		.no-touch #utilsExtra .btn:hover,
+		.no-touch #utilsExtra .btn:focus { 
 			background:none; border-color:#fff; }
 		.no-touch #utilsExtra .btn:active,
 		#utilsExtra .btn.active { 
@@ -277,12 +237,13 @@ html, body { height:100%; }
 		
 /* interaction */
 #sysmsg:hover,
+#sysmsg:focus,
 #sysmsg.active:hover { color:#3498db; }
 
 #sysmsg.active { 
 	height:auto; max-height:500px;
 	color:#2C3E50!important; /*background:#fff;*/ white-space:normal;
-	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.3); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.0.3); }
+	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4); }
 
 	/* -------------------------------------------------------------------------- */
 	/* msg */
@@ -291,12 +252,13 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* label */
 	#sysmsg .label { 
-		position:absolute; top:0; right:0; width:100px; height:100%; padding:5px 15px; overflow:hidden;
+		position:absolute; top:0; right:0; width:90px; height:100%; padding:5px 15px; overflow:hidden;
 		color:#3498db; text-align:center; 
 		font-weight:400; font-size:16px; line-height:20px; }
 	
 	/* interaction */
-	.no-touch #sysmsg:hover .label { color:#3498db; }
+	.no-touch #sysmsg:hover .label,
+	.no-touch #sysmsg:focus .label { color:#3498db; }
 	
 	#sysmsg .label.more { display:block; }
 	#sysmsg .label.less { display:none; }
@@ -329,7 +291,7 @@ html, body { height:100%; }
 /* container */
 #copyright {
 	display:none; position:absolute; left:0; bottom:0; width:100%;
-	background:rgba(0,0,0,0.05);
+	background:rgba(0,0,0,0.1);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:bottom 0.3s ease-in-out;
@@ -361,6 +323,119 @@ html, body { height:100%; }
 			#copyLinks a:hover,
 			#copyLinks a:focus,
 			#copyLinks a:active 	{ color:#bdc3c7; text-decoration:underline; }
+
+
+/* ==========================================================================
+   structure - NAV/MENU
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* common */
+#nav, #menu {
+	position:absolute; top:0; width:340px; height:100%; }
+	
+/* -------------------------------------------------------------------------- */
+/* nav */
+#nav { 
+	left:0;
+	background:#ecf0f1; border-right:1px solid #bdc3c7; }
+
+	/* -------------------------------------------------------------------------- */
+	/* buttons */
+	#btnSubmitAssess 	{ position:absolute; bottom:54px; left:0; }
+	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* navList */
+	
+	/* common */
+	#navList,
+	#navList li,
+	#navList ol { 
+		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+		list-style:none; }
+	
+	/* container */
+	#navList { 
+		position:absolute; top:0; left:0; width:100%; height:100% }
+		
+	/* position */
+	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
+	#btnGroupAssess + #navList 						{ bottom:54px; height:auto; }
+	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
+	
+		/* -------------------------------------------------------------------------- */
+		/* item */
+		#navList li {
+			min-height:36px; 
+			border-bottom:1px solid #bdc3c7; }
+			
+			/* -------------------------------------------------------------------------- */
+			/* status */
+			#navList li .status { 
+				display:block; position:absolute; top:0; left:0; width:32px; height:36px; margin:0; padding:0; overflow:hidden;
+				color:#3498db; font-size:14px; line-height:36px; text-align:center; }
+							
+			/* -------------------------------------------------------------------------- */
+			/* link */
+			#navList li .link {
+				display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 30px; overflow:hidden;
+				color:#34495e; font-size:16px; font-weight:400; line-height:20px; text-decoration:none; }
+			#navList li .link:hover,
+			#navList li .link:focus,
+			#navList li .link:active {
+				color:#3498db; background:#fff!important; text-decoration:none; }
+				
+				/* action */
+				#navList li .action { 
+					display:block; position:absolute; top:50%; right:10px; width:20px; height:20px; margin:-10px 0 0 0; padding:0; overflow:hidden;
+					color:#3498db; border:1px solid #3498db; font-size:16px; line-height:18px; text-align:center;
+					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+				#navList li .link:hover .action,
+				#navList li .link:focus .action,
+				#navList li .link:active .action { 
+					color:#3498db; border:1px solid #3498db; }
+			
+			/* -------------------------------------------------------------------------- */
+			/* theme */
+			
+			/* core content */
+			#navList li.core .link	{ background:#CAE8FB; }
+			
+			/* current */
+			#navList li.current .link			{ color:#fff; background:#3498DB; }
+			#navList li.current .link:hover,
+			#navList li.current .link:focus,
+			#navList li.current .link:active 	{ background:#2980b9!important; }
+			
+			#navList li.current .status	{ color:#ecf0f1; }
+			
+			#navList li.current .link .action,
+			#navList li.current .link:hover .action,
+			#navList li.current .link:focus .action,
+			#navList li.current .link:active .action { color:#fff; border:1px solid #fff; }
+			
+			/* levels/indentations */
+			#navList li.lv1 .link	{ font-weight:700; }
+			#navList li.lv2 .link	{ padding-left:40px; }
+			#navList li.lv3 .link	{ padding-left:50px; }
+			#navList li.lv4 .link	{ padding-left:60px; }
+			
+			#navList li.lv2 .link,
+			#navList li.lv3 .link,
+			#navList li.lv4 .link	{ font-size:15px; }
+			
+			
+		/* -------------------------------------------------------------------------- */
+		/* elem */
+		#navList .subNavList { display:none; }	
+				
+/* -------------------------------------------------------------------------- */
+/* menu */
+#menu { 
+	right:0;
+	background:#34495e; }
 
 
 /* ==========================================================================
@@ -411,7 +486,7 @@ html, body { height:100%; }
    ========================================================================== */
 .scroller { overflow:auto!important; }
 .iOS .scroller { overflow:scroll!important; -webkit-overflow-scrolling:touch; }
-   
+
    
 /* ==========================================================================
    Common Styles
