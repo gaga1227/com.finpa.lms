@@ -67,12 +67,39 @@ function initSysMsg(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
+/* initUtils */
+/* ------------------------------------------------------------------------------ */
+function initModals(){
+	//vars
+	var $btnModals = $('.btnModal'),
+		activeCls = 'active';
+	//bind interaction
+	$.each($btnModals, function(idx,ele){
+		var $this = $(this),
+			$target = $($this.attr('href')),
+			isActive = $this.hasClass(activeCls);
+		$this.bind('click', function(e){			
+			if (!isActive) {
+				$this.addClass(activeCls);
+				$target.modal('show');
+				$target.one('hide.bs.modal', function() {
+					$this.removeClass(activeCls);
+				})
+			} else {
+				$this.removeClass(activeCls);		
+				$target.modal('hide');
+			}
+		});	
+	});
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
 	//interaction demo
 	initMenus();
-	initSysMsg();	
+	initSysMsg();
+	initModals();	
 	//debug
 	displayDebugInfo('#debugInfo');
 }
@@ -83,5 +110,5 @@ $(document).ready(function(){
 	Platform.addDOMClass();
 	init();	
 	
-	//alert($(window).height());
+	//alert($(window).height());	
 });

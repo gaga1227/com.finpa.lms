@@ -14,7 +14,7 @@
 
 /* -------------------------------------------------------------------------- */
 /* scrollbars */
-::-webkit-scrollbar 			{ width:6px; }
+::-webkit-scrollbar 			{ width:6px; height:6px; }
 ::-webkit-scrollbar-track 		{  }
 ::-webkit-scrollbar-thumb 		{ background:#95a5a6; border-radius:5px; }
 
@@ -182,17 +182,18 @@ html, body { height:100%; }
 		border-left:1px solid #ecf0f1; }
 		
 	 	/* btn */
-		#utilsNav .btn { 
+		#utilsNav .btnUtil { 
 			display:block; position:absolute; top:0; width:45px; height:100%; margin:0; padding:0;  
-			color:#fff; border:none; font-size:28px; line-height:45px; }
-		#utilsNav .btn + .btn 	{ right:0; }
-		#utilsNav .btn 			{ right:45px; }
+			color:#fff; border:none; font-size:28px; line-height:45px; text-align:center;
+			text-decoration:none!important; }
+		#utilsNav .btnUtil + .btnUtil 	{ right:0; }
+		#utilsNav .btnUtil 				{ right:45px; }
 		
 		
 		/* interaction */
-		.no-touch #utilsNav .btn:hover,
-		.no-touch #utilsNav .btn:focus,
-		#utilsNav .btn.active { 
+		.no-touch #utilsNav .btnUtil:hover,
+		.no-touch #utilsNav .btnUtil:focus,
+		#utilsNav .btnUtil.active { 
 			color:#3498db; background:#ecf0f1; }
 
 	/* -------------------------------------------------------------------------- */
@@ -201,21 +202,26 @@ html, body { height:100%; }
 		display:table; position:absolute; top:0; right:100px; width:90px; margin:0; overflow:visible; }
 		
 		/* btn */
-		#utilsExtra .btn { 
+		#utilsExtra .btnUtil { 
 			display:block; position:absolute; top:0; width:30px; height:30px; margin:7px 0 8px 0; padding:0;  
-			color:#fff; border:none; font-size:14px; line-height:30px; border:1px solid transparent;
+			color:#fff; border:1px solid transparent;
+			font-size:14px; line-height:30px; text-align:center;
+			text-decoration:none!important;
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-		#utilsExtra .btn + .btn + .btn	{ right:0; }
-		#utilsExtra .btn + .btn 		{ right:30px; }
-		#utilsExtra .btn 				{ right:60px; }
+		#utilsExtra .btnUtil + .btnUtil + .btnUtil	{ right:0; }
+		#utilsExtra .btnUtil + .btnUtil 			{ right:30px; }
+		#utilsExtra .btnUtil 						{ right:60px; }
 		
 		/* interaction */
-		.no-touch #utilsExtra .btn:hover,
-		.no-touch #utilsExtra .btn:focus { 
+		.no-touch #utilsExtra .btnUtil:hover,
+		.no-touch #utilsExtra .btnUtil:focus { 
 			background:none; border-color:#fff; }
-		.no-touch #utilsExtra .btn:active,
-		#utilsExtra .btn.active { 
+			
+		.no-touch #utilsExtra .btnUtil:active,
+		#utilsExtra .btnUtil.active,
+		#utilsExtra .btnUtil.active:hover,
+		#utilsExtra .btnUtil.active:focus { 
 			color:#3498db; background:#fff; border-color:transparent; }
 
 
@@ -615,7 +621,65 @@ html, body { height:100%; }
 .scroller { overflow:auto!important; }
 .iOS .scroller { overflow:scroll!important; -webkit-overflow-scrolling:touch; }
 
-   
+
+/* ==========================================================================
+   common - DISCUSSION
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.discussion { 
+	background:#ecf0f1; margin-top:20px; padding:10px; overflow:hidden; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* header */
+	.discussion .header {  }
+		
+		.discussion .header a { 
+			display:inline-block; margin:0 10px 0 0;
+			text-decoration:none!important; }
+			
+			
+	/* -------------------------------------------------------------------------- */
+	/* post */
+	.discussion .post { 
+		position:relative; width:auto; height:auto; margin:10px 0 0 0; padding:10px 15px 0 15px; overflow:hidden;
+		color:#000; background:rgba(255,255,255,1); border-top:1px solid rgba(255,255,255,1);
+		font-size:14px; line-height:20px; }
+		
+		/* author */
+		.discussion .post .author 		{ margin-bottom:10px; font-size:16px; }
+			
+			.discussion .post .tlink 	{ color:#2c3e50; font-weight:600; }
+			.discussion .post .text 	{ color:#2980b9; font-size:16px; }
+			
+			.discussion .post .admin 	{ }
+			
+			.discussion .post .time,
+			.discussion .post .date 	{ color:#7f8c8d; font-size:13px; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* reply */
+	.discussion .reply { 
+		margin-left:15%;
+		background:#f7dc71;  
+		font-size:14px; line-height:20px; }
+	.discussion .reply.admin {
+		background:#aad5f0; }
+		
+		.discussion .reply .text 	{ color:#2c3e50; font-size:14px; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* alert */
+	.discussion .post.alert { 
+		background:#e74c3c; backborder-top:1px solid rgba(255,255,255,0.6);
+		/*border-radius*/-webkit-border-radius:0; border-radius:0;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+		/*box-shadow*/-webkit-box-shadow:none; box-shadow:none; }
+	.discussion .post.alert,
+	.discussion .post.alert * { color:#fff; text-shadow:none; }
+	
+
 /* ==========================================================================
    Common Styles
    Author: JX 20120127

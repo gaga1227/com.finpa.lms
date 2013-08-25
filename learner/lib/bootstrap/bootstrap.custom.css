@@ -432,7 +432,7 @@
    override - FINPA LMS LEARNER
    ========================================================================== */
    
-/* headings @453 */
+/* headings */
 h1,
 h2,
 h3,
@@ -447,5 +447,81 @@ h6,
 .h6 {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
+}
+
+/* hr */
+hr.theme {
+	border-top: 1px solid #3498db;
+}
+
+/* btn-group */
+.btn-group, .btn-group-vertical {
+	border: 1px solid #3498db;	
+}
+.btn-group .btn, .btn-group-vertical .btn {
+	color: #3498db;
+}
+.btn-group .btn:hover, .btn-group-vertical .btn:hover,
+.btn-group .btn:focus, .btn-group-vertical .btn:focus {
+	color: #3498db; background: #cae8fb;
+}
+.btn-group .btn:active, .btn-group-vertical .btn:active {
+	color: #fff; background: #3498db;
+}
+.btn-group .btn.active, .btn-group-vertical .btn.active {
+	color: #fff!important; background: #3498db!important;
+}
+
+.btn-group .btn {
+	border-left: 1px solid #3498db!important;	
+}
+.btn-group-vertical .btn {
+	border-top: 1px solid #3498db!important;	
+}
+.btn-group .btn:first-child {
+	border-left: 1px solid transparent!important;	
+}
+.btn-group-vertical .btn:first-child {
+	border-top: 1px solid transparent!important;	
+}
+
+/* modal */
+@media screen and (min-width: 768px) {
+	.modal-dialog {
+		right: auto;
+		left: 50%;
+		width: 75%;
+		max-width: 800px; 
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
+.modal-header {
+	padding: 10px 20px;
+	border-bottom: 1px solid #3498db;
+}
+.modal-title {
+	color: #3498db;
+	font-size: 26px;
+	font-weight: 300;
+	text-align:center;
+}
+.modal-header .close {
+	margin-top: 0;
+	font-size: 36px;
+	font-weight: 300;
+	color: #3498db;
+	text-shadow: none;
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+.modal-header .close:hover,
+.modal-header .close:focus,
+.modal-header .close:active {
+	color: #222;
+}
+.modal-content {
+	border:none;
+	border-radius:0;
 }
 

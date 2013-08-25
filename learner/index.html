@@ -47,7 +47,7 @@
 		<!-- BUTTONS -->
 		<a id="btnSubmitAssess" class="btn btn-default btn-block btn-lg bdr-top bdr-bottom" href="#">Submit Assessment</a>
 		<div id="btnGroupAssess" class="btn-group btn-group-justified">
-			<a class="btn btn-default bdr-right active" id="btnViewAll" href="#"><i class="icon icon-list"></i><br>Show All Items</a>
+			<a class="btn btn-default active" id="btnViewAll" href="#"><i class="icon icon-list"></i><br>Show All Items</a>
 			<a class="btn btn-default" id="btnViewAssess" href="#"><i class="icon icon-list-ul"></i><br>Assessment Only</a>
 		</div>
 				
@@ -167,13 +167,13 @@
 		<div id="utils">
 			<h1 class="heading">Respond to customer complaints</h1>
 			<div id="utilsNav">
-				<a id="btnPrev" class="btn" href="#" title="Previous Screen"><i class="icon-angle-left"></i></a>
-				<a id="btnNext" class="btn" href="#" title="Next Screen"><i class="icon-angle-right"></i></a>
+				<a id="btnPrev" class="btnUtil" href="#" title="Previous Screen"><i class="icon-angle-left"></i></a>
+				<a id="btnNext" class="btnUtil" href="#" title="Next Screen"><i class="icon-angle-right"></i></a>
 			</div>
 			<div id="utilsExtra">
-				<a id="btnTips" class="btn" href="#" title="Course Tips/Info"><i class="icon-lightbulb"></i></a>
-				<a id="btnFeedback" class="btn" href="#" title="Results and Feedback"><i class="icon-thumbs-up-alt"></i></a>
-				<a id="btnDiscussion" class="btn" href="#" title="Discussion"><i class="icon-comments-alt"></i></a>
+				<a id="btnTips" class="btnUtil btnModal" href="#modalTips" title="Course Tips/Info"><i class="icon-lightbulb"></i></a>
+				<a id="btnFeedback" class="btnUtil btnModal" href="#modalFeedback" title="Results and Feedback"><i class="icon-thumbs-up-alt"></i></a>
+				<a id="btnDiscussion" class="btnUtil btnModal" href="#modalDiscussion" title="Discussion"><i class="icon-comments-alt"></i></a>				
 			</div>
 		</div><!-- /UTILS -->
 		
@@ -201,5 +201,137 @@
 		<li><a href="#">System requirements</a></li>
 	</ul>
 </div><!-- /COPYRIGHT -->
+
+<!-- MODEL -->
+<div class="modal fade" id="modalTips" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Course Information</h4>
+			</div>
+			<div class="modal-body">
+				<h2>Information No.1</h2>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+				<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+				<hr>
+				<h2>Information No.2</h2>
+				<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Results and Feedback</h4>
+			</div>
+			<div class="modal-body">
+				<h2>Results</h2>
+				<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+				<p>...</p>
+				<hr>
+				<h2>Feedback</h2>
+				<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
+				<p>...</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="modalDiscussion" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Discussion for Section 1</h4>
+			</div>
+			<div class="modal-body">
+				<div class="clearfix">
+					<div class="btn-group fleft">
+						<button type="button" class="btn btn-default"><i class="icon icon-comments"></i>&nbsp;&nbsp;Show All Replies</button>
+						<button type="button" class="btn btn-default"><i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Hide All Replies</button>
+					</div>
+					<div class="btn-group fright">
+						<button type="button" class="btn btn-default"><i class="icon icon-plus"></i>&nbsp;&nbsp;New Discussion</button>
+					</div>
+				</div>
+				<div class="discussion clearfix">
+					<div class="header">
+						<a href=""><i class="icon icon-comment"></i>&nbsp;&nbsp;Show Replies(17)</a>
+						<a href=""><i class="icon icon-comment-alt"></i>&nbsp;&nbsp;Hide Replies</a>							
+					</div>
+					<div class="post">
+						<div class="author">
+							<span class="tlink admin"><i class="glyphicon glyphicon-user"></i> Roger Digby (Site Admin)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>Discussion 1 - Share your experiences of trnasfering from traditional training to the new online environment.</p>
+						</div>			
+					</div>
+					<div class="post reply">
+						<div class="author">
+							<span class="tlink">John Smith (User)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>I always wanted to know how to make the most use of my knowledge acquired from practical assessments in the context of online learning.</p>
+						</div>
+					</div>
+					<div class="post reply admin">
+						<div class="author">
+							<span class="tlink"><i class="glyphicon glyphicon-user"></i> Roger Digby (SiteAdmin)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>I agree with you very much John.</p>
+							<p>We will definately cover the related topics and maybe have extra tutorials and discussion mainly focused on this topic. You and the others are very welcome to contribute.</p>
+						</div>
+					</div>
+					<div class="post reply">
+						<div class="author">
+							<span class="tlink">John Smith (User)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>Thanks a lot Roger, looking forward to the tutorials coming soon... :)</p>
+						</div>
+					</div>
+					<div class="post reply">
+						<div class="author">
+							<span class="tlink">John Smith (User)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>Great news guys!!</p>
+						</div>
+					</div>
+					<div class="post alert">
+						<div class="author">
+							<span class="tlink admin"><i class="glyphicon glyphicon-exclamation-sign"></i> Richard (Super SiteAdmin)</span>
+							<span class="date">15/04/2011</span>
+							<span class="time">12:14&nbsp;PM</span>
+						</div>
+						<div class="text">
+							<p>Dear all participants, the message system will be down for maintenance for the next 5 minutes.</p>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /MODEL -->
+
 </body>
 </html>
