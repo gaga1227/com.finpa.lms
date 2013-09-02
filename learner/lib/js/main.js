@@ -60,10 +60,13 @@ function initMenus(){
 function initSysMsg(){
 	//vars
 	var $sysmsg = $('#sysmsg'),
-		activeCls = 'active';
+		activeCls = 'active',
+		animCls = 'animatedloop';
 	//bind interaction
 	$sysmsg.on('click', function(e){
-		$(this).toggleClass(activeCls);
+		$(this)
+			.toggleClass(activeCls)
+			.removeClass(animCls);
 	});
 }
 /* ------------------------------------------------------------------------------ */
