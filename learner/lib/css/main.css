@@ -120,24 +120,6 @@ html, body { height:100%; }
 	.no-touch #header .heading:hover,
 	.no-touch #header .heading:focus {
 		line-height:55px; }
-	
-		/* progress */
-		#header .heading .progress { 
-			display:block; position:absolute; top:0; left:0; width:0; height:4px; margin:0; padding:0 8px; overflow:hidden;
-			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
-			color:#2ecc71; background:#2ecc71; 
-			font-family:'Montserrat',sans-serif; font-size:10px; line-height:14px; font-weight:400; text-align:right;
-			/*border-radius*/-webkit-border-radius:0; border-radius:0;
-			/*box-shadow*/-webkit-box-shadow:none; box-shadow:none;
-			/*transition*/
-			/*-webkit-transform:translate3d(0,0,0);*/
-			-webkit-transition:all 0.3s ease-in-out;
-			-moz-transition:all 0.3s ease-in-out;
-			transition:all 0.3s ease-in-out; }
-		.no-touch #header .heading:hover .progress,
-		.no-touch #header .heading:focus .progress { 
-			height:14px;
-			color:#fff; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* btn */
@@ -163,7 +145,12 @@ html, body { height:100%; }
 /* container */
 #utils { 
 	height:45px;
-	color:#fff; background:#1badf8; /*border-bottom:1px solid #bdc3c7;*/ }
+	color:#fff;
+	/*background-gradient*/
+	background-color:#1badf8;
+	background-image:-webkit-linear-gradient(top, #1badf8 0%, #007aff 100%);
+	background-image:-moz-linear-gradient(top, #1badf8 0%, #007aff 100%);
+	background-image:linear-gradient(to bottom, #1badf8 0%, #007aff 100%); }
 	
 	/* common */
 	#utils > * { height:45px; line-height:45px; }
@@ -174,6 +161,15 @@ html, body { height:100%; }
 		margin:0 205px 0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		font-size:24px; font-weight:300; }
+		
+		/* prgs */
+		#utils .heading .prgs { 
+			display:inline-block; margin:0 10px; /*vertical-align:middle;*/
+			color:#fff; font-size:11px; font-weight:600; text-shadow:0 1px 0 rgba(0,0,0,0.2); text-transform:uppercase;
+			/*opacity*/
+			opacity:0.7;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+			filter:alpha(opacity=70); }		
 		
 	/* -------------------------------------------------------------------------- */
 	/* utilsNav */
@@ -189,7 +185,6 @@ html, body { height:100%; }
 		#utilsNav .btnUtil + .btnUtil 	{ right:0; }
 		#utilsNav .btnUtil 				{ right:45px; }
 		
-		
 		/* interaction */
 		.no-touch #utilsNav .btnUtil:hover,
 		.no-touch #utilsNav .btnUtil:focus,
@@ -204,8 +199,8 @@ html, body { height:100%; }
 		/* btn */
 		#utilsExtra .btnUtil { 
 			display:block; position:absolute; top:0; width:30px; height:30px; margin:7px 0 8px 0; padding:0;  
-			color:#fff; border:1px solid transparent;
-			font-size:14px; line-height:30px; text-align:center;
+			color:#fff; border:1px solid transparent; text-shadow:none; text-align:center;
+			font-size:14px; font-weight:400; line-height:30px; 
 			text-decoration:none!important;
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
@@ -223,7 +218,13 @@ html, body { height:100%; }
 		#utilsExtra .btnUtil.active:hover,
 		#utilsExtra .btnUtil.active:focus { 
 			color:#007aff; background:#fff; border-color:transparent; }
-
+			
+		/* attn */
+		#utilsExtra .btnUtil.attn {
+				
+		}
+		
+		
 
 /* ==========================================================================
    structure - SYSMSG
@@ -724,8 +725,9 @@ html, body { height:100%; }
 	transition:opacity 0.3s ease-in-out; }
 
 /* active */
-.wf-active body { 
-	visibility:visible; opacity:1; }
+.wf-active body,
+.wf-inactive body	{ visibility:visible; opacity:1; }
+
 
 /* -------------------------------------------------------------------------- */
 /* text style */

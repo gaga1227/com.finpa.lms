@@ -24,21 +24,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	     -o-animation-fill-mode: both;
 	        animation-fill-mode: both;
 }
-.animatedloop {
-	-webkit-animation-duration: 5s;
-	   -moz-animation-duration: 5s;
-	     -o-animation-duration: 5s;
-	        animation-duration: 5s;
-	-webkit-animation-fill-mode: both;
-	   -moz-animation-fill-mode: both;
-	     -o-animation-fill-mode: both;
-	        animation-fill-mode: both;
-	-webkit-animation-iteration-count: infinite;
-	   -moz-animation-iteration-count: infinite;
-		 -o-animation-iteration-count: infinite;
-		    animation-iteration-count: infinite;
-}
-
 
 .animated.hinge {
 	-webkit-animation-duration: 2s;
@@ -72,33 +57,6 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-moz-animation-name: flash;
 	-o-animation-name: flash;
 	animation-name: flash;
-}
-
-@-webkit-keyframes flashloop {
-	0%, 10%, 20%, 100% {opacity: 1;}	
-	5%, 15% {opacity: 0;}
-}
-
-@-moz-keyframes flashloop {
-	0%, 10%, 20%, 100% {opacity: 1;}	
-	5%, 15% {opacity: 0;}
-}
-
-@-o-keyframes flashloop {
-	0%, 10%, 20%, 100% {opacity: 1;}	
-	5%, 15% {opacity: 0;}
-}
-
-@keyframes flashloop {
-	0%, 10%, 20%, 100% {opacity: 1;}	
-	5%, 15% {opacity: 0;}
-}
-
-.animatedloop.flashloop {
-	-webkit-animation-name: flashloop;
-	-moz-animation-name: flashloop;
-	-o-animation-name: flashloop;
-	animation-name: flashloop;
 }
 
 @-webkit-keyframes shake {
@@ -3303,4 +3261,100 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     -moz-animation-duration: 0.75s;
     -o-animation-duration: 0.75s;
     animation-duration: 0.75s;
+}
+
+
+/* ==========================================================================
+   custom - ANIM
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* playback */
+.animatedloop {
+	-webkit-animation-duration: 5s;
+	   -moz-animation-duration: 5s;
+	     -o-animation-duration: 5s;
+	        animation-duration: 5s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+	   -moz-animation-iteration-count: infinite;
+		 -o-animation-iteration-count: infinite;
+		    animation-iteration-count: infinite;
+}
+
+/* -------------------------------------------------------------------------- */
+/* flashloop */
+@-webkit-keyframes flashloop {
+	0%, 10%, 20%, 100% {opacity: 1;}	
+	5%, 15% {opacity: 0;}
+}
+
+@-moz-keyframes flashloop {
+	0%, 10%, 20%, 100% {opacity: 1;}	
+	5%, 15% {opacity: 0;}
+}
+
+@-o-keyframes flashloop {
+	0%, 10%, 20%, 100% {opacity: 1;}	
+	5%, 15% {opacity: 0;}
+}
+
+@keyframes flashloop {
+	0%, 10%, 20%, 100% {opacity: 1;}	
+	5%, 15% {opacity: 0;}
+}
+
+.animatedloop.flashloop {
+	-webkit-animation-name: flashloop;
+	-moz-animation-name: flashloop;
+	-o-animation-name: flashloop;
+	animation-name: flashloop;
+}
+
+/* -------------------------------------------------------------------------- */
+/* attnloop */
+@-webkit-keyframes attnloop {
+	0%, 20%, 40%, 100% {
+		background:transparent; 
+		-webkit-box-shadow:none; box-shadow:none;}	
+	10%, 30% {
+		background:rgba(0,0,0,0.1); 
+		-webkit-box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8); box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8);}
+}
+
+@-moz-keyframes attnloop {
+	0%, 20%, 40%, 100% {
+		background:transparent; 
+		-moz-box-shadow:none; box-shadow:none;}	
+	10%, 30% {
+		background:rgba(0,0,0,0.1); 
+		-moz-box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8); box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8);}
+}
+
+@-o-keyframes attnloop {
+	0%, 20%, 40%, 100% {
+		background:transparent; 
+		-o-box-shadow:none; box-shadow:none;}	
+	10%, 30% {
+		background:rgba(0,0,0,0.1);
+		-o-box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8); box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8);}
+}
+
+@keyframes attnloop {
+	0%, 20%, 40%, 100% {
+		background:transparent; 
+		box-shadow:none;}	
+	10%, 30% {
+		background:rgba(0,0,0,0.1);  
+		box-shadow:0px 0px 10px 0px rgba(255,255,255,0.8);}
+}
+
+.animatedloop.attnloop {
+	-webkit-animation-name: attnloop;
+	-moz-animation-name: attnloop;
+	-o-animation-name: attnloop;
+	animation-name: attnloop;
 }
