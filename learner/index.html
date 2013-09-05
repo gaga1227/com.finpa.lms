@@ -42,7 +42,7 @@
 <div id="container" class="">
 
 	<!-- NAV -->
-	<div id="nav">
+	<div id="nav" class="sidePanel">
 		
 		<!-- HEADER -->
 		<h2 class="menuHeader">Course Menu</h2>
@@ -130,7 +130,7 @@
 	</div><!-- /NAV -->
 	
 	<!-- MENU -->
-	<div id="menu">
+	<div id="menu" class="sidePanel">
 		
 		<!-- HEADER -->
 		<h2 class="menuHeader">System Menu</h2>
@@ -155,6 +155,94 @@
 		</div><!-- /MENULIST -->
 	
 	</div><!-- /MENU -->
+	
+	<!-- DISCUSSION -->
+	<div id="discussions" class="sidePanel">
+		
+		<!-- HEADER -->
+		<h2 class="menuHeader">Discussions</h2>
+		
+		<!-- DISCUSSION BODY -->
+		<div id="discussionBody" class="scroller">
+			<div class="clearfix">
+				<div class="btn-group fleft">
+					<button type="button" class="btn btn-default"><i class="icon icon-comments"></i>&nbsp;&nbsp;Show All Replies</button>
+					<button type="button" class="btn btn-default"><i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Hide All Replies</button>
+				</div>
+				<div class="btn-group fright">
+					<button type="button" class="btn btn-default"><i class="icon icon-plus"></i>&nbsp;&nbsp;New Discussion</button>
+				</div>
+			</div>
+			<div class="discussion clearfix">
+				<div class="header">
+					<a href=""><i class="icon icon-comment"></i>&nbsp;&nbsp;Show Replies(17)</a>
+					<a href=""><i class="icon icon-comment-alt"></i>&nbsp;&nbsp;Hide Replies</a>							
+				</div>
+				<div class="post">
+					<div class="author">
+						<span class="tlink admin"><i class="glyphicon glyphicon-user"></i> Roger Digby (Site Admin)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>Discussion 1 - Share your experiences of trnasfering from traditional training to the new online environment.</p>
+					</div>			
+				</div>
+				<div class="post reply">
+					<div class="author">
+						<span class="tlink">John Smith (User)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>I always wanted to know how to make the most use of my knowledge acquired from practical assessments in the context of online learning.</p>
+					</div>
+				</div>
+				<div class="post reply admin">
+					<div class="author">
+						<span class="tlink"><i class="glyphicon glyphicon-user"></i> Roger Digby (SiteAdmin)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>I agree with you very much John.</p>
+						<p>We will definately cover the related topics and maybe have extra tutorials and discussion mainly focused on this topic. You and the others are very welcome to contribute.</p>
+					</div>
+				</div>
+				<div class="post reply">
+					<div class="author">
+						<span class="tlink">John Smith (User)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>Thanks a lot Roger, looking forward to the tutorials coming soon... :)</p>
+					</div>
+				</div>
+				<div class="post reply">
+					<div class="author">
+						<span class="tlink">John Smith (User)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>Great news guys!!</p>
+					</div>
+				</div>
+				<div class="post alert">
+					<div class="author">
+						<span class="tlink admin"><i class="glyphicon glyphicon-exclamation-sign"></i> Richard (Super SiteAdmin)</span>
+						<span class="date">15/04/2011</span>
+						<span class="time">12:14&nbsp;PM</span>
+					</div>
+					<div class="text">
+						<p>Dear all participants, the message system will be down for maintenance for the next 5 minutes.</p>
+					</div>
+				</div>
+			</div>
+		</div><!-- /DISCUSSION BODY -->
+	
+	</div><!-- /DISCUSSION -->
 
 	<!-- MAIN -->
 	<div id="main">
@@ -176,7 +264,7 @@
 			<div id="utilsExtra">
 				<a id="btnHelp" class="btnUtil btnModal" href="#modalHelp" title="How to use this screen"><i class="icon-question"></i></a>
 				<a id="btnFeedback" class="btnUtil btnModal animatedloop attnloop" href="#modalFeedback" title="Results and Feedback"><i class="icon-thumbs-up-alt"></i></a>
-				<a id="btnDiscussion" class="btnUtil btnModal" href="#modalDiscussion" title="Discussion"><i class="icon-comments-alt"></i></a>				
+				<a id="btnDiscussions" class="btnUtil" href="#" title="Discussion"><i class="icon-comments-alt"></i></a>				
 			</div>
 		</div><!-- /UTILS -->
 		
@@ -204,8 +292,7 @@
 		<li><a href="#">System requirements</a></li>
 	</ul>
 </div><!-- /COPYRIGHT -->
-
-<!-- MODEL -->
+<!-- MODAL -->
 <div class="modal fade" id="modalHelp" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -244,6 +331,7 @@
 		</div>
 	</div>
 </div>
+<!--
 <div class="modal fade" id="modalDiscussion" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -252,6 +340,7 @@
 				<h4 class="modal-title">Discussion for Section 1</h4>
 			</div>
 			<div class="modal-body">
+				
 				<div class="clearfix">
 					<div class="btn-group fleft">
 						<button type="button" class="btn btn-default"><i class="icon icon-comments"></i>&nbsp;&nbsp;Show All Replies</button>
@@ -329,12 +418,11 @@
 					</div>
 				</div>
 				
-				
 			</div>
 		</div>
 	</div>
 </div>
-<!-- /MODEL -->
-
+-->
+<!-- /MODAL -->
 </body>
 </html>

@@ -75,7 +75,8 @@ function initSysMsg(){
 function initModals(){
 	//vars
 	var $btnModals = $('.btnModal'),
-		activeCls = 'active';
+		activeCls = 'active',
+		animCls = 'animatedloop attnloop';
 	//bind interaction
 	$.each($btnModals, function(idx,ele){
 		var $this = $(this),
@@ -83,8 +84,10 @@ function initModals(){
 			isActive = $this.hasClass(activeCls);
 		$this.bind('click', function(e){			
 			if (!isActive) {
-				$this.addClass(activeCls);
-				$target.modal('show');
+				$this
+					.addClass(activeCls)
+					.removeClass(animCls);
+				$target.modal('show');				
 				$target.one('hide.bs.modal', function() {
 					$this.removeClass(activeCls);
 				})
@@ -96,13 +99,44 @@ function initModals(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
+/* initDiscussions */
+/* ------------------------------------------------------------------------------ */
+function initDiscussions(){
+	//vars
+	var $container = $('#container'),
+		$btnTrigger = $('#btnDiscussions'),
+		$menu = $('#menu'),
+		$discussions = $('#discussions'),
+		activeCls = 'active',
+		containerActiveCls = 'discussionsActive';
+	//handler
+	function toggleDiscussions(e){
+		e.preventDefault();
+		var $this = $(this);
+		if ($this.hasClass(activeCls)) {
+			$this.removeClass(activeCls);
+			$menu.show(0);
+			$discussions.hide(0);
+			$container.removeClass(containerActiveCls);
+		} else {
+			$this.addClass(activeCls);
+			$menu.hide(0);
+			$discussions.show(0);
+			$container.addClass(containerActiveCls);
+		}
+	}
+	//bind interaction
+	$btnTrigger.on('click', toggleDiscussions);
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
 	//interaction demo
 	initMenus();
 	initSysMsg();
-	initModals();	
+	initModals();
+	initDiscussions();	
 	//debug
 	displayDebugInfo('#debugInfo');
 }
@@ -113,5 +147,5 @@ $(document).ready(function(){
 	Platform.addDOMClass();
 	init();	
 	
-	//alert($(window).height());	
+	//alert($(window).height());
 });
