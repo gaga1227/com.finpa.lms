@@ -538,14 +538,30 @@ html, body { height:100%; }
 	background:#fff; border-left:1px solid #bdc3c7; }
 	
 	/* -------------------------------------------------------------------------- */
+	/* utils */
+	#btnGroupDiscussion { 
+		position:absolute; top:46px; left:0; width:100%; height:44px; }
+		
+		/* btn */
+		#btnGroupDiscussion .btn { 
+			position:absolute; top:0; left:0; width:50%; height:100%; }
+		#btnGroupDiscussion .btn:last-child { 
+			left:auto; right:0; }
+			
+		/* btnNewDiscussion */
+		#btnNewDiscussion { 
+			position:absolute; bottom:0; left:0; width:100%; height:44px;
+			border-top:1px solid #bdc3c7; }
+	
+	/* -------------------------------------------------------------------------- */
 	/* discussionBody */
 	#discussionBody { 
-		position:absolute; top:46px; left:0; bottom:0; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
+		position:absolute; top:90px; left:0; bottom:46px; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
 	
 		/* -------------------------------------------------------------------------- */
 		/* discussion */
 		.discussion { 
-			background:#ecf0f1; margin-top:20px; padding:10px; overflow:hidden; }
+			padding:10px; overflow:hidden; }
 			
 			/* -------------------------------------------------------------------------- */
 			/* header */
@@ -555,12 +571,11 @@ html, body { height:100%; }
 					display:inline-block; margin:0 10px 0 0;
 					text-decoration:none!important; }
 					
-					
 			/* -------------------------------------------------------------------------- */
 			/* post */
 			.discussion .post { 
 				position:relative; width:auto; height:auto; margin:10px 0 0 0; padding:10px 15px 0 15px; overflow:hidden;
-				color:#000; background:rgba(255,255,255,1); border-top:1px solid rgba(255,255,255,1);
+				color:#000; background:#fff; border:1px solid #dedede;
 				font-size:14px; line-height:20px;
 				/*border-radius*/-webkit-border-radius:15px; border-radius:15px;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
@@ -581,17 +596,17 @@ html, body { height:100%; }
 			/* reply */
 			.discussion .reply { 
 				margin-left:15%;
-				background:#fce383;  
+				background:#fff89d; border:none; 
 				font-size:14px; line-height:20px; }
 			.discussion .reply.admin {
-				background:#a4dfef; }
+				background:#d1eefe; }
 				
 				.discussion .reply .text 	{ color:#2c3e50; font-size:14px; }
 				
 			/* -------------------------------------------------------------------------- */
 			/* alert */
 			.discussion .post.alert { 
-				background:#ff3b30; backborder-top:1px solid rgba(255,255,255,0.6);
+				background:#ff3b30; border:none;
 				/*border-radius*/-webkit-border-radius:15px; border-radius:15px;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
 				/*box-shadow*/-webkit-box-shadow:none; box-shadow:none; }
