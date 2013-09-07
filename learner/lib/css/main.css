@@ -25,7 +25,7 @@
 
 body {
 	overflow:hidden;
-	color:#333; background:#2980b9; 
+	color:#333; background:#2980b9;
 	font-family:'Source Sans Pro',sans-serif; }
 
 /* -------------------------------------------------------------------------- */
@@ -34,8 +34,8 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* pageBg */
-#pageBg { 
-	position:absolute; top:0; left:0; width:100%; height:100%; 
+#pageBg {
+	position:absolute; top:0; left:0; width:100%; height:100%;
 	background:url(../img/tile.png);
 	/*opacity*/
 	opacity:0.75;
@@ -47,7 +47,7 @@ html, body { height:100%; }
 #container,
 	.sidePanel, #main,
 		#header, #utils, #utilsExtra, #sysmsg, #content, #copyright,
-			#player { 
+			#player {
 				display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 
 /* container */
@@ -60,15 +60,15 @@ html, body { height:100%; }
 	-moz-transition:all 0.3s ease-in-out;
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
-	
+
 
 /* ==========================================================================
    structure - MAIN
    ========================================================================== */
-   
+
 /* -------------------------------------------------------------------------- */
 /* container */
-#main { 
+#main {
 	height:100%; max-width:1024px; z-index:10;
 	background:#fff;
 	/*transition*/
@@ -77,18 +77,18 @@ html, body { height:100%; }
 	-moz-transition:all 0.3s ease-in-out;
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
-	
+
 /* -------------------------------------------------------------------------- */
 /* interaction */
-.navActive #main { 
+.navActive #main {
 	/*transform*/
 	-webkit-transform:translate(340px,0);
 	-moz-transform:translate(340px,0);
 	-ms-transform:translate(340px,0);
 	transform:translate(340px,0); }
-	
+
 .menuActive #main,
-.discussionsActive #main { 
+.discussionsActive #main {
 	/*transform*/
 	-webkit-transform:translate(-340px,0);
 	-moz-transform:translate(-340px,0);
@@ -102,14 +102,14 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#header { 
-	height:45px; 
+#header {
+	height:45px;
 	color:#050505; background:#fff; /*border-bottom:1px solid #bdc3c7;*/
 	line-height:45px; }
 
 	/* -------------------------------------------------------------------------- */
 	/* heading */
-	#header .heading { 
+	#header .heading {
 		position:relative; width:auto; height:45px; margin:0 45px; padding:0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis; text-align:center;
 		font-size:22px; font-weight:300; line-height:45px;
@@ -118,16 +118,22 @@ html, body { height:100%; }
 		-webkit-transition:line-height 0.3s ease-in-out;
 		-moz-transition:line-height 0.3s ease-in-out;
 		transition:line-height 0.3s ease-in-out; }
-		
+
 	/* -------------------------------------------------------------------------- */
 	/* btn */
-	#header .btn { 
+	#header .btn {
 		position:absolute; top:0; width:45px; height:45px; margin:0; padding:0; overflow:hidden;
 		color:#007aff; border:none;
 		font-size:25px; line-height:45px; }
 	#header .btn-left 	{ left:0; border-right:1px solid #bdc3c7; }
 	#header .btn-right 	{ right:0; border-left:1px solid #bdc3c7; }
-	
+
+	/* -------------------------------------------------------------------------- */
+	/* popover */
+	#header .popover 		{ display:block; }
+	#header #popoverNav 	{ top:7px; left:45px; }
+	#header #popoverMenu 	{ top:7px; left:auto; right:56px; }
+
 	/* interaction */
 	.no-touch #header .btn:hover,
 	.no-touch #header .btn:focus,
@@ -141,7 +147,7 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#utils { 
+#utils {
 	height:45px;
 	color:#fff;
 	/*background-gradient*/
@@ -149,74 +155,74 @@ html, body { height:100%; }
 	background-image:-webkit-linear-gradient(top, #1badf8 0%, #007aff 100%);
 	background-image:-moz-linear-gradient(top, #1badf8 0%, #007aff 100%);
 	background-image:linear-gradient(to bottom, #1badf8 0%, #007aff 100%); }
-	
+
 	/* common */
 	#utils > * { height:45px; line-height:45px; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* heading */
-	#utils .heading { 
-		margin:0 205px 0 15px; overflow:hidden;
+	#utils .heading {
+		margin:0 230px 0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		font-size:24px; font-weight:300; }
-		
+
 		/* prgs */
-		#utils .heading .prgs { 
+		#utils .heading .prgs {
 			display:inline-block; margin:0 10px; /*vertical-align:middle;*/
 			color:#fff; font-size:11px; font-weight:600; text-shadow:0 1px 0 rgba(0,0,0,0.2); text-transform:uppercase;
 			/*opacity*/
 			opacity:0.7;
 			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-			filter:alpha(opacity=70); }		
-		
+			filter:alpha(opacity=70); }
+
 	/* -------------------------------------------------------------------------- */
 	/* utilsNav */
-	#utilsNav { 
+	#utilsNav {
 		display:table; position:absolute; top:0; right:0; width:90px;
 		border-left:1px solid #ecf0f1; }
-		
+
 	 	/* btn */
-		#utilsNav .btnUtil { 
-			display:block; position:absolute; top:0; width:45px; height:100%; margin:0; padding:0;  
+		#utilsNav .btnUtil {
+			display:block; position:absolute; top:0; width:45px; height:100%; margin:0; padding:0;
 			color:#fff; border:none; font-size:28px; line-height:45px; text-align:center;
 			text-decoration:none!important; }
 		#utilsNav .btnUtil + .btnUtil 	{ right:0; }
 		#utilsNav .btnUtil 				{ right:45px; }
-		
+
 		/* interaction */
 		.no-touch #utilsNav .btnUtil:hover,
 		.no-touch #utilsNav .btnUtil:focus,
-		#utilsNav .btnUtil.active { 
+		#utilsNav .btnUtil.active {
 			color:#007aff; background:#ecf0f1; }
 
 	/* -------------------------------------------------------------------------- */
 	/* utilsExtra */
-	#utilsExtra { 
-		display:table; position:absolute; top:0; right:100px; width:90px; margin:0; overflow:visible; }
-		
+	#utilsExtra {
+		display:table; position:absolute; top:0; right:100px; width:110px; margin:0; overflow:visible; }
+
 		/* btn */
-		#utilsExtra .btnUtil { 
-			display:block; position:absolute; top:0; width:30px; height:30px; margin:7px 0 8px 0; padding:0;  
+		#utilsExtra .btnUtil {
+			display:block; position:absolute; top:0; width:30px; height:30px; margin:7px 0 8px 0; padding:0;
 			color:#fff; border:1px solid transparent; text-shadow:none; text-align:center;
-			font-size:14px; font-weight:400; line-height:30px; 
+			font-size:14px; font-weight:400; line-height:30px;
 			text-decoration:none!important;
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 		#utilsExtra .btnUtil + .btnUtil + .btnUtil	{ right:0; }
-		#utilsExtra .btnUtil + .btnUtil 			{ right:30px; }
-		#utilsExtra .btnUtil 						{ right:60px; }
-		
+		#utilsExtra .btnUtil + .btnUtil 			{ right:40px; }
+		#utilsExtra .btnUtil 						{ right:80px; }
+
 		/* interaction */
 		.no-touch #utilsExtra .btnUtil:hover,
-		.no-touch #utilsExtra .btnUtil:focus { 
+		.no-touch #utilsExtra .btnUtil:focus {
 			background:none; border-color:#fff; }
-			
+
 		.no-touch #utilsExtra .btnUtil:active,
 		#utilsExtra .btnUtil.active,
 		#utilsExtra .btnUtil.active:hover,
-		#utilsExtra .btnUtil.active:focus { 
+		#utilsExtra .btnUtil.active:focus {
 			color:#007aff; background:#fff; border-color:transparent; }
-		
+
 
 /* ==========================================================================
    structure - SYSMSG
@@ -224,9 +230,9 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#sysmsg { 
+#sysmsg {
 	display:block; position:absolute; left:0; top:90px; width:100%; height:auto; max-height:30px; padding:5px 115px 5px 15px; z-index:100;
-	white-space:nowrap; text-overflow:ellipsis; 
+	white-space:nowrap; text-overflow:ellipsis;
 	color:#050505; text-decoration:none!important;
 	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4);
 	/*background-gradient*/
@@ -241,12 +247,12 @@ html, body { height:100%; }
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
-	transition:all 0.3s ease-in-out; }  
-		
+	transition:all 0.3s ease-in-out; }
+
 /* interaction */
 #sysmsg:hover,
 #sysmsg:focus,
-#sysmsg.active:hover { 
+#sysmsg.active:hover {
 	color:#000;
 	/*background-gradient*/
 	background-color:#ffe051;
@@ -256,36 +262,36 @@ html, body { height:100%; }
 	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00); }
 
-#sysmsg.active { 
+#sysmsg.active {
 	max-height:100px;
 	color:#000!important; white-space:normal;
 	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.6); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.6); }
 
 	/* -------------------------------------------------------------------------- */
 	/* msg */
-	#sysmsg .msg { 
+	#sysmsg .msg {
 		font-size:15px; font-weight:400; line-height:20px;
 		text-shadow:0 1px 0 rgba(255,255,255,0.5); }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* label */
-	#sysmsg .label { 
+	#sysmsg .label {
 		position:absolute; top:0; right:0; width:90px; height:100%; padding:5px 15px; overflow:hidden;
 		color:#007aff; background:rgba(255,255,0,0.5); border-left:1px solid #fff;
 		font-weight:400; font-size:16px; line-height:20px; text-align:center;
 		/*border-radius*/-webkit-border-radius:0; border-radius:0;
 		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-	
+
 	/* interaction */
 	.no-touch #sysmsg:hover .label,
 	.no-touch #sysmsg:focus .label { color:#007aff; }
-	
+
 	#sysmsg .label.more { display:block; }
 	#sysmsg .label.less { display:none; }
-	
+
 	#sysmsg.active .label.more { display:none; }
 	#sysmsg.active .label.less { display:block; }
-	
+
 
 /* ==========================================================================
    structure - CONTENT
@@ -293,16 +299,16 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#content { 
+#content {
 	position:absolute; top:90px; bottom:0; left:0; width:100%; }
-#sysmsg + #content { 
+#sysmsg + #content {
 	top:120px; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* player */
-	#player { 
+	#player {
 		width:800px; height:570px; }
-   
+
 /* ==========================================================================
    structure - COPYRIGHT
    ========================================================================== */
@@ -320,24 +326,24 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* copyLinks */
-	
+
 	/* common */
 	#copyLinks,
-	#copyLinks li { 
+	#copyLinks li {
 		list-style:none; margin:0; padding:0;
 		color:#95a5a6; font-size:12px; font-weight:300; line-height:1em; text-transform:capitalize;
 		text-align:center; }
-	
+
 	/* container */
 	#copyLinks { padding:14px 0; }
-	
+
 		/* li */
-		#copyLinks li { 
-			display:inline-block; margin-left:10px; padding-left:10px; 
+		#copyLinks li {
+			display:inline-block; margin-left:10px; padding-left:10px;
 			border-left:1px solid #7f8c8d; }
-		#copyLinks li:first-child { 
+		#copyLinks li:first-child {
 			margin:0; padding:0; border:none; }
-			
+
 			/* a */
 			#copyLinks a 			{ color:#95a5a6; text-decoration:none; }
 			#copyLinks a:hover,
@@ -356,7 +362,7 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* menuHeader */
-	.menuHeader { 
+	.menuHeader {
 		position:absolute; top:0; left:0; width:100%; height:46px; margin:0; padding:0 20px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		color:#007aff; background:#fff; border-bottom:1px solid #bdc3c7;
@@ -369,7 +375,7 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#nav { 
+#nav {
 	left:0;
 	background:#f7f7f7; border-right:1px solid #bdc3c7; }
 
@@ -377,40 +383,40 @@ html, body { height:100%; }
 	/* buttons */
 	#btnSubmitAssess 	{ position:absolute; bottom:54px; left:0; }
 	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* navList */
-	
+
 	/* common */
 	#navList,
 	#navList li,
-	#navList ol { 
+	#navList ol {
 		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		list-style:none; }
-	
+
 	/* container */
-	#navList { 
+	#navList {
 		position:absolute; top:46px; left:0; width:100%; height:100%; }
-		
+
 	/* position */
 	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
 	#btnGroupAssess  + #navList 					{ bottom:54px; height:auto; }
 	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
-	
+
 		/* -------------------------------------------------------------------------- */
 		/* item */
 		#navList li {
-			min-height:36px; 
+			min-height:36px;
 			border-bottom:1px solid #dedede; }
 		#navList li.core {
 			border-bottom-color:#9ecef6; }
-			
+
 			/* -------------------------------------------------------------------------- */
 			/* status */
-			#navList li .status { 
+			#navList li .status {
 				display:block; position:absolute; top:0; left:0; width:32px; height:36px; margin:0; padding:0; overflow:hidden;
 				color:#007aff; font-size:14px; line-height:36px; text-align:center; }
-							
+
 			/* -------------------------------------------------------------------------- */
 			/* link */
 			#navList li .link {
@@ -420,112 +426,112 @@ html, body { height:100%; }
 			#navList li .link:focus,
 			#navList li .link:active {
 				color:#007aff; background:#fff!important; text-decoration:none; }
-				
+
 				/* action */
-				#navList li .action { 
+				#navList li .action {
 					display:block; position:absolute; top:50%; right:10px; width:20px; height:20px; margin:-10px 0 0 0; padding:0; overflow:hidden;
 					color:#007aff; border:1px solid #007aff; font-size:16px; line-height:18px; text-align:center;
 					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 				#navList li .link:hover .action,
 				#navList li .link:focus .action,
-				#navList li .link:active .action { 
+				#navList li .link:active .action {
 					color:#007aff; border:1px solid #007aff; }
-			
+
 			/* -------------------------------------------------------------------------- */
 			/* theme */
-			
+
 			/* core content */
 			#navList li.core .link	{ background:#d1eefe; }
-			
+
 			/* current */
 			#navList li.current .link			{ color:#fff; background:#007aff; }
 			#navList li.current .link:hover,
 			#navList li.current .link:focus,
 			#navList li.current .link:active 	{ background:#2980b9!important; }
-			
+
 			#navList li.current .status	{ color:#ecf0f1; }
-			
+
 			#navList li.current .link .action,
 			#navList li.current .link:hover .action,
 			#navList li.current .link:focus .action,
 			#navList li.current .link:active .action { color:#fff; border:1px solid #fff; }
-			
+
 			/* levels/indentations */
 			#navList li.lv1 .link	{ font-weight:700; }
 			#navList li.lv2 .link	{ padding-left:40px; }
 			#navList li.lv3 .link	{ padding-left:50px; }
 			#navList li.lv4 .link	{ padding-left:60px; }
-			
+
 			#navList li.lv2 .link,
 			#navList li.lv3 .link,
 			#navList li.lv4 .link	{ font-size:15px; }
-			
+
 		/* -------------------------------------------------------------------------- */
 		/* elem */
-		#navList .subNavList { display:none; }	
-				
-				
+		#navList .subNavList { display:none; }
+
+
 /* ==========================================================================
    structure - MENU
    ========================================================================== */
-   
+
 /* -------------------------------------------------------------------------- */
 /* container */
-#menu { 
+#menu {
 	right:0;
 	background:#e0e7e9; border-left:1px solid #bdc3c7; }
-		
+
 	/* -------------------------------------------------------------------------- */
 	/* menuList */
-	#menuList { 
+	#menuList {
 		position:absolute; top:46px; left:0; bottom:0; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
-		
+
 		/* -------------------------------------------------------------------------- */
 		/* common */
 		#menuList ul,
 		#menuList ul li,
-		#menuList ul li a { 
+		#menuList ul li a {
 			display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 			color:#050505; list-style:none; }
-		
+
 		/* list group */
 		#menuList ul 			{ background:#fff; padding:0; /*border-bottom:1px solid #BDC3C7;*/ }
 		#menuList ul + ul 		{ background:#ecf0f1; }
 		#menuList ul + ul + ul 	{ background:#e0e7e9; }
-			
+
 			/* -------------------------------------------------------------------------- */
 			/* list item */
-			#menuList ul li a { 
+			#menuList ul li a {
 				padding:15px 30px 15px 60px;
 				font-size:20px; font-weight:300; line-height:25px; }
 			#menuList ul li a:hover,
 			#menuList ul li a:focus,
-			#menuList ul li a:active { 
+			#menuList ul li a:active {
 				text-decoration:none; }
-				
+
 				/* icon */
-				#menuList ul li a i { 
+				#menuList ul li a i {
 					display:block; position:absolute; top:11px; left:20px; width:32px; height:32px; margin:0; padding:0; overflow:hidden;
 					border:1px solid #007aff; color:#007aff; font-size:14px; line-height:30px; text-align:center;
 					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 				#menuList ul li a:hover i,
 				#menuList ul li a:focus i,
-				#menuList ul li a:active i { 
+				#menuList ul li a:active i {
 					border:1px solid transparent; color:#fff; background:#007aff; }
-					
+
 			/* current */
-			#menuList ul li.current a { 
+			#menuList ul li.current a {
 				color:#fff; background:#007aff; pointer-events:none; }
-			
+
 				/* icon */
 				#menuList ul li.current a i,
 				#menuList ul li.current a:hover i,
 				#menuList ul li.current a:focus i,
-				#menuList ul li.current a:active i { 
+				#menuList ul li.current a:active i {
 					border:1px solid #fff; color:#fff; background:#007aff; }
-		
+
 
 /* ==========================================================================
    structure - DISCUSSIONS
@@ -533,79 +539,79 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#discussions { 
+#discussions {
 	display:none; right:0;
 	background:#fff; border-left:1px solid #bdc3c7; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* utils */
-	#btnGroupDiscussion { 
+	#btnGroupDiscussion {
 		position:absolute; top:46px; left:0; width:100%; height:44px; }
-		
+
 		/* btn */
-		#btnGroupDiscussion .btn { 
+		#btnGroupDiscussion .btn {
 			position:absolute; top:0; left:0; width:50%; height:100%; }
-		#btnGroupDiscussion .btn:last-child { 
+		#btnGroupDiscussion .btn:last-child {
 			left:auto; right:0; }
-			
+
 		/* btnNewDiscussion */
-		#btnNewDiscussion { 
+		#btnNewDiscussion {
 			position:absolute; bottom:0; left:0; width:100%; height:44px;
 			border-top:1px solid #bdc3c7; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* discussionBody */
-	#discussionBody { 
+	#discussionBody {
 		position:absolute; top:90px; left:0; bottom:46px; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
-	
+
 		/* -------------------------------------------------------------------------- */
 		/* discussion */
-		.discussion { 
+		.discussion {
 			padding:10px; overflow:hidden; }
-			
+
 			/* -------------------------------------------------------------------------- */
 			/* header */
 			.discussion .header {  }
-				
-				.discussion .header a { 
+
+				.discussion .header a {
 					display:inline-block; margin:0 10px 0 0;
 					text-decoration:none!important; }
-					
+
 			/* -------------------------------------------------------------------------- */
 			/* post */
-			.discussion .post { 
+			.discussion .post {
 				position:relative; width:auto; height:auto; margin:10px 0 0 0; padding:10px 15px 0 15px; overflow:hidden;
 				color:#000; background:#fff; border:1px solid #dedede;
 				font-size:14px; line-height:20px;
 				/*border-radius*/-webkit-border-radius:15px; border-radius:15px;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-				
+
 				/* author */
 				.discussion .post .author 		{ margin-bottom:10px; font-size:16px; }
-					
+
 					.discussion .post .tlink 	{ color:#050505; font-weight:600; }
 					.discussion .post .text 	{ color:#094e96; font-size:16px; }
-					
+
 					.discussion .post .admin 	{ }
-					
+
 					.discussion .post .time,
 					.discussion .post .date 	{ color:#383836; font-size:13px; display:inline-block; }
 					.discussion .post .date		{ margin-left:5px; }
-			
+
 			/* -------------------------------------------------------------------------- */
 			/* reply */
-			.discussion .reply { 
-				margin-left:15%;
-				background:#fff89d; border:none; 
+			.discussion .reply {
+				margin-left:10%;
+				background:#fff89d; border:none;
 				font-size:14px; line-height:20px; }
 			.discussion .reply.admin {
 				background:#d1eefe; }
-				
+
 				.discussion .reply .text 	{ color:#2c3e50; font-size:14px; }
-				
+
 			/* -------------------------------------------------------------------------- */
 			/* alert */
-			.discussion .post.alert { 
+			.discussion .post.alert {
 				background:#ff3b30; border:none;
 				/*border-radius*/-webkit-border-radius:15px; border-radius:15px;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
@@ -621,7 +627,7 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 @media only screen and (min-width:1025px) {
-	
+
 	/* horizontal center align */
 	#container { left:50%; margin-left:-512px; }
 
@@ -636,93 +642,99 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* navigator / menu */
 @media only screen and (min-width:1280px) {
-	
+
 	/* update width */
 	.sidePanel { width:256px; }
-	
+
 	/* update interaction */
-	.navActive #main { 
+	.navActive #main {
 		/*transform*/
 		-webkit-transform:translate(256px,0);
 		-moz-transform:translate(256px,0);
 		-ms-transform:translate(256px,0);
 		transform:translate(256px,0); }
 	.menuActive #main,
-	.discussionsActive #main { 
+	.discussionsActive #main {
 		/*transform*/
 		-webkit-transform:translate(-256px,0);
 		-moz-transform:translate(-256px,0);
 		-ms-transform:translate(-256px,0);
 		transform:translate(-256px,0); }
-	
+
 	/* show navigator */
     #container { max-width:1280px; margin-left:-640px; }
     #main { margin-left:256px; }
-	
+
 	/* hide btnNav */
 	#header #btnNav { left:-50px; }
 	#header .heading { margin-left:0; }
 
+	/* hide popover */
+	#header #popoverNav { display:none; }
+
 }
 @media only screen and (min-width:1366px) {
-	
+
 	/* update width */
 	.sidePanel { width:342px; }
-	
+
 	/* update interaction */
-	.navActive #main { 
+	.navActive #main {
 		/*transform*/
 		-webkit-transform:translate(342px,0);
 		-moz-transform:translate(342px,0);
 		-ms-transform:translate(342px,0);
 		transform:translate(342px,0); }
 	.menuActive #main,
-	.discussionsActive #main { 
+	.discussionsActive #main {
 		/*transform*/
 		-webkit-transform:translate(-342px,0);
 		-moz-transform:translate(-342px,0);
 		-ms-transform:translate(-342px,0);
 		transform:translate(-342px,0); }
-	
+
 	/* show navigator */
     #container { max-width:1366px; margin-left:-683px; }
     #main { margin-left:342px; }
 
 }
 @media only screen and (min-width:1680px) {
-	
+
 	/* update width */
 	.sidePanel { width:328px; }
-	
+
 	/* update interaction */
-	.navActive #main { 
+	.navActive #main {
 		/*transform*/
 		-webkit-transform:translate(328px,0);
 		-moz-transform:translate(328px,0);
 		-ms-transform:translate(328px,0);
 		transform:translate(328px,0); }
 	.menuActive #main,
-	.discussionsActive #main { 
+	.discussionsActive #main {
 		/*transform*/
 		-webkit-transform:translate(-328px,0);
 		-moz-transform:translate(-328px,0);
 		-ms-transform:translate(-328px,0);
 		transform:translate(-328px,0); }
-	
+
 	/* show navigator */
     #container { max-width:1680px; margin-left:-840px; }
     #main { margin-left:328px; }
-	
+
 	/* hide btnMenu */
 	#header #btnMenu { right:-50px; }
 	#header .heading { margin-right:0; }
+
+	/* hide popover */
+	#header #popoverMenu { display:none; }
 
 }
 
 /* -------------------------------------------------------------------------- */
 /* copyright */
 @media only screen and (min-height:800px) {
-	
+
 	/* show copyright */
 	#copyright { display:block; }
 
@@ -734,7 +746,7 @@ html, body { height:100%; }
    ========================================================================== */
 .scroller { overflow:auto!important; }
 .iOS .scroller { overflow:scroll!important; -webkit-overflow-scrolling:touch; }
-	
+
 
 /* ==========================================================================
    Common Styles
@@ -745,7 +757,7 @@ html, body { height:100%; }
 /* webfont */
 
 /* loading */
-.js body { 
+.js body {
 	visibility:hidden; opacity:0;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -953,7 +965,7 @@ html, body { height:100%; }
 /* common */
 .debug code         { display:inline-block; margin:0 0 20px 0; padding:0 10px; clear:both;
                       color:#fff; background:#CC9; text-shadow:0 1px 0px rgba(0,0,0,0.2);
-                      font-size:11px; font-weight:bold; line-height:20px; 
+                      font-size:11px; font-weight:bold; line-height:20px;
                       border-radius:10px;   box-shadow:inset 0 1px 1px rgba(0,0,0,0.2); }
 .debug h1,
 .debug h2,
@@ -972,25 +984,25 @@ html, body { height:100%; }
 .oldie.debug h2,
 .oldie.debug h3,
 .oldie.debug h4,
-.oldie.debug h5 { 
+.oldie.debug h5 {
     -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1900FF00, endColorstr=#1900FF00);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1900FF00, endColorstr=#1900FF00);
     zoom:1; }
 .oldie.debug p,
-.oldie.debug li { 
+.oldie.debug li {
     -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFF00, endColorstr=#19FFFF00);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFF00, endColorstr=#19FFFF00);
     zoom:1; }
-.oldie.debug a  { 
+.oldie.debug a  {
     -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#190000FF, endColorstr=#190000FF);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#190000FF, endColorstr=#190000FF);
     zoom:1; }
 .oldie.debug span,
-.oldie.debug i  { 
+.oldie.debug i  {
     -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FF0000, endColorstr=#19FF0000);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FF0000, endColorstr=#19FF0000);
     zoom:1; }
-.oldie.debug div { 
+.oldie.debug div {
     -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#07000000, endColorstr=#07000000);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#07000000, endColorstr=#07000000);
     zoom:1; }

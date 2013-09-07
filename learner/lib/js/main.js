@@ -53,6 +53,12 @@ function initMenus(){
 	$.each([$btnNav, $btnMenu], function(){
 		$(this).on('click', toggleMenus);	
 	});
+	$btnNav.one('click', function(){
+		$('#popoverNav').fadeOut(300);
+	});	
+	$btnMenu.one('click', function(){
+		$('#popoverMenu').fadeOut(300);
+	});	
 }
 /* ------------------------------------------------------------------------------ */
 /* initSysMsg */

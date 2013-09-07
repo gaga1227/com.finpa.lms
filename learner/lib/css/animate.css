@@ -3358,3 +3358,61 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-o-animation-name: attnloop;
 	animation-name: attnloop;
 }
+
+/* -------------------------------------------------------------------------- */
+/* bounceLeftloop */
+@-webkit-keyframes bounceLeftloop {
+	0%, 34%, 68%, 100% {left: 45px;}	
+	17%, 51%, 84%  {left: 25px;}
+}
+
+@-moz-keyframes bounceLeftloop {
+	0%, 34%, 68%, 100% {left: 45px;}	
+	17%, 51%, 84%  {left: 25px;}
+}
+
+@-o-keyframes bounceLeftloop {
+	0%, 34%, 68%, 100% {left: 45px;}	
+	17%, 51%, 84%  {left: 25px;}
+}
+
+@keyframes bounceLeftloop {
+	0%, 34%, 68%, 100% {left: 45px;}	
+	17%, 51%, 84%  {left: 25px;}
+}
+
+.animatedloop.bounceLeftloop {
+	-webkit-animation-name: bounceLeftloop;
+	-moz-animation-name: bounceLeftloop;
+	-o-animation-name: bounceLeftloop;
+	animation-name: bounceLeftloop;
+}
+
+/* -------------------------------------------------------------------------- */
+/* bounceRightloop */
+@-webkit-keyframes bounceRightloop {
+	0%, 34%, 68%, 100% {right: 56px;}	
+	17%, 51%, 84%  {right: 36px;}
+}
+
+@-moz-keyframes bounceRightloop {
+	0%, 34%, 68%, 100% {right: 56px;}	
+	17%, 51%, 84%  {right: 36px;}
+}
+
+@-o-keyframes bounceRightloop {
+	0%, 34%, 68%, 100% {right: 56px;}	
+	17%, 51%, 84%  {right: 36px;}
+}
+
+@keyframes bounceRightloop {
+	0%, 34%, 68%, 100% {right: 56px;}	
+	17%, 51%, 84%  {right: 36px;}
+}
+
+.animatedloop.bounceRightloop {
+	-webkit-animation-name: bounceRightloop;
+	-moz-animation-name: bounceRightloop;
+	-o-animation-name: bounceRightloop;
+	animation-name: bounceRightloop;
+}
