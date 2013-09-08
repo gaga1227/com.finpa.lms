@@ -19,40 +19,63 @@ WebFontConfig = {
 function initMenus(){
 	//vars
 	var $container = $('#container'),
+		//side menus
 		$nav = $('#nav'),
 		$menu = $('#menu'),
+		$discussions = $('#discussions'),
+		//trigger buttons
 		$btnNav = $('#btnNav'),
 		$btnMenu = $('#btnMenu'),
+		$btnDiscussions = $('#btnDiscussions'),
+		//state classes
 		navActiveCls = 'navActive'
 		menuActiveCls = 'menuActive',
-		activeCls = 'activated',
+		discussionsActiveCls = 'discussionsActive',
+		activeCls = 'active',
 		thisCls = '', 
 		otherCls = '';
+
 	//handler
 	function toggleMenus(e) {
 		var $btn = $(this),
 			id = $btn.attr('id');
+		//determine state classes
 		if ( id.indexOf('Nav') != -1 ) {
 			thisCls = navActiveCls;
-			otherCls = menuActiveCls;
+			otherCls = menuActiveCls + ' ' + discussionsActiveCls;
 		}
 		else if ( id.indexOf('Menu') != -1  ) {
 			thisCls = menuActiveCls;
-			otherCls = navActiveCls;
+			otherCls = navActiveCls + ' ' + discussionsActiveCls;
 		}
+		else if ( id.indexOf('Discussions') != -1  ) {
+			thisCls = discussionsActiveCls;
+			otherCls = navActiveCls + ' ' + menuActiveCls;
+		}
+		//update state class
 		$container.removeClass(otherCls);
+		//update state class on buttons
 		if ($container.hasClass(thisCls)) {
 			$container.removeClass(thisCls);
 			$btn.removeClass(activeCls);
 		} else {
 			$container.addClass(thisCls);
 			$btn.addClass(activeCls);
+			if (id.indexOf('Menu') != -1) {
+				$btnDiscussions.removeClass(activeCls);	
+			}
+			else if (id.indexOf('Discussions') != -1) {
+				$btnMenu.removeClass(activeCls);	
+			}
 		};
 	}
-	//bind interaction
-	$.each([$btnNav, $btnMenu], function(){
+	
+	//bind side menu interaction
+	$.each([$btnNav, $btnMenu, $btnDiscussions], function(){
 		$(this).on('click', toggleMenus);	
 	});
+	
+	//remove text label hints after first use
 	$btnNav.one('click', function(){
 		$('#popoverNav').fadeOut(300);
 	});	
@@ -105,36 +128,6 @@ function initModals(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
-/* initDiscussions */
-/* ------------------------------------------------------------------------------ */
-function initDiscussions(){
-	//vars
-	var $container = $('#container'),
-		$btnTrigger = $('#btnDiscussions'),
-		$menu = $('#menu'),
-		$discussions = $('#discussions'),
-		activeCls = 'active',
-		containerActiveCls = 'discussionsActive';
-	//handler
-	function toggleDiscussions(e){
-		e.preventDefault();
-		var $this = $(this);
-		if ($this.hasClass(activeCls)) {
-			$this.removeClass(activeCls);
-			$menu.show(0);
-			$discussions.hide(0);
-			$container.removeClass(containerActiveCls);
-		} else {
-			$this.addClass(activeCls);
-			$menu.hide(0);
-			$discussions.show(0);
-			$container.addClass(containerActiveCls);
-		}
-	}
-	//bind interaction
-	$btnTrigger.on('click', toggleDiscussions);
-}
-/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
@@ -142,7 +135,6 @@ function init(){
 	initMenus();
 	initSysMsg();
 	initModals();
-	initDiscussions();	
 	//debug
 	displayDebugInfo('#debugInfo');
 }

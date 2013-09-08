@@ -78,23 +78,6 @@ html, body { height:100%; }
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
 
-/* -------------------------------------------------------------------------- */
-/* interaction */
-.navActive #main {
-	/*transform*/
-	-webkit-transform:translate(340px,0);
-	-moz-transform:translate(340px,0);
-	-ms-transform:translate(340px,0);
-	transform:translate(340px,0); }
-
-.menuActive #main,
-.discussionsActive #main {
-	/*transform*/
-	-webkit-transform:translate(-340px,0);
-	-moz-transform:translate(-340px,0);
-	-ms-transform:translate(-340px,0);
-	transform:translate(-340px,0); }
-
 
 /* ==========================================================================
    structure - HEADER
@@ -138,7 +121,6 @@ html, body { height:100%; }
 	.no-touch #header .btn:hover,
 	.no-touch #header .btn:focus,
 	#header .btn.active 			{ color:#fff; background:#007aff; border-color:#007aff; }
-	#header .btn.activated 			{  }
 
 
 /* ==========================================================================
@@ -480,7 +462,12 @@ html, body { height:100%; }
 /* container */
 #menu {
 	right:0;
-	background:#e0e7e9; border-left:1px solid #bdc3c7; }
+	background:#e0e7e9; border-left:1px solid #bdc3c7;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:right 0.3s ease-in-out;
+	-moz-transition:right 0.3s ease-in-out;
+	transition:right 0.3s ease-in-out; }
 
 	/* -------------------------------------------------------------------------- */
 	/* menuList */
@@ -540,8 +527,13 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 #discussions {
-	display:none; right:0;
-	background:#fff; border-left:1px solid #bdc3c7; }
+	right:0;
+	background:#fff; border-left:1px solid #bdc3c7;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:right 0.3s ease-in-out;
+	-moz-transition:right 0.3s ease-in-out;
+	transition:right 0.3s ease-in-out; }
 
 	/* -------------------------------------------------------------------------- */
 	/* utils */
@@ -621,6 +613,33 @@ html, body { height:100%; }
 
 
 /* ==========================================================================
+   structure - INTERACTION
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* main */
+.navActive #main {
+	/*transform*/
+	-webkit-transform:translate(340px,0);
+	-moz-transform:translate(340px,0);
+	-ms-transform:translate(340px,0);
+	transform:translate(340px,0); }
+
+.menuActive #main,
+.discussionsActive #main {
+	/*transform*/
+	-webkit-transform:translate(-340px,0);
+	-moz-transform:translate(-340px,0);
+	-ms-transform:translate(-340px,0);
+	transform:translate(-340px,0); }
+	
+/* -------------------------------------------------------------------------- */
+/* sidepanels */
+.menuActive #discussions { right:-340px; }
+.discussionsActive #menu { right:340px; }
+
+
+/* ==========================================================================
    structure - RESPONSIVE
    ========================================================================== */
 
@@ -645,6 +664,8 @@ html, body { height:100%; }
 
 	/* update width */
 	.sidePanel { width:256px; }
+	.menuActive #discussions { right:-256px; }
+	.discussionsActive #menu { right:256px; }
 
 	/* update interaction */
 	.navActive #main {
@@ -660,7 +681,7 @@ html, body { height:100%; }
 		-moz-transform:translate(-256px,0);
 		-ms-transform:translate(-256px,0);
 		transform:translate(-256px,0); }
-
+	
 	/* show navigator */
     #container { max-width:1280px; margin-left:-640px; }
     #main { margin-left:256px; }
@@ -677,6 +698,8 @@ html, body { height:100%; }
 
 	/* update width */
 	.sidePanel { width:342px; }
+	.menuActive #discussions { right:-342px; }
+	.discussionsActive #menu { right:342px; }
 
 	/* update interaction */
 	.navActive #main {
@@ -702,6 +725,8 @@ html, body { height:100%; }
 
 	/* update width */
 	.sidePanel { width:328px; }
+	.menuActive #discussions { right:-328px; }
+	.discussionsActive #menu { right:328px; }
 
 	/* update interaction */
 	.navActive #main {
@@ -710,13 +735,18 @@ html, body { height:100%; }
 		-moz-transform:translate(328px,0);
 		-ms-transform:translate(328px,0);
 		transform:translate(328px,0); }
-	.menuActive #main,
-	.discussionsActive #main {
+	.menuActive #main {
 		/*transform*/
 		-webkit-transform:translate(-328px,0);
 		-moz-transform:translate(-328px,0);
 		-ms-transform:translate(-328px,0);
 		transform:translate(-328px,0); }
+	.discussionsActive #main {
+		/*transform*/
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
 
 	/* show navigator */
     #container { max-width:1680px; margin-left:-840px; }
