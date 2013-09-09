@@ -1,17 +1,17 @@
 /* ------------------------------------------------------------------------------ */
 /* webfonts */
 /* ------------------------------------------------------------------------------ */
-WebFontConfig = { 
-	google: 		{ families: [ 
+WebFontConfig = {
+	google: 		{ families: [
 									'Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic:latin',
-									'Montserrat:400,700:latin' 
+									'Montserrat:400,700:latin'
 								] },
 	loading: 		function() 					{ console.log( '[webfont] loading'); },
 	active: 		function() 					{ console.log( '[webfont] active :)'); },
 	inactive: 		function() 					{ console.log( '[webfont] inactive :('); },
 	fontloading: 	function( familyName, fvd ) { console.log( '[webfont] loading:',  familyName, fvd ); },
 	fontactive: 	function( familyName, fvd ) { console.log( '[webfont] active:',   familyName, fvd ); },
-	fontinactive: 	function( familyName, fvd ) { console.log( '[webfont] inactive:', familyName, fvd ); } 
+	fontinactive: 	function( familyName, fvd ) { console.log( '[webfont] inactive:', familyName, fvd ); }
 };
 /* ------------------------------------------------------------------------------ */
 /* initMenus */
@@ -32,7 +32,7 @@ function initMenus(){
 		menuActiveCls = 'menuActive',
 		discussionsActiveCls = 'discussionsActive',
 		activeCls = 'active',
-		thisCls = '', 
+		thisCls = '',
 		otherCls = '';
 
 	//handler
@@ -62,26 +62,28 @@ function initMenus(){
 			$container.addClass(thisCls);
 			$btn.addClass(activeCls);
 			if (id.indexOf('Menu') != -1) {
-				$btnDiscussions.removeClass(activeCls);	
+				$btnDiscussions.removeClass(activeCls);
+				$btnNav.removeClass(activeCls);
 			}
 			else if (id.indexOf('Discussions') != -1) {
-				$btnMenu.removeClass(activeCls);	
+				$btnMenu.removeClass(activeCls);
+				$btnNav.removeClass(activeCls);
 			}
 		};
 	}
-	
+
 	//bind side menu interaction
 	$.each([$btnNav, $btnMenu, $btnDiscussions], function(){
-		$(this).on('click', toggleMenus);	
+		$(this).on('click', toggleMenus);
 	});
-	
+
 	//remove text label hints after first use
 	$btnNav.one('click', function(){
 		$('#popoverNav').fadeOut(300);
-	});	
+	});
 	$btnMenu.one('click', function(){
 		$('#popoverMenu').fadeOut(300);
-	});	
+	});
 }
 /* ------------------------------------------------------------------------------ */
 /* initSysMsg */
@@ -111,20 +113,20 @@ function initModals(){
 		var $this = $(this),
 			$target = $($this.attr('href')),
 			isActive = $this.hasClass(activeCls);
-		$this.bind('click', function(e){			
+		$this.bind('click', function(e){
 			if (!isActive) {
 				$this
 					.addClass(activeCls)
 					.removeClass(animCls);
-				$target.modal('show');				
+				$target.modal('show');
 				$target.one('hide.bs.modal', function() {
 					$this.removeClass(activeCls);
 				})
 			} else {
-				$this.removeClass(activeCls);		
+				$this.removeClass(activeCls);
 				$target.modal('hide');
 			}
-		});	
+		});
 	});
 }
 /* ------------------------------------------------------------------------------ */
@@ -133,7 +135,7 @@ function initModals(){
 function init(){
 	//interaction demo
 	initMenus();
-	initSysMsg();
+	//initSysMsg();
 	initModals();
 	//debug
 	displayDebugInfo('#debugInfo');
@@ -143,7 +145,7 @@ $(document).ready(function(){
 	console.log('DOM Ready');
 	initWebFontLoader();
 	Platform.addDOMClass();
-	init();	
-	
+	init();
+
 	//alert($(window).height());
 });

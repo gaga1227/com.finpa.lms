@@ -144,33 +144,30 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* heading */
 	#utils .heading {
-		margin:0 230px 0 15px; overflow:hidden;
+		margin:0 270px 0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		font-size:24px; font-weight:300; }
-
-		/* prgs */
-		#utils .heading .prgs {
-			display:inline-block; margin:0 10px; /*vertical-align:middle;*/
-			color:#fff; font-size:11px; font-weight:600; text-shadow:0 1px 0 rgba(0,0,0,0.2); text-transform:uppercase;
-			/*opacity*/
-			opacity:0.7;
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-			filter:alpha(opacity=70); }
 
 	/* -------------------------------------------------------------------------- */
 	/* utilsNav */
 	#utilsNav {
-		display:table; position:absolute; top:0; right:0; width:90px;
-		border-left:1px solid #ecf0f1; }
-
+		display:table; position:absolute; top:0; right:0; width:140px;
+		border-left:1px solid #ecf0f1; text-align:center; }
+		
+		/* prgs */
+		#utilsNav .prgs {
+			display:block; position:absolute; top:0; left:50%; width:50px; margin:0 0 0 -25px;
+			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
+			color:#fff; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:400; }
+		
 	 	/* btn */
 		#utilsNav .btnUtil {
 			display:block; position:absolute; top:0; width:45px; height:100%; margin:0; padding:0;
 			color:#fff; border:none; font-size:28px; line-height:45px; text-align:center;
 			text-decoration:none!important; }
-		#utilsNav .btnUtil + .btnUtil 	{ right:0; }
-		#utilsNav .btnUtil 				{ right:45px; }
-
+		#utilsNav #btnPrev { left:0; }
+		#utilsNav #btnNext { right:0; }
+		
 		/* interaction */
 		.no-touch #utilsNav .btnUtil:hover,
 		.no-touch #utilsNav .btnUtil:focus,
@@ -180,7 +177,7 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* utilsExtra */
 	#utilsExtra {
-		display:table; position:absolute; top:0; right:100px; width:110px; margin:0; overflow:visible; }
+		display:table; position:absolute; top:0; right:160px; width:110px; margin:0; overflow:visible; }
 
 		/* btn */
 		#utilsExtra .btnUtil {
@@ -213,7 +210,7 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 #sysmsg {
-	display:block; position:absolute; left:0; top:90px; width:100%; height:auto; max-height:30px; padding:5px 115px 5px 15px; z-index:100;
+	display:block; position:absolute; left:0; top:90px; width:100%; height:auto; max-height:30px; padding:5px 15px; z-index:100;
 	white-space:nowrap; text-overflow:ellipsis;
 	color:#050505; text-decoration:none!important;
 	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.4);
@@ -232,9 +229,10 @@ html, body { height:100%; }
 	transition:all 0.3s ease-in-out; }
 
 /* interaction */
-#sysmsg:hover,
-#sysmsg:focus,
-#sysmsg.active:hover {
+a#sysmsg:hover,
+a#sysmsg:focus,
+a#sysmsg.active:hover,
+#sysmsg.highlight {
 	color:#000;
 	/*background-gradient*/
 	background-color:#ffe051;
@@ -244,7 +242,7 @@ html, body { height:100%; }
 	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00); }
 
-#sysmsg.active {
+a#sysmsg.active {
 	max-height:100px;
 	color:#000!important; white-space:normal;
 	/*box-shadow*/-webkit-box-shadow:0px 5px 5px 0px rgba(0,0,0,0.6); box-shadow:0px 5px 5px 0px rgba(0,0,0,0.6); }
@@ -265,8 +263,8 @@ html, body { height:100%; }
 		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 
 	/* interaction */
-	.no-touch #sysmsg:hover .label,
-	.no-touch #sysmsg:focus .label { color:#007aff; }
+	.no-touch a#sysmsg:hover .label,
+	.no-touch a#sysmsg:focus .label { color:#007aff; }
 
 	#sysmsg .label.more { display:block; }
 	#sysmsg .label.less { display:none; }
@@ -632,7 +630,7 @@ html, body { height:100%; }
 	-moz-transform:translate(-340px,0);
 	-ms-transform:translate(-340px,0);
 	transform:translate(-340px,0); }
-	
+
 /* -------------------------------------------------------------------------- */
 /* sidepanels */
 .menuActive #discussions { right:-340px; }
@@ -670,10 +668,10 @@ html, body { height:100%; }
 	/* update interaction */
 	.navActive #main {
 		/*transform*/
-		-webkit-transform:translate(256px,0);
-		-moz-transform:translate(256px,0);
-		-ms-transform:translate(256px,0);
-		transform:translate(256px,0); }
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
 	.menuActive #main,
 	.discussionsActive #main {
 		/*transform*/
@@ -681,7 +679,7 @@ html, body { height:100%; }
 		-moz-transform:translate(-256px,0);
 		-ms-transform:translate(-256px,0);
 		transform:translate(-256px,0); }
-	
+
 	/* show navigator */
     #container { max-width:1280px; margin-left:-640px; }
     #main { margin-left:256px; }
@@ -704,10 +702,10 @@ html, body { height:100%; }
 	/* update interaction */
 	.navActive #main {
 		/*transform*/
-		-webkit-transform:translate(342px,0);
-		-moz-transform:translate(342px,0);
-		-ms-transform:translate(342px,0);
-		transform:translate(342px,0); }
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
 	.menuActive #main,
 	.discussionsActive #main {
 		/*transform*/
@@ -731,16 +729,16 @@ html, body { height:100%; }
 	/* update interaction */
 	.navActive #main {
 		/*transform*/
-		-webkit-transform:translate(328px,0);
-		-moz-transform:translate(328px,0);
-		-ms-transform:translate(328px,0);
-		transform:translate(328px,0); }
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
 	.menuActive #main {
 		/*transform*/
-		-webkit-transform:translate(-328px,0);
-		-moz-transform:translate(-328px,0);
-		-ms-transform:translate(-328px,0);
-		transform:translate(-328px,0); }
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
 	.discussionsActive #main {
 		/*transform*/
 		-webkit-transform:translate(0,0);
