@@ -1,18 +1,27 @@
 /* ------------------------------------------------------------------------------ */
 /* webfonts */
 /* ------------------------------------------------------------------------------ */
-WebFontConfig = {
-	google: 		{ families: [
-									'Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic:latin',
-									'Montserrat:400,700:latin'
-								] },
-	loading: 		function() 					{ console.log( '[webfont] loading'); },
-	active: 		function() 					{ console.log( '[webfont] active :)'); },
-	inactive: 		function() 					{ console.log( '[webfont] inactive :('); },
-	fontloading: 	function( familyName, fvd ) { console.log( '[webfont] loading:',  familyName, fvd ); },
-	fontactive: 	function( familyName, fvd ) { console.log( '[webfont] active:',   familyName, fvd ); },
-	fontinactive: 	function( familyName, fvd ) { console.log( '[webfont] inactive:', familyName, fvd ); }
+WebFontConfig = { 
+	google: {
+		families: [
+			'Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic:latin',
+			'Montserrat:400,700:latin'
+		]
+	},
+	loading: 		function() { console.log('[WF] loading'); 	WebFontUtils.onWFLoading(); },
+	active: 		function() { console.log('[WF] active'); 	WebFontUtils.onWFActive(); 	 WebFontUtils.onWFComplete(); },
+	inactive: 		function() { console.log('[WF] inactive'); 	WebFontUtils.onWFInactive(); WebFontUtils.onWFComplete(); },
+	fontloading: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'loading' ); },
+	fontactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'active' ); },
+	fontinactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'inactive' ); },
+	timeout: 		5000000
 };
+WebFontUtils = {
+	onWFLoading: 	function()	{},
+	onWFComplete: 	function()	{},
+	onWFActive: 	function()	{},
+	onWFInactive: 	function()	{}
+}
 /* ------------------------------------------------------------------------------ */
 /* initMenus */
 /* ------------------------------------------------------------------------------ */

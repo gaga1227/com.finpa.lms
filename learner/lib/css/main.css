@@ -20,6 +20,42 @@
 
 
 /* ==========================================================================
+   structure - WF LOADER
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* loader */
+#loader {
+	display:none; position:absolute; top:180px; left:50%; width:40px; height:40px; margin:0 0 0 -20px; padding:0;
+	color:#fff;	font-size:40px; line-height:1em;
+	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+	
+/* -------------------------------------------------------------------------- */
+/* webfont */
+
+/* loading */
+.js #container {
+	visibility:hidden; opacity:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:opacity 0.3s ease-in-out;
+	-moz-transition:opacity 0.3s ease-in-out;
+	-o-transition:opacity 0.3s ease-in-out;
+	transition:opacity 0.3s ease-in-out; }
+
+/* loading */
+.wf-loading #loader 	{ display:block; }
+
+/* active */
+.wf-active #container,
+.wf-inactive #container	{ visibility:visible; opacity:1; }
+
+.wf-active #loader,
+.wf-inactive #loader 	{ display:none!important; }
+
+
+/* ==========================================================================
    structure - GLOBAL
    ========================================================================== */
 
@@ -257,6 +293,7 @@ html, body { height:100%; }
 	/* player */
 	#player {
 		width:800px; height:570px; }
+
 
 /* ==========================================================================
    structure - COPYRIGHT
@@ -600,8 +637,16 @@ html, body { height:100%; }
 	-ms-transform:translate(-340px,0);
 	transform:translate(-340px,0); }
 
+/* fallback */
+.no-csstransforms .navActive #main 			{ left:340px; }
+.no-csstransforms .menuActive #main,
+.no-csstransforms .discussionsActive #main 	{ left:-340px; }
+
 /* -------------------------------------------------------------------------- */
 /* sidepanels */
+.menuActive #discussions { right:-340px; }
+.discussionsActive #menu { right:340px; }
+
 .menuActive #discussions { right:-340px; }
 .discussionsActive #menu { right:340px; }
 
@@ -648,6 +693,11 @@ html, body { height:100%; }
 		-moz-transform:translate(-256px,0);
 		-ms-transform:translate(-256px,0);
 		transform:translate(-256px,0); }
+		
+	/* fallback */
+	.no-csstransforms .navActive #main 			{ left:0; }
+	.no-csstransforms .menuActive #main,
+	.no-csstransforms .discussionsActive #main 	{ left:-256px; }
 
 	/* show navigator */
     #container { max-width:1280px; margin-left:-640px; }
@@ -683,6 +733,11 @@ html, body { height:100%; }
 		-ms-transform:translate(-342px,0);
 		transform:translate(-342px,0); }
 
+	/* fallback */
+	.no-csstransforms .navActive #main 			{ left:0; }
+	.no-csstransforms .menuActive #main,
+	.no-csstransforms .discussionsActive #main 	{ left:-342px; }
+
 	/* show navigator */
     #container { max-width:1366px; margin-left:-683px; }
     #main { margin-left:342px; }
@@ -696,24 +751,19 @@ html, body { height:100%; }
 	.discussionsActive #menu { right:328px; }
 
 	/* update interaction */
-	.navActive #main {
-		/*transform*/
-		-webkit-transform:translate(0,0);
-		-moz-transform:translate(0,0);
-		-ms-transform:translate(0,0);
-		transform:translate(0,0); }
-	.menuActive #main {
-		/*transform*/
-		-webkit-transform:translate(0,0);
-		-moz-transform:translate(0,0);
-		-ms-transform:translate(0,0);
-		transform:translate(0,0); }
+	.navActive #main,
+	.menuActive #main,
 	.discussionsActive #main {
 		/*transform*/
 		-webkit-transform:translate(0,0);
 		-moz-transform:translate(0,0);
 		-ms-transform:translate(0,0);
 		transform:translate(0,0); }
+
+	/* fallback */
+	.no-csstransforms .navActive #main,
+	.no-csstransforms .menuActive #main,
+	.no-csstransforms .discussionsActive #main 	{ left:0; }
 
 	/* show navigator */
     #container { max-width:1680px; margin-left:-840px; }
@@ -749,24 +799,6 @@ html, body { height:100%; }
    Common Styles
    Author: JX 20120127
    ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* webfont */
-
-/* loading */
-.js body {
-	visibility:hidden; opacity:0;
-	/*transition*/
-	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:opacity 0.3s ease-in-out;
-	-moz-transition:opacity 0.3s ease-in-out;
-	-o-transition:opacity 0.3s ease-in-out;
-	transition:opacity 0.3s ease-in-out; }
-
-/* active */
-.wf-active body,
-.wf-inactive body	{ visibility:visible; opacity:1; }
-
 
 /* -------------------------------------------------------------------------- */
 /* text style */
