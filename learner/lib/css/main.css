@@ -187,18 +187,18 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* utilsNav */
 	#utilsNav {
-		display:table; position:absolute; top:0; right:0; width:140px;
+		display:block; width:auto; max-width:160px; float:right; clear:right;
 		border-left:1px solid #ecf0f1; text-align:center; }
 		
 		/* prgs */
 		#utilsNav .prgs {
-			display:block; position:absolute; top:0; left:50%; width:50px; margin:0 0 0 -25px;
-			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
+			display:inline-block; width:50px; margin:0; vertical-align:top;
+			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase; 
 			color:#fff; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:400; }
 		
 	 	/* btn */
 		#utilsNav .btnUtil {
-			display:block; position:absolute; top:0; width:45px; height:100%; margin:0; padding:0;
+			display:inline-block; width:45px; height:45px; margin:0; padding:0; vertical-align:top;
 			color:#fff; border:none; font-size:28px; line-height:45px; text-align:center;
 			text-decoration:none!important; }
 		#utilsNav #btnPrev { left:0; }
@@ -213,19 +213,16 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* utilsExtra */
 	#utilsExtra {
-		display:table; position:absolute; top:0; right:160px; width:110px; margin:0; overflow:visible; }
+		display:block; width:auto; max-width:120px; overflow:visible; float:right; }
 
 		/* btn */
 		#utilsExtra .btnUtil {
-			display:block; position:absolute; top:0; width:30px; height:30px; margin:7px 0 8px 0; padding:0;
+			display:inline-block; width:30px; height:30px; margin:7px 10px 8px 0; padding:0; vertical-align:top;
 			color:#fff; border:1px solid transparent; text-shadow:none; text-align:center;
 			font-size:14px; font-weight:400; line-height:30px;
 			text-decoration:none!important;
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-		#utilsExtra .btnUtil + .btnUtil + .btnUtil	{ right:0; }
-		#utilsExtra .btnUtil + .btnUtil 			{ right:40px; }
-		#utilsExtra .btnUtil 						{ right:80px; }
 
 		/* interaction */
 		.no-touch #utilsExtra .btnUtil:hover,

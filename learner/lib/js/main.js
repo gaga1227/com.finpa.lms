@@ -14,7 +14,7 @@ WebFontConfig = {
 	fontloading: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'loading' ); },
 	fontactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'active' ); },
 	fontinactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'inactive' ); },
-	timeout: 		5000000
+	timeout: 		10000
 };
 WebFontUtils = {
 	onWFLoading: 	function()	{},
@@ -46,6 +46,7 @@ function initMenus(){
 
 	//handler
 	function toggleMenus(e) {
+		e.preventDefault();
 		var $btn = $(this),
 			id = $btn.attr('id');
 		//determine state classes
@@ -82,7 +83,7 @@ function initMenus(){
 	}
 
 	//bind side menu interaction
-	$.each([$btnNav, $btnMenu, $btnDiscussions], function(){
+	$.each([$btnNav, $btnMenu, $btnDiscussions], function(e){
 		$(this).on('click', toggleMenus);
 	});
 
