@@ -368,23 +368,67 @@ html, body { height:100%; }
 	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
 
 	/* -------------------------------------------------------------------------- */
-	/* navList */
+	/* navList/subNavList */
 
 	/* common */
 	#navList,
 	#navList li,
-	#navList ol {
+	#navList ol,
+	#subNavList,
+	#subNavList li,
+	#subNavList ol,
+	#subNavContainer {
 		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		list-style:none; }
 
 	/* container */
-	#navList {
-		position:absolute; top:46px; left:0; width:100%; height:100%; }
+	#navList, #subNavContainer 	{ 
+		position:absolute; top:46px; width:100%; height:100%;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:-webkit-transform 0.3s ease-in-out;
+		-moz-transition:-moz-transform 0.3s ease-in-out;
+		transition:transform 0.3s ease-in-out; }
+	.no-csstransforms #navList, .no-csstransforms #subNavContainer {
+		-webkit-transition:left 0.3s ease-in-out;
+		-moz-transition:left 0.3s ease-in-out;
+		transition:left 0.3s ease-in-out; }
+	
+	/* container interaction */
+	#nav.subNavActive #navList { 
+		/*transform*/
+		-webkit-transform:translate(-100%,0);
+		-moz-transform:translate(-100%,0);
+		-ms-transform:translate(-100%,0);
+		transform:translate(-100%,0); }
+	#navList,
+	#nav.subNavActive #subNavContainer 	{ 
+		/*transform*/
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
+	#subNavContainer { 
+		/*transform*/
+		-webkit-transform:translate(100%,0);
+		-moz-transform:translate(100%,0);
+		-ms-transform:translate(100%,0);
+		transform:translate(100%,0); }
+	
+	.no-csstransforms #nav.subNavActive #navList 			{ left:-100%; }
+	.no-csstransforms #navList,
+	.no-csstransforms #nav.subNavActive #subNavContainer 	{ left:0; }
+	.no-csstransforms #subNavContainer 						{ left:100%; }
 
-	/* position */
-	#btnSubmitAssess + #navList 					{ bottom:45px; height:auto; }
-	#btnGroupAssess  + #navList 					{ bottom:54px; height:auto; }
-	#btnSubmitAssess + #btnGroupAssess + #navList 	{ bottom:99px; height:auto; }
+	/* container position */
+	#btnSubmitAssess + #navList,
+	#btnSubmitAssess + #navList + #subNavContainer						{ bottom:45px; height:auto; }
+	
+	#btnGroupAssess  + #navList,
+	#btnGroupAssess  + #navList + #subNavContainer						{ bottom:54px; height:auto; }
+	
+	#btnSubmitAssess + #btnGroupAssess + #navList,
+	#btnSubmitAssess + #btnGroupAssess + #navList + #subNavContainer 	{ bottom:99px; height:auto; }
 
 		/* -------------------------------------------------------------------------- */
 		/* item */
@@ -422,7 +466,7 @@ html, body { height:100%; }
 					color:#007aff; border:1px solid #007aff; }
 
 			/* -------------------------------------------------------------------------- */
-			/* theme */
+			/* link custom */
 
 			/* core content */
 			#navList li.core .link	{ background:#d1eefe; }
@@ -451,7 +495,7 @@ html, body { height:100%; }
 			#navList li.lv4 .link	{ font-size:15px; }
 
 		/* -------------------------------------------------------------------------- */
-		/* elem */
+		/* subNavList */
 		#navList .subNavList { display:none; }
 
 

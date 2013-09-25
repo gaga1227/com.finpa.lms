@@ -96,6 +96,40 @@ function initMenus(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
+/* initSubNav */
+/* ------------------------------------------------------------------------------ */
+function initSubNav(){
+	//vars
+	var $nav = $('#nav'),
+		$navList = $('#navList'),
+		$subNavLists = $navList.find('.subNavList'),
+		$subNavHost = $('#subNavList'),
+		$btnBack = $('#btnSubNav'),
+		subNavActiveCls = 'subNavActive',
+		currentCls = 'current';
+	//handlers
+	function onShowSubNav(e){
+		e.preventDefault();
+		var $trigger = $(this).addClass(currentCls),
+			$subNavList = $trigger.parent('li').find('> .subNavList');
+		$subNavHost.empty().html($subNavList.html());		
+		$nav.addClass(subNavActiveCls);
+		$btnBack.one('click', onHideSubNav);
+		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
+	}
+	function onHideSubNav(e){
+		e.preventDefault();
+		var $trigger = $navList.find('> li > a.link.current').removeClass(currentCls);
+		$nav.removeClass(subNavActiveCls);
+		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
+	}
+	//bind interaction
+	$.each($subNavLists, function(idx, ele){
+		var $trigger = $(ele).parent('li').find('> a.link');
+		$trigger.on('click', onShowSubNav);
+	});
+}
+/* ------------------------------------------------------------------------------ */
 /* initSysMsg */
 /* ------------------------------------------------------------------------------ */
 function initSysMsg(){
@@ -145,6 +179,8 @@ function initModals(){
 function init(){
 	//interaction demo
 	initMenus();
+	//initSubNav
+	initSubNav();
 	//initSysMsg();
 	initModals();
 	//debug
