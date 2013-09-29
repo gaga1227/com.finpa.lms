@@ -42,7 +42,9 @@ function initMenus(){
 		discussionsActiveCls = 'discussionsActive',
 		activeCls = 'active',
 		thisCls = '',
-		otherCls = '';
+		otherCls = '',
+		//statics
+		speed = 300;
 
 	//handler
 	function toggleMenus(e) {
@@ -89,10 +91,10 @@ function initMenus(){
 
 	//remove text label hints after first use
 	$btnNav.one('click', function(){
-		$('#popoverNav').fadeOut(300);
+		$('#popoverNav').fadeOut(speed);
 	});
 	$btnMenu.one('click', function(){
-		$('#popoverMenu').fadeOut(300);
+		$('#popoverMenu').fadeOut(speed);
 	});
 }
 /* ------------------------------------------------------------------------------ */
@@ -135,22 +137,30 @@ function initSubNav(){
 		$subNavLists = $navList.find('.subNavList'),
 		$subNavHost = $('#subNavList'),
 		$btnBack = $('#btnSubNav'),
+		$btnSubmitAssess = $('#btnSubmitAssess'),
 		subNavActiveCls = 'subNavActive',
 		currentCls = 'current';
 	//handlers
 	function onShowSubNav(e){
 		e.preventDefault();
 		var $trigger = $(this).addClass(currentCls),
-			$subNavList = $trigger.parent('li').find('> .subNavList');
+			$listItem = $trigger.parent('li'),
+			$subNavList = $listItem.find('> .subNavList');
 		$subNavHost.empty().html($subNavList.html());		
 		$nav.addClass(subNavActiveCls);
 		$btnBack.one('click', onHideSubNav);
+		//hide/show assessment button
+		if ($btnSubmitAssess.length) {
+			$listItem.hasClass('assess') ? $btnSubmitAssess.show() : $btnSubmitAssess.hide();
+		} 
+		
 		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
 	}
 	function onHideSubNav(e){
 		e.preventDefault();
 		var $trigger = $navList.find('> li > a.link.current').removeClass(currentCls);
 		$nav.removeClass(subNavActiveCls);
+		
 		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
 	}
 	//bind interaction

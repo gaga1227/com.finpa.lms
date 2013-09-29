@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <!-- IE optimized -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Search optimized -->
 <meta name="keywords" content="">
 <meta name="description" content="">
@@ -50,14 +50,14 @@
 		<h2 class="menuHeader">Course Menu</h2>
 		
 		<!-- BUTTONS -->
-		<a id="btnSubmitAssess" class="btn btn-default btn-block btn-lg bdr-top bdr-bottom" href="#">Submit Assessment</a>
+		<a id="btnSubmitAllAssess" class="btn btn-default btn-block btn-lg bdr-top bdr-bottom" href="#"><i class="icon icon-upload"></i>&nbsp;&nbsp;Submit All Assessment</a>
 		<div id="btnGroupAssess" class="btn-group btn-group-justified">
 			<a class="btn btn-default" id="btnViewAll" href="#"><i class="icon icon-list"></i><br>Show All Items</a>
 			<a class="btn btn-default" id="btnViewAssess" href="#"><i class="icon icon-list-ul"></i><br>Assessment Only</a>
 		</div>
 				
 		<!-- NAVLIST -->
-		<ol id="navList" class="scroller">
+		<ol id="navList" class="navList scroller">
 			<li><a class="link" href="#">Description</a><i class="status icon icon-ok"></i></li>
 			<li><a class="link" href="#">Information</a><i class="status icon icon-ok"></i></li>
 			<li><a class="link" href="#">Declaration</a><i class="status icon icon-ok"></i></li>
@@ -65,119 +65,134 @@
 				<a class="link" href="#">Respond to customer complaints<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-ok"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Introduction</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Customer Complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Examples: external customer complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Examples: external customer complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Process Complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Examples: internal customer complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Process Complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Customer complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Legislation, codes and policies</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Procedure for resolving complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Organisational procedures</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Respond to complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Effective communication</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Maintain complaints register</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Document complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Methods for documenting complaints</a><i class="status icon icon-"></i></li>  
-					<li><a class="link" href="#">Obtain documents and reports</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Obtain and review reports</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Obtain, document and review reports</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Respond to customer complaints</span></li>
+					<li class="core"><a class="link" href="#">Introduction</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Customer Complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Examples: external customer complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Examples: external customer complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Process Complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Examples: internal customer complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Process Complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Customer complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Legislation, codes and policies</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Procedure for resolving complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Organisational procedures</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Respond to complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Effective communication</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Maintain complaints register</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Document complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Methods for documenting complaints</a><i class="status icon icon-ok"></i></li>  
+					<li class="core"><a class="link" href="#">Obtain documents and reports</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Obtain and review reports</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Obtain, document and review reports</a><i class="status icon icon-ok"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 1<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 1 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 1 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 1 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 1 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 1 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Respond to complaints</span></li>
+					<li class="core"><a class="link" href="#">Assessment 1 - 1</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 1 - 2</a><i class="status icon icon-remove fail"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 1 - 3</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 1 - 4</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 1 - 5</a><i class="status icon icon-remove fail"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 2<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 2 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 2 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 2 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 2 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 2 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Complaints and procedures</span></li>
+					<li class="core"><a class="link" href="#">Assessment 2 - 1</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 2 - 2</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 2 - 3</a><i class="status icon icon-remove fail"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 2 - 4</a><i class="status icon icon-remove fail"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 2 - 5</a><i class="status icon icon-ok pass"></i></li>
 				</ol>
 			</li>
 			<li class="lv1 core">
 				<a class="link" href="#">Analyse and negotiate resolutions<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Process Complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Customer complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Legislation, codes and policies</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Procedure for resolving complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Organisational procedures</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Respond to complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Effective communication</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Analyse and negotiate resolutions</span></li>
+					<li class="core"><a class="link" href="#">Procedure for resolving complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Organisational procedures</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Respond to complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Effective communication</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Maintain complaints register</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Document complaints</a><i class="status icon icon-ok"></i></li>
+					<li class="core"><a class="link" href="#">Methods for documenting complaints</a><i class="status icon icon-ok"></i></li>  
+					<li class="core"><a class="link" href="#">Obtain documents and reports</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Obtain and review reports</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Obtain, document and review reports</a><i class="status icon icon-"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 3<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 3 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 3 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 3 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 3 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 3 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Resolve complaints</span></li>
+					<li class="core"><a class="link" href="#">Assessment 3 - 1</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 3 - 2</a><i class="status icon icon-ok pass"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 3 - 3</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 3 - 4</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 3 - 5</a><i class="status icon icon-circle-blank"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 4<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 4 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 4 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 4 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 4 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 4 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Explain and negotiate resolutions</span></li>
+					<li class="core"><a class="link" href="#">Assessment 4 - 1</a><i class="status icon icon-remove fail"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 4 - 2</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 4 - 3</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 4 - 4</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 4 - 5</a><i class="status icon icon-circle-blank"></i></li>
 				</ol>
 			</li>
 			<li class="lv1 core">
 				<a class="link" href="#">Refer and follow-up complaints<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Maintain complaints register</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Document complaints</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Methods for documenting complaints</a><i class="status icon icon-"></i></li>  
-					<li><a class="link" href="#">Obtain documents and reports</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Obtain and review reports</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Revision - Obtain, document and review reports</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Refer complaints</span></li>
+					<li class="core"><a class="link" href="#">Process Complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Examples: internal customer complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Process Complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Customer complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Legislation, codes and policies</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Procedure for resolving complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Organisational procedures</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Respond to complaints</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Effective communication</a><i class="status icon icon-"></i></li>
+					<li class="core"><a class="link" href="#">Revision - Effective communication</a><i class="status icon icon-"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 5<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 5 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 5 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 5 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 5 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 5 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Refer complaints</span></li>
+					<li class="core"><a class="link" href="#">Assessment 5 - 1</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 5 - 2</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 5 - 3</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 5 - 4</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 5 - 5</a><i class="status icon icon-circle-blank"></i></li>
 				</ol>
 			</li>
 			<li class="lv2 core assess">
 				<a class="link" href="#">Assessment 6<i class="action icon icon-angle-right"></i></a>
 				<i class="status icon icon-"></i>
 				<ol class="subNavList">
-					<li><a class="link" href="#">Assessment 6 - 1</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 6 - 2</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 6 - 3</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 6 - 4</a><i class="status icon icon-"></i></li>
-					<li><a class="link" href="#">Assessment 6 - 5</a><i class="status icon icon-"></i></li>
+					<li class="lv1 title"><span class="link">Explain and negotiate resolutions</span></li>
+					<li class="core"><a class="link" href="#">Assessment 6 - 1</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 6 - 2</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 6 - 3</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 6 - 4</a><i class="status icon icon-circle-blank"></i></li>
+					<li class="core"><a class="link" href="#">Assessment 6 - 5</a><i class="status icon icon-circle-blank"></i></li>
 				</ol>
 			</li>
 			<li class="lv1"><a class="link" href="#">Conclusion</a><i class="status icon icon-"></i></li>
@@ -190,8 +205,11 @@
 		
 		<!-- SUBNAVCONTAINER -->
 		<div id="subNavContainer">
-			<a id="btnSubNav" class="btn btn-default btn-block" href="#"><i class="icon icon-angle-left"></i>Back</a>
-			<ol id="subNavList" class="scroller"></ol>
+			<div id="subNavUtils" class="btn-group btn-group-justified">
+				<a href="#" class="btn btn-default" id="btnSubNav"><i class="icon icon-chevron-left"></i>&nbsp;&nbsp;Back</a>
+				<a href="#" class="btn btn-default" id="btnSubmitAssess"><i class="icon icon-upload"></i>&nbsp;&nbsp;Submit</a>
+			</div>
+			<ol id="subNavList" class="navList scroller"></ol>
 		</div><!-- /SUBNAVCONTAINER -->				
 		
 	</div><!-- /NAV -->
@@ -203,9 +221,9 @@
 		<h2 class="menuHeader">Discussions</h2>
 		
 		<!-- UTILS -->
-		<div id="btnGroupDiscussion" class="btn-group">
-			<button type="button" class="btn btn-default"><i class="icon icon-comments"></i>&nbsp;&nbsp;Show All Replies</button>
-			<button type="button" class="btn btn-default"><i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Hide All Replies</button>
+		<div id="btnGroupDiscussion" class="btn-group btn-group-justified">
+			<a href="#" class="btn btn-default"><i class="icon icon-comments"></i>&nbsp;&nbsp;Show All Replies</a>
+			<a href="#" class="btn btn-default"><i class="icon icon-comments-alt"></i>&nbsp;&nbsp;Hide All Replies</a>
 		</div>
 		<a id="btnNewDiscussion" class="btn btn-default btn-block btn-lg bdr-top" href="#"><i class="icon icon-plus"></i>&nbsp;&nbsp;New Discussion</a>
 		

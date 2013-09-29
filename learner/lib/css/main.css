@@ -364,24 +364,23 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* buttons */
-	#btnSubmitAssess 	{ position:absolute; bottom:54px; left:0; }
+	#btnSubmitAllAssess { position:absolute; bottom:54px; left:0; }
 	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
 
 	/* -------------------------------------------------------------------------- */
-	/* navList/subNavList */
-
-	/* common */
+	/* containers reset */
 	#navList,
-	#navList li,
 	#navList ol,
-	#subNavList,
-	#subNavList li,
-	#subNavList ol,
+	#navList li,
+	.subNavList,
+	.subNavList ol,
+	.subNavList li,
 	#subNavContainer {
 		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		list-style:none; }
 
-	/* container */
+	/* -------------------------------------------------------------------------- */
+	/* containers */
 	#navList, #subNavContainer 	{ 
 		position:absolute; top:46px; width:100%; height:100%;
 		/*transition*/
@@ -389,11 +388,13 @@ html, body { height:100%; }
 		-webkit-transition:-webkit-transform 0.3s ease-in-out;
 		-moz-transition:-moz-transform 0.3s ease-in-out;
 		transition:transform 0.3s ease-in-out; }
-	.no-csstransforms #navList, .no-csstransforms #subNavContainer {
+	.no-csstransforms #navList,
+	.no-csstransforms #subNavContainer {
 		-webkit-transition:left 0.3s ease-in-out;
 		-moz-transition:left 0.3s ease-in-out;
 		transition:left 0.3s ease-in-out; }
 	
+	/* -------------------------------------------------------------------------- */
 	/* container interaction */
 	#nav.subNavActive #navList { 
 		/*transform*/
@@ -414,89 +415,111 @@ html, body { height:100%; }
 		-moz-transform:translate(100%,0);
 		-ms-transform:translate(100%,0);
 		transform:translate(100%,0); }
-	
+		
 	.no-csstransforms #nav.subNavActive #navList 			{ left:-100%; }
 	.no-csstransforms #navList,
 	.no-csstransforms #nav.subNavActive #subNavContainer 	{ left:0; }
 	.no-csstransforms #subNavContainer 						{ left:100%; }
-
+	
+	/* -------------------------------------------------------------------------- */
 	/* container position */
-	#btnSubmitAssess + #navList,
-	#btnSubmitAssess + #navList + #subNavContainer						{ bottom:45px; height:auto; }
+	#btnSubmitAllAssess + #navList,
+	#btnSubmitAllAssess + #navList + #subNavContainer					{ bottom:45px; height:auto; }
 	
 	#btnGroupAssess  + #navList,
 	#btnGroupAssess  + #navList + #subNavContainer						{ bottom:54px; height:auto; }
 	
-	#btnSubmitAssess + #btnGroupAssess + #navList,
-	#btnSubmitAssess + #btnGroupAssess + #navList + #subNavContainer 	{ bottom:99px; height:auto; }
-
-		/* -------------------------------------------------------------------------- */
-		/* item */
-		#navList li {
-			min-height:36px;
-			border-bottom:1px solid #dedede; }
-		#navList li.core {
-			border-bottom-color:#9ecef6; }
-
-			/* -------------------------------------------------------------------------- */
-			/* status */
-			#navList li .status {
-				display:block; position:absolute; top:0; left:0; width:32px; height:36px; margin:0; padding:0; overflow:hidden;
-				color:#007aff; font-size:14px; line-height:36px; text-align:center; }
-
-			/* -------------------------------------------------------------------------- */
-			/* link */
-			#navList li .link {
-				display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 30px; overflow:hidden;
-				color:#050505; font-size:16px; font-weight:400; line-height:20px; text-decoration:none; }
-			#navList li .link:hover,
-			#navList li .link:focus,
-			#navList li .link:active {
-				color:#007aff; background:#fff!important; text-decoration:none; }
-
-				/* action */
-				#navList li .action {
-					display:block; position:absolute; top:50%; right:10px; width:20px; height:20px; margin:-10px 0 0 0; padding:0; overflow:hidden;
-					color:#007aff; border:1px solid #007aff; font-size:16px; line-height:18px; text-align:center;
-					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-				#navList li .link:hover .action,
-				#navList li .link:focus .action,
-				#navList li .link:active .action {
-					color:#007aff; border:1px solid #007aff; }
-
-			/* -------------------------------------------------------------------------- */
-			/* link custom */
-
-			/* core content */
-			#navList li.core .link	{ background:#d1eefe; }
-
-			/* current */
-			#navList li.current .link			{ color:#fff; background:#007aff; }
-			#navList li.current .link:hover,
-			#navList li.current .link:focus,
-			#navList li.current .link:active 	{ background:#2980b9!important; }
-
-			#navList li.current .status	{ color:#ecf0f1; }
-
-			#navList li.current .link .action,
-			#navList li.current .link:hover .action,
-			#navList li.current .link:focus .action,
-			#navList li.current .link:active .action { color:#fff; border:1px solid #fff; }
-
-			/* levels/indentations */
-			#navList li.lv1 .link	{ font-weight:700; }
-			#navList li.lv2 .link	{ padding-left:40px; }
-			#navList li.lv3 .link	{ padding-left:50px; }
-			#navList li.lv4 .link	{ padding-left:60px; }
-
-			#navList li.lv2 .link,
-			#navList li.lv3 .link,
-			#navList li.lv4 .link	{ font-size:15px; }
-
-		/* -------------------------------------------------------------------------- */
+	#btnSubmitAllAssess + #btnGroupAssess + #navList,
+	#btnSubmitAllAssess + #btnGroupAssess + #navList + #subNavContainer { bottom:99px; height:auto; }
+				
+	/* -------------------------------------------------------------------------- */
+	/* subNavContainer */
+	#subNavContainer {  }
+	
+		/* subNavUtils */
+		#subNavUtils { height:45px; }
+		
 		/* subNavList */
-		#navList .subNavList { display:none; }
+		#subNavList { 
+			position:absolute; top:45px; bottom:0; width:100%; height:auto; margin:0; padding:0; overflow:hidden;
+			list-style:none; }
+			
+	/* -------------------------------------------------------------------------- */
+	/* navList item */
+	.navList li {
+		position:relative; min-height:36px;
+		border-bottom:1px solid #dedede; }
+	.navList li.core {
+		border-bottom-color:#9ecef6; }
+
+		/* -------------------------------------------------------------------------- */
+		/* status */
+		.navList li .status {
+			display:block; position:absolute; top:0; left:0; width:32px; height:36px; margin:0; padding:0; overflow:hidden;
+			color:#007aff; font-size:14px; line-height:36px; text-align:center; }
+			
+		/* assessment result */
+		.navList li .status.pass { color:#49bf1f; }
+		.navList li .status.fail { color:#ff3b30; }
+		
+		/* -------------------------------------------------------------------------- */
+		/* link */
+		.navList li .link {
+			display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 30px; overflow:hidden;
+			color:#050505; font-size:16px; font-weight:400; line-height:20px; text-decoration:none; }
+		.navList li a.link:hover,
+		.navList li a.link:focus,
+		.navList li a.link:active {
+			color:#007aff; background:#fff!important; text-decoration:none; }
+
+			/* action */
+			.navList li .action {
+				display:block; position:absolute; top:50%; right:10px; width:20px; height:20px; margin:-10px 0 0 0; padding:0; overflow:hidden;
+				color:#007aff; border:1px solid #007aff; font-size:16px; line-height:18px; text-align:center;
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			.navList li a.link:hover .action,
+			.navList li a.link:focus .action,
+			.navList li a.link:active .action {
+				color:#007aff; border:1px solid #007aff; }
+
+		/* -------------------------------------------------------------------------- */
+		/* title */
+		.navList li.title { border-bottom-color:#007aff; }
+		.navList li.title .link { background:#fff; text-align:center; }
+
+		/* -------------------------------------------------------------------------- */
+		/* link custom */
+
+		/* core content */
+		.navList li.core .link	{ background:#d1eefe; }
+
+		/* current */
+		.navList li.current .link			{ color:#fff; background:#007aff; }
+		.navList li.current a.link:hover,
+		.navList li.current a.link:focus,
+		.navList li.current a.link:active 	{ background:#2980b9!important; }
+
+		.navList li.current .status	{ color:#ecf0f1; }
+
+		.navList li.current .link .action,
+		.navList li.current a.link:hover .action,
+		.navList li.current a.link:focus .action,
+		.navList li.current a.link:active .action { color:#fff; border:1px solid #fff; }
+
+		/* levels/indentations */
+		.navList li.lv1 .link	{ font-weight:700; }
+		.navList li.lv2 .link	{ padding-left:40px; }
+		.navList li.lv3 .link	{ padding-left:50px; }
+		.navList li.lv4 .link	{ padding-left:60px; }
+
+		.navList li.lv2 .link,
+		.navList li.lv3 .link,
+		.navList li.lv4 .link	{ font-size:15px; }
+		
+			/* -------------------------------------------------------------------------- */
+			/* elem */
+			.navList .subNavList { display:none; }
 
 
 /* ==========================================================================
@@ -582,24 +605,20 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* utils */
+	
+	/* btnGroupDiscussion */
 	#btnGroupDiscussion {
-		position:absolute; top:46px; left:0; width:100%; height:44px; }
+		margin-top:45px; height:45px; }
 
-		/* btn */
-		#btnGroupDiscussion .btn {
-			position:absolute; top:0; left:0; width:50%; height:100%; }
-		#btnGroupDiscussion .btn:last-child {
-			left:auto; right:0; }
-
-		/* btnNewDiscussion */
-		#btnNewDiscussion {
-			position:absolute; bottom:0; left:0; width:100%; height:44px;
-			border-top:1px solid #bdc3c7; }
+	/* btnNewDiscussion */
+	#btnNewDiscussion {
+		position:absolute; bottom:0; left:0; width:100%; height:44px;
+		border-top:1px solid #bdc3c7; }
 
 	/* -------------------------------------------------------------------------- */
 	/* discussionBody */
 	#discussionBody {
-		position:absolute; top:90px; left:0; bottom:46px; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
+		position:absolute; top:90px; left:0; bottom:44px; width:100%; height:auto; margin:0; padding:0; overflow:hidden; }
 
 		/* -------------------------------------------------------------------------- */
 		/* discussion */
