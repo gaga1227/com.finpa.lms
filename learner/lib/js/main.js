@@ -14,7 +14,7 @@ WebFontConfig = {
 	fontloading: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'loading' ); },
 	fontactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'active' ); },
 	fontinactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'inactive' ); },
-	timeout: 		10000
+	timeout: 		5000
 };
 WebFontUtils = {
 	onWFLoading: 	function()	{},
@@ -96,6 +96,36 @@ function initMenus(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
+/* initMenuFilter */
+/* ------------------------------------------------------------------------------ */
+function initMenuFilter(){
+	//vars
+	var $courseMenu = $('#navList'),
+		$btnViewAll = $('#btnViewAll'),
+		$btnViewAssess = $('#btnViewAssess'),
+		allSelector = '> li.core',
+		assessSelector = '.assess',
+		activeCls = 'active',
+		//handlers
+		onShowAll = function(e){
+			e.preventDefault();
+			$courseMenu.find(allSelector).show();
+			$btnViewAll.addClass(activeCls);
+			$btnViewAssess.removeClass(activeCls);
+		};
+		onShowAssess = function(e){
+			e.preventDefault();
+			$courseMenu.find(allSelector).not(assessSelector).hide();
+			$btnViewAssess.addClass(activeCls);
+			$btnViewAll.removeClass(activeCls);
+		};
+	//bind button behaviour
+	$btnViewAll.on('click', onShowAll);
+	$btnViewAssess.on('click', onShowAssess);
+	//show all on init
+	$btnViewAll.trigger('click');
+}
+/* ------------------------------------------------------------------------------ */
 /* initSubNav */
 /* ------------------------------------------------------------------------------ */
 function initSubNav(){
@@ -145,7 +175,7 @@ function initSysMsg(){
 	});
 }
 /* ------------------------------------------------------------------------------ */
-/* initUtils */
+/* initModals */
 /* ------------------------------------------------------------------------------ */
 function initModals(){
 	//vars
@@ -179,12 +209,13 @@ function initModals(){
 function init(){
 	//interaction demo
 	initMenus();
-	//initSubNav
+	initMenuFilter();
 	initSubNav();
-	//initSysMsg();
 	initModals();
+	
 	//debug
 	displayDebugInfo('#debugInfo');
+	//alert($(window).height());
 }
 /* DOM.ready */
 $(document).ready(function(){
@@ -192,6 +223,4 @@ $(document).ready(function(){
 	initWebFontLoader();
 	Platform.addDOMClass();
 	init();
-
-	//alert($(window).height());
 });
