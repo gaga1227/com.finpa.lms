@@ -156,6 +156,12 @@ hr.theme {
 	border-top: 1px solid transparent!important;
 }
 
+/* IE8 button group width issue */
+.oldie .btn-group-justified .btn {
+	width: auto;
+}
+
+
 /* modal */
 @media screen and (min-width: 768px) {
 	.modal-dialog {
