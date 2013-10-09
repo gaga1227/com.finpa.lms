@@ -30,7 +30,7 @@
 	color:#fff;	font-size:40px; line-height:1em;
 	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
-	
+
 /* -------------------------------------------------------------------------- */
 /* webfont */
 
@@ -98,7 +98,7 @@ html, body { height:100%; }
 	transition:all 0.3s ease-in-out; }
 
 /* blockings - oldie fix - height */
-.oldie #container, 
+.oldie #container,
 .oldie .sidePanel,
 .oldie #main  { height:690px!important; max-height:690px!important; }
 
@@ -185,7 +185,7 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* heading */
 	#utils .heading {
-		margin:0 270px 0 15px; overflow:hidden;
+		width:auto; min-width:310px; margin:0 270px 0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		font-size:24px; font-weight:300; }
 
@@ -194,13 +194,13 @@ html, body { height:100%; }
 	#utilsNav {
 		display:block; width:auto; max-width:160px; float:right; clear:right;
 		border-left:1px solid #ecf0f1; text-align:center; }
-		
+
 		/* prgs */
 		#utilsNav .prgs {
 			display:inline-block; width:50px; margin:0; vertical-align:top;
-			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase; 
+			white-space:nowrap; text-overflow:ellipsis; text-transform:uppercase;
 			color:#fff; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:400; }
-		
+
 	 	/* btn */
 		#utilsNav .btnUtil {
 			display:inline-block; width:45px; height:45px; margin:0; padding:0; vertical-align:top;
@@ -208,7 +208,7 @@ html, body { height:100%; }
 			text-decoration:none!important; }
 		#utilsNav #btnPrev { left:0; }
 		#utilsNav #btnNext { right:0; }
-		
+
 		/* interaction */
 		.no-touch #utilsNav .btnUtil:hover,
 		.no-touch #utilsNav .btnUtil:focus,
@@ -248,7 +248,7 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 #sysmsg {
-	display:block; position:relative; width:auto; height:auto; margin:0; padding:10px 15px; z-index:10;
+	display:block; position:relative; width:100%; min-width:800px;/*as player*/ height:auto; margin:0; padding:10px 15px; z-index:10;
 	color:#000; text-shadow:0 1px 0 rgba(255,255,255,0.5);
 	font-size:15px; font-weight:600; line-height:18px;
 	/*box-shadow*/-webkit-box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5); box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5);
@@ -258,20 +258,20 @@ html, body { height:100%; }
 	background-image:-moz-linear-gradient(top, #ffe051 0%, #f8cf00 100%);
 	background-image:linear-gradient(to bottom, #ffe051 0%, #f8cf00 100%);
 	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00); 
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
 	zoom:1; }
-	
+
 	/* p */
-	#sysmsg p { 
+	#sysmsg p {
 		padding:0; margin:0;
 		font-size:16px; }
-	
+
 	/* latest */
 	#sysmsg .latest {
 		padding:0 0 5px 0; }
-	
+
 	/* past */
-	#sysmsg .past { 
+	#sysmsg .past {
 		font-size:14px; font-weight:400; line-height:1.2em;
 		text-shadow:none;
 		/*opacity*/
@@ -384,7 +384,7 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* containers */
-	#navList, #subNavContainer 	{ 
+	#navList, #subNavContainer 	{
 		position:absolute; top:46px; width:100%; height:100%;
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
@@ -396,57 +396,57 @@ html, body { height:100%; }
 		-webkit-transition:left 0.3s ease-in-out;
 		-moz-transition:left 0.3s ease-in-out;
 		transition:left 0.3s ease-in-out; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* container interaction */
-	#nav.subNavActive #navList { 
+	#nav.subNavActive #navList {
 		/*transform*/
 		-webkit-transform:translate(-100%,0);
 		-moz-transform:translate(-100%,0);
 		-ms-transform:translate(-100%,0);
 		transform:translate(-100%,0); }
 	#navList,
-	#nav.subNavActive #subNavContainer 	{ 
+	#nav.subNavActive #subNavContainer 	{
 		/*transform*/
 		-webkit-transform:translate(0,0);
 		-moz-transform:translate(0,0);
 		-ms-transform:translate(0,0);
 		transform:translate(0,0); }
-	#subNavContainer { 
+	#subNavContainer {
 		/*transform*/
 		-webkit-transform:translate(100%,0);
 		-moz-transform:translate(100%,0);
 		-ms-transform:translate(100%,0);
 		transform:translate(100%,0); }
-		
+
 	.no-csstransforms #nav.subNavActive #navList 			{ left:-100%; }
 	.no-csstransforms #navList,
 	.no-csstransforms #nav.subNavActive #subNavContainer 	{ left:0; }
 	.no-csstransforms #subNavContainer 						{ left:100%; }
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* container position */
 	#btnSubmitAllAssess + #navList,
 	#btnSubmitAllAssess + #navList + #subNavContainer					{ bottom:45px; height:auto; }
-	
+
 	#btnGroupAssess  + #navList,
 	#btnGroupAssess  + #navList + #subNavContainer						{ bottom:54px; height:auto; }
-	
+
 	#btnSubmitAllAssess + #btnGroupAssess + #navList,
 	#btnSubmitAllAssess + #btnGroupAssess + #navList + #subNavContainer { bottom:99px; height:auto; }
-				
+
 	/* -------------------------------------------------------------------------- */
 	/* subNavContainer */
 	#subNavContainer {  }
-	
+
 		/* subNavUtils */
 		#subNavUtils { height:45px; }
-		
+
 		/* subNavList */
-		#subNavList { 
+		#subNavList {
 			position:absolute; top:45px; bottom:0; width:100%; height:auto; margin:0; padding:0; overflow:hidden;
 			list-style:none; }
-			
+
 	/* -------------------------------------------------------------------------- */
 	/* navList item */
 	.navList li {
@@ -460,11 +460,11 @@ html, body { height:100%; }
 		.navList li .status {
 			display:block; position:absolute; top:0; left:0; width:32px; height:36px; margin:0; padding:0; overflow:hidden;
 			color:#007aff; font-size:14px; line-height:36px; text-align:center; }
-			
+
 		/* assessment result */
 		.navList li .status.pass { color:#49bf1f; }
 		.navList li .status.fail { color:#ff3b30; }
-		
+
 		/* -------------------------------------------------------------------------- */
 		/* link */
 		.navList li .link {
@@ -519,7 +519,7 @@ html, body { height:100%; }
 		.navList li.lv2 .link,
 		.navList li.lv3 .link,
 		.navList li.lv4 .link	{ font-size:15px; }
-		
+
 			/* -------------------------------------------------------------------------- */
 			/* elem */
 			.navList .subNavList { display:none; }
@@ -608,7 +608,7 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* utils */
-	
+
 	/* btnGroupDiscussion */
 	#btnGroupDiscussion {
 		margin-top:45px; height:45px; }
@@ -713,6 +713,23 @@ html, body { height:100%; }
 .menuActive #discussions { right:-340px; }
 .discussionsActive #menu { right:340px; }
 
+/* -------------------------------------------------------------------------- */
+/* nav */
+.menuActive #nav,
+.discussionsActive #nav 		{ z-index:1; }
+#nav 							{ z-index:4; }
+.navActive #nav 				{ z-index:5; }
+
+/* -------------------------------------------------------------------------- */
+/* menu */
+#menu 							{ z-index:3; }
+.menuActive #menu 				{ z-index:5; }
+
+/* -------------------------------------------------------------------------- */
+/* discussions */
+#discussions 					{ z-index:2; }
+.discussionsActive #menu,
+.discussionsActive #discussions { z-index:3; }
 
 /* ==========================================================================
    structure - RESPONSIVE
@@ -734,17 +751,17 @@ html, body { height:100%; }
 }
 
 /* -------------------------------------------------------------------------- */
-/* navigator / menu */
+/* navigator / menu / discussions */
 @media only screen and (min-width:1280px) {
 
 	/* update width */
 	.sidePanel { width:256px; }
 	.menuActive #discussions { right:-256px; }
 	.discussionsActive #menu { right:256px; }
-		
+
 		/* reduce long buttons */
 		#btnGroupDiscussion .btn i { display:none; }
-	
+
 	/* update interaction */
 	.navActive #main {
 		/*transform*/
@@ -759,7 +776,7 @@ html, body { height:100%; }
 		-moz-transform:translate(-256px,0);
 		-ms-transform:translate(-256px,0);
 		transform:translate(-256px,0); }
-		
+
 	/* fallback */
 	.no-csstransforms .navActive #main 			{ left:0; }
 	.no-csstransforms .menuActive #main,
@@ -783,10 +800,10 @@ html, body { height:100%; }
 	.sidePanel { width:342px; }
 	.menuActive #discussions { right:-342px; }
 	.discussionsActive #menu { right:342px; }
-		
+
 		/* revert long buttons */
 		#btnGroupDiscussion .btn i { display:inline; }
-		
+
 	/* update interaction */
 	.navActive #main {
 		/*transform*/
@@ -846,6 +863,16 @@ html, body { height:100%; }
 	#header #popoverMenu { display:none; }
 
 }
+
+/* -------------------------------------------------------------------------- */
+/* main */
+@media only screen and (max-width:600px) {
+
+	/* smaller heading */
+	#utils .heading { font-size:18px; }
+
+}
+
 
 /* -------------------------------------------------------------------------- */
 /* copyright */
