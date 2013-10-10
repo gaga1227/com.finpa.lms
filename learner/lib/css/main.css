@@ -185,9 +185,16 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* heading */
 	#utils .heading {
-		width:auto; min-width:310px; margin:0 270px 0 15px; overflow:hidden;
+		width:auto; margin:0 270px 0 15px; overflow:hidden;
 		white-space:nowrap; text-overflow:ellipsis;
 		font-size:24px; font-weight:300; }
+
+	/* android text-overflow issue: Firefox, Chrome
+	   based on 7inch tablet protrait (width:530px) */
+	.android #utils .heading { min-width:310px; }
+	@-moz-document url-prefix() {
+	   .android #utils .heading { min-width:240px; }
+	}
 
 	/* -------------------------------------------------------------------------- */
 	/* utilsNav */
@@ -440,7 +447,7 @@ html, body { height:100%; }
 	#subNavContainer {  }
 
 		/* subNavUtils */
-		#subNavUtils { height:45px; }
+		#subNavUtils { height:45px; z-index:1; }
 
 		/* subNavList */
 		#subNavList {
@@ -748,6 +755,10 @@ html, body { height:100%; }
 	/* vertical center align */
 	#container { top:50%; margin-top:-345px; }
 
+	/* android browser has infinite height bug,
+	   cancel verticle centering */
+	.android #container { top:0; margin-top:0; }
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -863,6 +874,10 @@ html, body { height:100%; }
 	#header #popoverMenu { display:none; }
 
 }
+@media only screen and (min-width:1920px) {
+	#container { max-width:1920px; margin-left:-960px; }
+	#main { max-width:1264px; }
+}
 
 /* -------------------------------------------------------------------------- */
 /* main */
@@ -872,7 +887,6 @@ html, body { height:100%; }
 	#utils .heading { font-size:18px; }
 
 }
-
 
 /* -------------------------------------------------------------------------- */
 /* copyright */
