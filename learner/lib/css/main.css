@@ -88,7 +88,7 @@ html, body { height:100%; }
 
 /* container */
 #container {
-	position:absolute; top:0; left:0; width:100%; height:100%; max-width:1024px; max-height:690px; margin:0;
+	position:absolute; top:0; left:0; width:100%; height:100%; max-width:1024px; max-height:100%; margin:0;
 	background:#fff;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -96,11 +96,6 @@ html, body { height:100%; }
 	-moz-transition:all 0.3s ease-in-out;
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
-
-/* blockings - oldie fix - height */
-.oldie #container,
-.oldie .sidePanel,
-.oldie #main  { height:690px!important; max-height:690px!important; }
 
 
 /* ==========================================================================
@@ -154,14 +149,14 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* popover */
-	#header .popover 		{ display:block; }
+	#header .popover 		{ display:block; cursor:pointer; }
 	#header #popoverNav 	{ top:7px; left:45px; }
 	#header #popoverMenu 	{ top:7px; left:auto; right:56px; }
 
 	/* interaction */
 	.no-touch #header .btn:hover,
 	.no-touch #header .btn:focus,
-	#header .btn.active 			{ color:#fff; background:#007aff; border-color:#007aff; }
+	#header .btn.active 	{ color:#fff; background:#007aff; border-color:#007aff; }
 
 
 /* ==========================================================================
@@ -241,10 +236,10 @@ html, body { height:100%; }
 		.no-touch #utilsExtra .btnUtil:focus {
 			background:none; border-color:#fff; }
 
-		.no-touch #utilsExtra .btnUtil:active,
+		.touch #utilsExtra .btnUtil:active,
 		#utilsExtra .btnUtil.active,
-		#utilsExtra .btnUtil.active:hover,
-		#utilsExtra .btnUtil.active:focus {
+		.no-touch #utilsExtra .btnUtil.active:hover,
+		.no-touch #utilsExtra .btnUtil.active:focus {
 			color:#007aff; background:#fff; border-color:transparent; }
 
 
@@ -477,9 +472,9 @@ html, body { height:100%; }
 		.navList li .link {
 			display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 30px; overflow:hidden;
 			color:#050505; font-size:16px; font-weight:400; line-height:20px; text-decoration:none; }
-		.navList li a.link:hover,
-		.navList li a.link:focus,
-		.navList li a.link:active {
+		.no-touch .navList li a.link:hover,
+		.no-touch .navList li a.link:focus,
+		.touch .navList li a.link:active {
 			color:#007aff; background:#fff!important; text-decoration:none; }
 
 			/* action */
@@ -488,9 +483,9 @@ html, body { height:100%; }
 				color:#007aff; border:1px solid #007aff; font-size:16px; line-height:18px; text-align:center;
 				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-			.navList li a.link:hover .action,
-			.navList li a.link:focus .action,
-			.navList li a.link:active .action {
+			.no-touch .navList li a.link:hover .action,
+			.no-touch .navList li a.link:focus .action,
+			.touch .navList li a.link:active .action {
 				color:#007aff; border:1px solid #007aff; }
 
 		/* -------------------------------------------------------------------------- */
@@ -506,16 +501,16 @@ html, body { height:100%; }
 
 		/* current */
 		.navList li.current .link			{ color:#fff; background:#007aff; }
-		.navList li.current a.link:hover,
-		.navList li.current a.link:focus,
-		.navList li.current a.link:active 	{ background:#2980b9!important; }
+		.no-touch .navList li.current a.link:hover,
+		.no-touch .navList li.current a.link:focus,
+		.touch .navList li.current a.link:active 	{ background:#2980b9!important; }
 
 		.navList li.current .status	{ color:#ecf0f1; }
 
 		.navList li.current .link .action,
-		.navList li.current a.link:hover .action,
-		.navList li.current a.link:focus .action,
-		.navList li.current a.link:active .action { color:#fff; border:1px solid #fff; }
+		.no-touch .navList li.current a.link:hover .action,
+		.no-touch .navList li.current a.link:focus .action,
+		.touch .navList li.current a.link:active .action { color:#fff; border:1px solid #fff; }
 
 		/* levels/indentations */
 		.navList li.lv1 .link	{ font-weight:700; }
@@ -570,9 +565,9 @@ html, body { height:100%; }
 			#menuList ul li a {
 				padding:15px 30px 15px 60px;
 				font-size:20px; font-weight:300; line-height:25px; }
-			#menuList ul li a:hover,
-			#menuList ul li a:focus,
-			#menuList ul li a:active {
+			.no-touch #menuList ul li a:hover,
+			.no-touch #menuList ul li a:focus,
+			.touch #menuList ul li a:active {
 				text-decoration:none; }
 
 				/* icon */
@@ -581,9 +576,9 @@ html, body { height:100%; }
 					border:1px solid #007aff; color:#007aff; font-size:14px; line-height:30px; text-align:center;
 					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 					/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-				#menuList ul li a:hover i,
-				#menuList ul li a:focus i,
-				#menuList ul li a:active i {
+				.no-touch #menuList ul li a:hover i,
+				.no-touch #menuList ul li a:focus i,
+				.touch #menuList ul li a:active i {
 					border:1px solid transparent; color:#fff; background:#007aff; }
 
 			/* current */
@@ -592,9 +587,9 @@ html, body { height:100%; }
 
 				/* icon */
 				#menuList ul li.current a i,
-				#menuList ul li.current a:hover i,
-				#menuList ul li.current a:focus i,
-				#menuList ul li.current a:active i {
+				.no-touch #menuList ul li.current a:hover i,
+				.no-touch #menuList ul li.current a:focus i,
+				.touch #menuList ul li.current a:active i {
 					border:1px solid #fff; color:#fff; background:#007aff; }
 
 
@@ -750,16 +745,6 @@ html, body { height:100%; }
 	#container { left:50%; margin-left:-512px; }
 
 }
-@media only screen and (min-height:691px) {
-
-	/* vertical center align */
-	#container { top:50%; margin-top:-345px; }
-
-	/* android browser has infinite height bug,
-	   cancel verticle centering */
-	.android #container { top:0; margin-top:0; }
-
-}
 
 /* -------------------------------------------------------------------------- */
 /* navigator / menu / discussions */
@@ -793,13 +778,13 @@ html, body { height:100%; }
 	.no-csstransforms .menuActive #main,
 	.no-csstransforms .discussionsActive #main 	{ left:-256px; }
 
-	/* show navigator */
+	/* show navigator and center container */
     #container { max-width:1280px; margin-left:-640px; }
     #main { margin-left:256px; }
 
-	/* hide btnNav */
-	#header #btnNav { left:-50px; }
-	#header .heading { margin-left:0; }
+	/* hide btnNav only when nav is shown */
+	.navActive #header #btnNav { /*left:-50px;*/ display:none; }
+	.navActive #header .heading { margin-left:0; }
 
 	/* hide popover */
 	#header #popoverNav { display:none; }
@@ -835,7 +820,7 @@ html, body { height:100%; }
 	.no-csstransforms .menuActive #main,
 	.no-csstransforms .discussionsActive #main 	{ left:-342px; }
 
-	/* show navigator */
+	/* show navigator and center container */
     #container { max-width:1366px; margin-left:-683px; }
     #main { margin-left:342px; }
 
@@ -862,12 +847,16 @@ html, body { height:100%; }
 	.no-csstransforms .menuActive #main,
 	.no-csstransforms .discussionsActive #main 	{ left:0; }
 
-	/* show navigator */
+	/* show navigator and center container */
     #container { max-width:1680px; margin-left:-840px; }
     #main { margin-left:328px; }
 
+	/* hide btnNav */
+	#header #btnNav { /*left:-50px;*/ display:none; }
+	#header .heading { margin-left:0; }
+
 	/* hide btnMenu */
-	#header #btnMenu { right:-50px; }
+	#header #btnMenu { /*right:-50px;*/ display:none; }
 	#header .heading { margin-right:0; }
 
 	/* hide popover */
@@ -875,8 +864,10 @@ html, body { height:100%; }
 
 }
 @media only screen and (min-width:1920px) {
+
 	#container { max-width:1920px; margin-left:-960px; }
 	#main { max-width:1264px; }
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -885,15 +876,6 @@ html, body { height:100%; }
 
 	/* smaller heading */
 	#utils .heading { font-size:18px; }
-
-}
-
-/* -------------------------------------------------------------------------- */
-/* copyright */
-@media only screen and (min-height:800px) {
-
-	/* show copyright */
-	#copyright { display:block; }
 
 }
 

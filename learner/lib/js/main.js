@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------------ */
 /* webfonts */
 /* ------------------------------------------------------------------------------ */
-WebFontConfig = { 
+WebFontConfig = {
 	google: {
 		families: [
 			'Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic,700italic:latin',
@@ -27,7 +27,8 @@ WebFontUtils = {
 /* ------------------------------------------------------------------------------ */
 function initMenus(){
 	//vars
-	var $container = $('#container'),
+	var $window = $(window),
+		$container = $('#container'),
 		//side menus
 		$nav = $('#nav'),
 		$menu = $('#menu'),
@@ -36,6 +37,8 @@ function initMenus(){
 		$btnNav = $('#btnNav'),
 		$btnMenu = $('#btnMenu'),
 		$btnDiscussions = $('#btnDiscussions'),
+		$popoverNav = $('#popoverNav'),
+		$popoverMenu = $('#popoverMenu'),
 		//state classes
 		navActiveCls = 'navActive'
 		menuActiveCls = 'menuActive',
@@ -44,9 +47,19 @@ function initMenus(){
 		thisCls = '',
 		otherCls = '',
 		//statics
-		speed = 300;
+		speed = 300,
+		//function
+		shouldNavShownByDefault = function(){
+			var result;
+			if (Modernizr.mediaqueries) {
+				result = Modernizr.mq('only screen and (min-width:1280px) and (max-width:1679px)');
+			} else {
+				result = $window.width() >= 1280 && $window.width() <= 1679;
+			}
+			return result;
+		};
 
-	//handler
+	//button handler
 	function toggleMenus(e) {
 		e.preventDefault();
 		var $btn = $(this),
@@ -64,12 +77,25 @@ function initMenus(){
 			thisCls = discussionsActiveCls;
 			otherCls = navActiveCls + ' ' + menuActiveCls;
 		}
-		//update state class
+		//apply state classes
 		$container.removeClass(otherCls);
-		//update state class on buttons
+		//if btn clicked is already active
 		if ($container.hasClass(thisCls)) {
-			$container.removeClass(thisCls);
-			$btn.removeClass(activeCls);
+			//if btn is NOT 'btnNav' and 'nav' is NOT shown by default
+			if ( !(id.indexOf('Nav') != -1 && shouldNavShownByDefault()) ) {
+				//toggle button and state
+				$container.removeClass(thisCls);
+				$btn.removeClass(activeCls);
+			}
+			//if btn is NOT 'btnNav' and 'nav' IS shown by default
+			if ( id.indexOf('Nav') == -1 && shouldNavShownByDefault() ){
+				//toggle button and state
+				$container.removeClass(thisCls);
+				$btn.removeClass(activeCls);
+				//also make Nav active
+				$container.addClass(navActiveCls);
+				$btnNav.addClass(activeCls);
+			}
 		} else {
 			$container.addClass(thisCls);
 			$btn.addClass(activeCls);
@@ -81,21 +107,46 @@ function initMenus(){
 				$btnMenu.removeClass(activeCls);
 				$btnNav.removeClass(activeCls);
 			}
+			else if (id.indexOf('Nav') != -1) {
+				$btnMenu.removeClass(activeCls);
+				$btnDiscussions.removeClass(activeCls);
+			}
 		};
 	}
 
+	//resize handler
+	function onWindowResize(e) {
+		//if nav should shown by default and other menus NOT active
+		if ( shouldNavShownByDefault() && !$container.hasClass(menuActiveCls) && !$container.hasClass(discussionsActiveCls) ) {
+			//make Nav active
+			$container.addClass(navActiveCls);
+			$btnNav.addClass(activeCls);
+		} else {
+			//remove Nav active
+			$container.removeClass(navActiveCls);
+			$btnNav.removeClass(activeCls);
+		}
+	}
+
 	//bind side menu interaction
-	$.each([$btnNav, $btnMenu, $btnDiscussions], function(e){
+	$.each([$btnNav, $btnMenu, $btnDiscussions, $popoverNav, $popoverMenu], function(e){
 		$(this).on('click', toggleMenus);
 	});
 
-	//remove text label hints after first use
-	$btnNav.one('click', function(){
-		$('#popoverNav').fadeOut(speed);
+	//remove text label hints after use
+	$.each([$btnNav, $popoverNav], function(e){
+		$(this).on('click', function(){
+			$popoverNav.fadeOut(speed);
+		});
 	});
-	$btnMenu.one('click', function(){
-		$('#popoverMenu').fadeOut(speed);
+	$.each([$btnMenu, $popoverMenu], function(e){
+		$(this).on('click', function(){
+			$popoverMenu.fadeOut(speed);
+		});
 	});
+
+	//update 'navActive' state
+	$window.on('resize.menus', onWindowResize);
 }
 /* ------------------------------------------------------------------------------ */
 /* initMenuFilter */
@@ -146,21 +197,21 @@ function initSubNav(){
 		var $trigger = $(this).addClass(currentCls),
 			$listItem = $trigger.parent('li'),
 			$subNavList = $listItem.find('> .subNavList');
-		$subNavHost.empty().html($subNavList.html());		
+		$subNavHost.empty().html($subNavList.html());
 		$nav.addClass(subNavActiveCls);
 		$btnBack.one('click', onHideSubNav);
 		//hide/show assessment button
 		if ($btnSubmitAssess.length) {
 			$listItem.hasClass('assess') ? $btnSubmitAssess.show() : $btnSubmitAssess.hide();
-		} 
-		
+		}
+
 		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
 	}
 	function onHideSubNav(e){
 		e.preventDefault();
 		var $trigger = $navList.find('> li > a.link.current').removeClass(currentCls);
 		$nav.removeClass(subNavActiveCls);
-		
+
 		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
 	}
 	//bind interaction
@@ -222,7 +273,7 @@ function init(){
 	initMenuFilter();
 	initSubNav();
 	initModals();
-	
+
 	//debug
 	displayDebugInfo('#debugInfo');
 	//alert($(window).height());
