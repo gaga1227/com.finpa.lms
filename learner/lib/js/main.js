@@ -147,6 +147,9 @@ function initMenus(){
 
 	//update 'navActive' state
 	$window.on('resize.menus', onWindowResize);
+	
+	//init
+	onWindowResize();
 }
 /* ------------------------------------------------------------------------------ */
 /* initMenuFilter */
