@@ -29,6 +29,7 @@ function initMenus(){
 	//vars
 	var $window = $(window),
 		$container = $('#container'),
+		$content = $('#content'),
 		//side menus
 		$nav = $('#nav'),
 		$menu = $('#menu'),
@@ -46,6 +47,7 @@ function initMenus(){
 		activeCls = 'active',
 		thisCls = '',
 		otherCls = '',
+		lastActive = '',
 		//statics
 		speed = 300,
 		//function
@@ -58,6 +60,67 @@ function initMenus(){
 			}
 			return result;
 		};
+
+	//functions
+	function initGestures() {
+		//check if touch events available
+		if (!Modernizr.touch) { return 'not on touch device'; }
+		//vars
+		var opts = {
+			swipe_velocity:		0.5,
+			prevent_default: 	false
+		};
+		//handler
+		function onSwipe(e){
+			//vars
+			var dir = e.gesture.direction,
+				dirIsLeft = false;
+			//alert('swipe: ' + dir);
+			//exit
+			if (dir != 'left' && dir != 'right') return false;
+			//update
+			dirIsLeft = (dir == 'left') ? true : false;
+			//update menus state
+			//if left menu is open, close
+			if ($container.hasClass(navActiveCls)) {
+				if (dirIsLeft) {
+					$btnNav.trigger('click');
+					if (shouldNavShownByDefault()) {
+						lastActive == 'Discussions' ? $btnDiscussions.trigger('click') : $btnMenu.trigger('click');
+					}
+				} else {
+
+				}
+			}
+			//if right menus are open, close
+			else if ($container.hasClass(menuActiveCls) || $container.hasClass(discussionsActiveCls)) {
+				if (dirIsLeft) {
+
+				} else {
+					if ($container.hasClass(menuActiveCls)) {
+						$btnMenu.trigger('click');
+					} else {
+						$btnDiscussions.trigger('click');
+					}
+					if (shouldNavShownByDefault()) {
+						//make Nav active
+						$container.addClass(navActiveCls);
+						$btnNav.addClass(activeCls);
+					}
+				}
+			}
+			//if NO menu is open, open
+			else {
+				if (dirIsLeft) {
+					lastActive == 'Discussions' ? $btnDiscussions.trigger('click') : $btnMenu.trigger('click');
+				} else {
+					$btnNav.trigger('click');
+				}
+			}
+		}
+		//bind gestures with hammer
+		$container.hammer(opts).on('swipe',  onSwipe);
+	}
 
 	//button handler
 	function toggleMenus(e) {
@@ -95,6 +158,7 @@ function initMenus(){
 				//also make Nav active
 				$container.addClass(navActiveCls);
 				$btnNav.addClass(activeCls);
+				//lastActive = 'Nav';
 			}
 		} else {
 			$container.addClass(thisCls);
@@ -102,14 +166,17 @@ function initMenus(){
 			if (id.indexOf('Menu') != -1) {
 				$btnDiscussions.removeClass(activeCls);
 				$btnNav.removeClass(activeCls);
+				lastActive = 'Menu';
 			}
 			else if (id.indexOf('Discussions') != -1) {
 				$btnMenu.removeClass(activeCls);
 				$btnNav.removeClass(activeCls);
+				lastActive = 'Discussions';
 			}
 			else if (id.indexOf('Nav') != -1) {
 				$btnMenu.removeClass(activeCls);
 				$btnDiscussions.removeClass(activeCls);
+				//lastActive = 'Nav';
 			}
 		};
 	}
@@ -121,6 +188,7 @@ function initMenus(){
 			//make Nav active
 			$container.addClass(navActiveCls);
 			$btnNav.addClass(activeCls);
+			//lastActive = 'Nav';
 		} else {
 			//remove Nav active
 			$container.removeClass(navActiveCls);
@@ -147,9 +215,10 @@ function initMenus(){
 
 	//update 'navActive' state
 	$window.on('resize.menus', onWindowResize);
-	
+
 	//init
 	onWindowResize();
+	initGestures();
 }
 /* ------------------------------------------------------------------------------ */
 /* initMenuFilter */

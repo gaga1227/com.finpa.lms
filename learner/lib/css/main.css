@@ -97,6 +97,10 @@ html, body { height:100%; }
 	-ms-transition:all 0.3s ease-in-out;
 	transition:all 0.3s ease-in-out; }
 
+/* firefox bug of 100% height equals huge number */
+@-moz-document url-prefix() {
+	.android #container { max-height:1280px; }
+}
 
 /* ==========================================================================
    structure - MAIN
@@ -613,7 +617,7 @@ html, body { height:100%; }
 
 	/* btnGroupDiscussion */
 	#btnGroupDiscussion {
-		margin-top:45px; height:45px; }
+		margin-top:45px; height:45px; z-index:1; }
 
 	/* btnNewDiscussion */
 	#btnNewDiscussion {
