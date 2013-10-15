@@ -228,8 +228,8 @@ function initMenuFilter(){
 	var $courseMenu = $('#navList'),
 		$btnViewAll = $('#btnViewAll'),
 		$btnViewAssess = $('#btnViewAssess'),
-		allSelector = '> li.core',
-		assessSelector = '.assess',
+		allSelector = '.navList > li.core',
+		assessSelector = '.navList .assess',
 		activeCls = 'active',
 		//handlers
 		onShowAll = function(e){
@@ -237,12 +237,16 @@ function initMenuFilter(){
 			$courseMenu.find(allSelector).show();
 			$btnViewAll.addClass(activeCls);
 			$btnViewAssess.removeClass(activeCls);
+			//update scroller
+			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
 		};
 		onShowAssess = function(e){
 			e.preventDefault();
 			$courseMenu.find(allSelector).not(assessSelector).hide();
 			$btnViewAssess.addClass(activeCls);
 			$btnViewAll.removeClass(activeCls);
+			//update scroller
+			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
 		};
 	//bind button behaviour
 	$btnViewAll.on('click', onShowAll);
@@ -258,7 +262,7 @@ function initSubNav(){
 	var $nav = $('#nav'),
 		$navList = $('#navList'),
 		$subNavLists = $navList.find('.subNavList'),
-		$subNavHost = $('#subNavList'),
+		$subNavHost = $('#subNavList > .navList'),
 		$btnBack = $('#btnSubNav'),
 		$btnSubmitAssess = $('#btnSubmitAssess'),
 		subNavActiveCls = 'subNavActive',
@@ -269,8 +273,12 @@ function initSubNav(){
 		var $trigger = $(this).addClass(currentCls),
 			$listItem = $trigger.parent('li'),
 			$subNavList = $listItem.find('> .subNavList');
+		//update DOM
 		$subNavHost.empty().html($subNavList.html());
 		$nav.addClass(subNavActiveCls);
+		//update scroller
+		//if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Subnav');
+		//enable back button
 		$btnBack.one('click', onHideSubNav);
 		//hide/show assessment button
 		if ($btnSubmitAssess.length) {
@@ -281,7 +289,7 @@ function initSubNav(){
 	}
 	function onHideSubNav(e){
 		e.preventDefault();
-		var $trigger = $navList.find('> li > a.link.current').removeClass(currentCls);
+		var $trigger = $navList.find('.navList > li > a.link.current').removeClass(currentCls);
 		$nav.removeClass(subNavActiveCls);
 
 		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
@@ -341,6 +349,7 @@ function initModals(){
 /* ------------------------------------------------------------------------------ */
 function init(){
 	//interaction demo
+	Scrollers = new initScrollers();
 	initMenus();
 	initMenuFilter();
 	initSubNav();
@@ -351,6 +360,7 @@ function init(){
 	//alert($(window).height());
 }
 /* DOM.ready */
+var Scrollers;
 $(document).ready(function(){
 	console.log('DOM Ready');
 	initWebFontLoader();

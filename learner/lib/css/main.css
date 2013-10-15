@@ -292,8 +292,6 @@ html, body { height:100%; }
 /* container */
 #content {
 	position:absolute; top:90px; bottom:0; left:0; width:100%; }
-#sysmsg + #content {
-	top:120px; }
 
 	/* -------------------------------------------------------------------------- */
 	/* player */
@@ -378,12 +376,13 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* containers reset */
-	#navList,
-	#navList ol,
-	#navList li,
+	.navList,
+	.navList ol,
+	.navList li,
 	.subNavList,
 	.subNavList ol,
 	.subNavList li,
+	#navList,
 	#subNavContainer {
 		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		list-style:none; }
@@ -631,8 +630,7 @@ html, body { height:100%; }
 
 		/* -------------------------------------------------------------------------- */
 		/* discussion */
-		.discussion {
-			padding:10px; overflow:hidden; }
+		.discussion { margin:10px; overflow:hidden; }
 
 			/* -------------------------------------------------------------------------- */
 			/* header */
@@ -887,8 +885,56 @@ html, body { height:100%; }
 /* ==========================================================================
    common - SCROLLER
    ========================================================================== */
-.scroller { overflow:auto!important; }
-.iOS .scroller { overflow:scroll!important; -webkit-overflow-scrolling:touch; }
+
+/* -------------------------------------------------------------------------- */
+/* scrollwrapper */
+
+/* default desktop */
+.scrollwrapper {
+	overflow:auto!important; }
+
+/* device */
+.iOS .scrollwrapper,
+.android .scrollwrapper {
+	overflow:hidden!important;
+	/* Prevent native touch events on Windows */
+	-ms-touch-action:none;
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	-o-text-size-adjust:none;
+	text-size-adjust:none; }
+
+/* -------------------------------------------------------------------------- */
+/* scroller */
+
+/* device */
+.iOS .scroller,
+.android .scroller {
+	position:relative; overflow:hidden;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-transform:translateZ(0);
+	-moz-transform:translateZ(0);
+	-ms-transform:translateZ(0);
+	-o-transform:translateZ(0);
+	transform:translateZ(0); }
+
+/* -------------------------------------------------------------------------- */
+/* nativeScroller */
+.nativeScroller 		{ overflow:auto!important; }
+.iOS .nativeScroller 	{ -webkit-overflow-scrolling:touch!important; }
+
+/* -------------------------------------------------------------------------- */
+/* IScroll5 */
+.iScrollVerticalScrollbar 	{ width:6px!important; }
+.iScrollIndicator 			{ background-color:#95a5a6!important; border:none!important; }
 
 
 /* ==========================================================================

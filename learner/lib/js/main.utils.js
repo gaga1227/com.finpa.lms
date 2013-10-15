@@ -190,3 +190,42 @@ function initWebFontLoader() {
 		s.parentNode.insertBefore(wf, s);
 	})();
 }
+/* ------------------------------------------------------------------------------ */
+/* common - initScrollers */
+/* ------------------------------------------------------------------------------ */
+function initScrollers(cls) {
+	//exits
+	if (!Platform.iOS && !Platform.android) { return 'not on target devices'; }
+	if (typeof(IScroll) != 'function') { return 'scroll plugin not available' }
+	//vars
+	var	wrapperSelector = cls || '.scrollwrapper'
+		scrollers = {},
+		opts = {
+			//scrollX: 					true,
+			scrollbars: 				true,
+			preventDefault: 			true,
+			preventDefaultException: 	{ tagName: /^(A|INPUT|TEXTAREA|BUTTON|SELECT)$/ }
+		};
+	//process instances
+	$.each($(wrapperSelector), function(idx,ele){
+		var id = $(ele).attr('id'),
+			token = $(ele).attr('data-token'),
+			$scroller = $('#'+id).find('> .scroller'),
+			scroller;
+		//exit
+		if (!token) return 'NO scroller token';
+		//init scroller
+		scroller = scrollers['scroller' + token] = new IScroll('#'+id, opts),
+		//bind auto refresh on DOM updates
+		$scroller.on('DOMSubtreeModified', function(e){ scroller.refresh(); });
+	});
+	//API
+	scrollers.update = function(token) {
+		//exit
+		if (!token) return 'no scroller token provided';
+		//call plugin api
+		scrollers['scroller'+token].refresh();
+	}
+	//return to DOM
+	return scrollers;
+}
