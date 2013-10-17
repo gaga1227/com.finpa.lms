@@ -567,11 +567,11 @@ html, body { height:100%; }
 			/* list item */
 			#menuList ul li a {
 				padding:15px 30px 15px 60px;
-				font-size:20px; font-weight:300; line-height:25px; }
+				font-size:20px; font-weight:300; line-height:25px; text-decoration:none!important; }
 			.no-touch #menuList ul li a:hover,
 			.no-touch #menuList ul li a:focus,
 			.touch #menuList ul li a:active {
-				text-decoration:none; }
+				color:#007aff; text-decoration:none; }
 
 				/* icon */
 				#menuList ul li a i {

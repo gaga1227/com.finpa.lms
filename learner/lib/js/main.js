@@ -38,6 +38,7 @@ function initMenus(){
 		$btnNav = $('#btnNav'),
 		$btnMenu = $('#btnMenu'),
 		$btnDiscussions = $('#btnDiscussions'),
+		$btnDiscussionsMenu = $('#btnDiscussionsMenu'),
 		$popoverNav = $('#popoverNav'),
 		$popoverMenu = $('#popoverMenu'),
 		//state classes
@@ -199,6 +200,11 @@ function initMenus(){
 	//bind side menu interaction
 	$.each([$btnNav, $btnMenu, $btnDiscussions, $popoverNav, $popoverMenu], function(e){
 		$(this).on('click', toggleMenus);
+	});
+	//delegate shadow 'btnDiscussions' button
+	$btnDiscussionsMenu.on('click', function(e){
+		e.preventDefault();
+		$btnDiscussions.trigger('click');
 	});
 
 	//remove text label hints after use
