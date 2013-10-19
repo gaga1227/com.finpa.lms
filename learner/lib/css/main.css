@@ -35,7 +35,8 @@
 /* webfont */
 
 /* loading */
-.js #container {
+.js #container,
+.js #copyright {
 	visibility:hidden; opacity:0;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -49,7 +50,9 @@
 
 /* active */
 .wf-active #container,
-.wf-inactive #container	{ visibility:visible; opacity:1; }
+.wf-inactive #container,
+.wf-active #copyright,
+.wf-inactive #copyright	{ visibility:visible; opacity:1; }
 
 .wf-active #loader,
 .wf-inactive #loader 	{ display:none!important; }
@@ -89,7 +92,7 @@ html, body { height:100%; }
 /* container */
 #container {
 	position:absolute; top:0; left:0; width:100%; height:100%; max-width:1024px; max-height:100%; margin:0;
-	background:#fff;
+	background:#fff; border-bottom:25px solid #fff;
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:all 0.3s ease-in-out;
@@ -101,6 +104,7 @@ html, body { height:100%; }
 @-moz-document url-prefix() {
 	.android #container { max-height:1280px; }
 }
+
 
 /* ==========================================================================
    structure - MAIN
@@ -296,7 +300,8 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* player */
 	#player {
-		width:800px; height:570px; }
+		position:relative; margin:0 auto; padding:0; overflow:hidden;
+		background:#fff; border:none; }
 
 
 /* ==========================================================================
@@ -306,13 +311,8 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 #copyright {
-	display:none; position:absolute; left:0; bottom:0; width:100%;
-	background:rgba(0,0,0,0.1);
-	/*transition*/
-	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:bottom 0.3s ease-in-out;
-	-moz-transition:bottom 0.3s ease-in-out;
-	transition:bottom 0.3s ease-in-out;  }
+	display:block; position:absolute; left:0; bottom:0; width:100%; max-width:1024px; height:25px; overflow:hidden;
+	background:#2d2d2b;  }
 
 	/* -------------------------------------------------------------------------- */
 	/* copyLinks */
@@ -321,24 +321,28 @@ html, body { height:100%; }
 	#copyLinks,
 	#copyLinks li {
 		list-style:none; margin:0; padding:0;
-		color:#95a5a6; font-size:12px; font-weight:300; line-height:1em; text-transform:capitalize;
-		text-align:center; }
+		color:#8e8d92; font-size:12px; font-weight:300; line-height:12px;
+		text-align:left; }
 
 	/* container */
-	#copyLinks { padding:14px 0; }
+	#copyLinks { padding:0 15px; }
 
 		/* li */
 		#copyLinks li {
-			display:inline-block; margin-left:10px; padding-left:10px;
-			border-left:1px solid #7f8c8d; }
-		#copyLinks li:first-child {
-			margin:0; padding:0; border:none; }
+			display:inline-block; margin:6px 0 6px 12px; padding:0 0 0 12px;
+			border-left:1px solid #444; vertical-align:middle; }
+
+		#copyLinks li.brand { float:right; }
+
+		#copyLinks li:first-child,
+		#copyLinks li.brand {
+			margin-left:0; padding-left:0; border:none; }
 
 			/* a */
-			#copyLinks a 			{ color:#95a5a6; text-decoration:none; }
+			#copyLinks a 			{ color:#8e8d92; text-decoration:none; }
 			#copyLinks a:hover,
 			#copyLinks a:focus,
-			#copyLinks a:active 	{ color:#bdc3c7; text-decoration:underline; }
+			#copyLinks a:active 	{ color:#bdc0c5; text-decoration:underline; }
 
 
 /* ==========================================================================
@@ -443,6 +447,11 @@ html, body { height:100%; }
 	/* -------------------------------------------------------------------------- */
 	/* subNavContainer */
 	#subNavContainer {  }
+
+	/* firefox bug of showing CSS3 Transformations content outside 'overflow:hidden' region */
+	@-moz-document url-prefix() {
+		.android #subNavContainer { opacity:0.99; }
+	}
 
 		/* subNavUtils */
 		#subNavUtils { height:45px; z-index:1; }
@@ -744,7 +753,8 @@ html, body { height:100%; }
 @media only screen and (min-width:1025px) {
 
 	/* horizontal center align */
-	#container { left:50%; margin-left:-512px; }
+	#container,
+	#copyright { left:50%; margin-left:-512px; }
 
 }
 
@@ -781,12 +791,12 @@ html, body { height:100%; }
 	.no-csstransforms .discussionsActive #main 	{ left:-256px; }
 
 	/* show navigator and center container */
-    #container { max-width:1280px; margin-left:-640px; }
+    #container,
+    #copyright { max-width:1280px; margin-left:-640px; }
     #main { margin-left:256px; }
 
 	/* hide btnNav only when nav is shown */
-	.navActive #header #btnNav { /*left:-50px;*/ display:none; }
-	.navActive #header .heading { margin-left:0; }
+	.navActive #header #btnNav { display:none; }
 
 	/* hide popover */
 	#header #popoverNav { display:none; }
@@ -823,7 +833,8 @@ html, body { height:100%; }
 	.no-csstransforms .discussionsActive #main 	{ left:-342px; }
 
 	/* show navigator and center container */
-    #container { max-width:1366px; margin-left:-683px; }
+    #container,
+    #copyright { max-width:1366px; margin-left:-683px; }
     #main { margin-left:342px; }
 
 }
@@ -850,16 +861,18 @@ html, body { height:100%; }
 	.no-csstransforms .discussionsActive #main 	{ left:0; }
 
 	/* show navigator and center container */
-    #container { max-width:1680px; margin-left:-840px; }
+    #container,
+    #copyright { max-width:1680px; margin-left:-840px; }
     #main { margin-left:328px; }
 
 	/* hide btnNav */
-	#header #btnNav { /*left:-50px;*/ display:none; }
-	#header .heading { margin-left:0; }
+	#header #btnNav { display:none; }
 
 	/* hide btnMenu */
-	#header #btnMenu { /*right:-50px;*/ display:none; }
-	#header .heading { margin-right:0; }
+	#header #btnMenu { display:none; }
+
+	/* show btnMenu when discussions is active */
+	.discussionsActive #header #btnMenu { display:block; }
 
 	/* hide popover */
 	#header #popoverMenu { display:none; }
@@ -867,7 +880,8 @@ html, body { height:100%; }
 }
 @media only screen and (min-width:1920px) {
 
-	#container { max-width:1920px; margin-left:-960px; }
+	#container,
+	#copyright { max-width:1920px; margin-left:-960px; }
 	#main { max-width:1264px; }
 
 }
@@ -911,6 +925,11 @@ html, body { height:100%; }
 	-ms-text-size-adjust:none;
 	-o-text-size-adjust:none;
 	text-size-adjust:none; }
+
+/* firefox bug of showing CSS3 Transformations content outside 'overflow:hidden' region */
+@-moz-document url-prefix() {
+	.android .scrollwrapper { opacity:0.99; }
+}
 
 /* -------------------------------------------------------------------------- */
 /* scroller */

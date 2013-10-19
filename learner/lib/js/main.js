@@ -60,6 +60,15 @@ function initMenus(){
 				result = $window.width() >= 1280 && $window.width() <= 1679;
 			}
 			return result;
+		},
+		shouldMenuShownByDefault = function(){
+			var result;
+			if (Modernizr.mediaqueries) {
+				result = Modernizr.mq('only screen and (min-width:1680px)');
+			} else {
+				result = $window.width() >= 1680;
+			}
+			return result;
 		};
 
 	//functions
@@ -120,7 +129,7 @@ function initMenus(){
 			}
 		}
 		//bind gestures with hammer
-		$container.hammer(opts).on('swipe',  onSwipe);
+		$(container).hammer(opts).on('swipe', onSwipe);
 	}
 
 	//button handler
@@ -162,8 +171,12 @@ function initMenus(){
 				//lastActive = 'Nav';
 			}
 		} else {
-			$container.addClass(thisCls);
-			$btn.addClass(activeCls);
+			//add active state if this btn is NOT 'menu' or 'menu' is NOT shown by default
+			if (id.indexOf('Menu') < 0 || !shouldMenuShownByDefault()) {
+				$container.addClass(thisCls);
+				$btn.addClass(activeCls);
+			}
+			//update other buttons to inactive
 			if (id.indexOf('Menu') != -1) {
 				$btnDiscussions.removeClass(activeCls);
 				$btnNav.removeClass(activeCls);
@@ -331,21 +344,27 @@ function initModals(){
 		animCls = 'animatedloop attnloop';
 	//bind interaction
 	$.each($btnModals, function(idx,ele){
+		//vars
 		var $this = $(this),
-			$target = $($this.attr('href')),
+			$modal = $($this.attr('data-target')),
+			url = $this.attr('data-remote'),
 			isActive = $this.hasClass(activeCls);
+		//init BS modals
+		$modal.modal({ remote: url, show:false });
+		//bind btn behaviors
 		$this.bind('click', function(e){
+			e.preventDefault();
 			if (!isActive) {
 				$this
 					.addClass(activeCls)
 					.removeClass(animCls);
-				$target.modal('show');
-				$target.one('hide.bs.modal', function() {
+				$modal.modal('show');
+				$modal.one('hide.bs.modal', function() {
 					$this.removeClass(activeCls);
 				})
 			} else {
 				$this.removeClass(activeCls);
-				$target.modal('hide');
+				$modal.modal('hide');
 			}
 		});
 	});

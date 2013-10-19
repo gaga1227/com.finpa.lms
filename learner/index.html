@@ -359,8 +359,8 @@
 				--><a id="btnNext" class="btnUtil" href="#" title="Next Screen"><i class="icon-angle-right"></i></a><!--
 			--></div>
 			<div id="utilsExtra"><!--
-				--><a id="btnHelp" class="btnUtil btnModal" href="#modalHelp" title="How to use this screen"><i class="icon-question"></i></a><!--
-				--><a id="btnFeedback" class="btnUtil btnModal animatedloop attnloop" href="#modalFeedback" title="Results and Feedback"><i class="icon-thumbs-up-alt"></i></a><!--
+				--><a id="btnHelp" class="btnUtil btnModal" href="#" data-target="#modalHelp" data-remote="modal-help.html" title="How to use this screen"><i class="icon-question"></i></a><!--
+				--><a id="btnFeedback" class="btnUtil btnModal animatedloop attnloop" href="#" data-target="#modalFeedabck" data-remote="modal-feedback.html" title="Results and Feedback"><i class="icon-thumbs-up-alt"></i></a><!--
 				--><a id="btnDiscussions" class="btnUtil" href="#" title="Discussion"><i class="icon-comments-alt"></i></a><!--
 			--></div>
 			<h1 class="heading" title="Page 12/20 &ndash; Respond to customer complaints">Respond to customer complaints</h1>
@@ -375,7 +375,8 @@
 				<p class="past"><b>14 Aug 2013, Assessor 2:</b> Like your addition, but you still miss something ... blah...</p>
 				<p class="past"><b>10 Aug 2013, Assessor 1:</b> Please provide more details about blah... blah... blah....</p>
 			</div><!-- /SYSMSG -->
-			<img id="player" src="lib/img/ph-800x570.jpg" width="800" height="570" alt="" title="Course Content">
+			<!-- COURSE CONTENT PLAYER -->
+			<iframe id="player" src="course-content.html" style="width:800px; height:570px;" frameborder="0" seamless></iframe>
 		</div><!-- /CONTENT -->
 
 	</div><!-- /MAIN -->
@@ -385,51 +386,16 @@
 <!-- COPYRIGHT -->
 <div id="copyright">
 	<ul id="copyLinks" class="clearfix">
-		<li>Powered by FinPa Learning Manager 6.0</li>
 		<li><a href="#">Terms of use</a></li>
 		<li><a href="#">Privacy policy</a></li>
 		<li><a href="#">System requirements</a></li>
+		<li class="brand"><a href="http://www.finpa.com.au" target="_blank">Powered by FinPa Learning Manager 6.0</a></li>
 	</ul>
 </div><!-- /COPYRIGHT -->
 
-<!-- MODALS -->
-<div class="modal fade" id="modalHelp" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">How to Use This Screen</h4>
-			</div>
-			<div class="modal-body">
-				<h2>How to use video</h2>
-				<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</p>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-				<hr>
-				<h2>How to submit all your assessment?</h2>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-				<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Results and Feedback</h4>
-			</div>
-			<div class="modal-body">
-				<h2>Results</h2>
-				<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-				<p>Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-				<hr>
-				<h2>Feedback</h2>
-				<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.</p>
-				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-			</div>
-		</div>
-	</div>
-</div><!-- /MODALS -->
+<!-- MODAL CONTAINERS -->
+<div class="modal fade" id="modalHelp" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div class="modal fade" id="modalFeedabck" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<!-- /MODAL CONTAINERS -->
 </body>
 </html>
