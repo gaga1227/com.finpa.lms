@@ -21,6 +21,14 @@
     }
 }());
 /* ------------------------------------------------------------------------------ */
+/* jQuery - hasScrollBar */
+/* ------------------------------------------------------------------------------ */
+(function($) {
+    $.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+    }
+})(jQuery);
+/* ------------------------------------------------------------------------------ */
 /* common - debug - displayDebugInfo */
 /* ------------------------------------------------------------------------------ */
 function displayDebugInfo(debug){
@@ -202,6 +210,7 @@ function initScrollers(cls) {
 		scrollers = {},
 		opts = {
 			//scrollX: 					true,
+			probeType: 					3,
 			scrollbars: 				true,
 			preventDefault: 			true,
 			preventDefaultException: 	{ tagName: /^(A|INPUT|TEXTAREA|BUTTON|SELECT)$/ }
@@ -215,7 +224,7 @@ function initScrollers(cls) {
 		//exit
 		if (!token) return 'NO scroller token';
 		//init scroller
-		scroller = scrollers['scroller' + token] = new IScroll('#'+id, opts),
+		scroller = scrollers['scroller' + token] = new IScroll('#'+id, opts);
 		//bind auto refresh on DOM updates
 		$scroller.on('DOMSubtreeModified', function(e){ scroller.refresh(); });
 	});

@@ -258,6 +258,8 @@ function initMenuFilter(){
 			$btnViewAssess.removeClass(activeCls);
 			//update scroller
 			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
+			//update scrollHint
+			if (!ScrollHint.disabled) ScrollHint.update();
 		};
 		onShowAssess = function(e){
 			e.preventDefault();
@@ -266,6 +268,8 @@ function initMenuFilter(){
 			$btnViewAll.removeClass(activeCls);
 			//update scroller
 			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
+			//update scrollHint
+			if (!ScrollHint.disabled) ScrollHint.update();
 		};
 	//bind button behaviour
 	$btnViewAll.on('click', onShowAll);
@@ -295,21 +299,24 @@ function initSubNav(){
 		//update DOM
 		$subNavHost.empty().html($subNavList.html());
 		$nav.addClass(subNavActiveCls);
-		//update scroller
-		//if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Subnav');
 		//enable back button
 		$btnBack.one('click', onHideSubNav);
 		//hide/show assessment button
 		if ($btnSubmitAssess.length) {
 			$listItem.hasClass('assess') ? $btnSubmitAssess.show() : $btnSubmitAssess.hide();
 		}
+		//update scrollHint
+		if (!ScrollHint.disabled) ScrollHint.update();
 
 		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
 	}
 	function onHideSubNav(e){
 		e.preventDefault();
 		var $trigger = $navList.find('.navList > li > a.link.current').removeClass(currentCls);
+		//update DOM
 		$nav.removeClass(subNavActiveCls);
+		//update scrollHint
+		if (!ScrollHint.disabled) ScrollHint.update();
 
 		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
 	}
@@ -318,6 +325,76 @@ function initSubNav(){
 		var $trigger = $(ele).parent('li').find('> a.link');
 		$trigger.on('click', onShowSubNav);
 	});
+}
+/* ------------------------------------------------------------------------------ */
+/* initScrollHint */
+/* ------------------------------------------------------------------------------ */
+function initScrollHint(){
+	//vars
+	var scrollHint = { visible:false, disabled:true },
+		$nav = $('#nav'),
+		$navScrollHint = $('#navScrollHint'),
+		updateEvent = (Platform.iOS || Platform.android) ? 'orientationchange' : 'resize.scrollhint',
+		inactiveCls = 'inactive',
+		disabledCls = 'disabled';
+	//exit
+	if (!Scrollers.scrollerNav || !$navScrollHint.length) return 'no target scrollers';
+
+	/* ------------------------------------------------------------------------------ */
+	//handlers
+	function onScrollEnd(e){
+		//disable if not already
+		if (!scrollHint.disabled) {
+			scrollHint.disable();
+		};
+		//unbind all events, once off action
+		//Scrollers.scrollerNav.off('scrollEnd', onScrollEnd);
+		//Scrollers.scrollerSubnav.off('scrollEnd', onScrollEnd);
+	}
+	//bind disable function to first scroll
+	Scrollers.scrollerNav.on('scrollEnd', onScrollEnd);
+	Scrollers.scrollerSubnav.on('scrollEnd', onScrollEnd);
+
+	/* ------------------------------------------------------------------------------ */
+	//APIs
+	scrollHint.update = function(){
+		//alert('ScrollHint update');
+		setTimeout(function(){
+			//vars
+			var token 				= scrollHint.token 		= $nav.hasClass('subNavActive') ? 'Subnav' : 'Nav',
+				scroller 			= scrollHint.scroller 	= Scrollers['scroller' + token],
+				hasVerticalScroll 	= scrollHint.visible 	= scroller.hasVerticalScroll;
+			//toggle $ScrollHint depend on target scroller
+			if (hasVerticalScroll) {
+				//alert(token + ' show hint');
+				$navScrollHint.removeClass(inactiveCls);
+			} else {
+				//alert(token + ' hide hint');
+				$navScrollHint.addClass(inactiveCls);
+			}
+		}, 300);
+	}
+	scrollHint.disable = function(){
+		//alert('ScrollHint disable');
+		if (scrollHint.disabled) return 'already disabled';
+		$navScrollHint.addClass(disabledCls);
+		scrollHint.disabled = true;
+		$(window).off(updateEvent, scrollHint.update);
+	}
+	scrollHint.enable = function(){
+		//alert('ScrollHint enable');
+		if (!scrollHint.disabled) return 'already enabled';
+		$navScrollHint.removeClass(disabledCls);
+		scrollHint.disabled = false;
+		$(window).on(updateEvent, scrollHint.update);
+	}
+
+	//init
+	scrollHint.enable();
+	//scrollHint.update();
+
+	//return API to DOM
+	return scrollHint;
 }
 /* ------------------------------------------------------------------------------ */
 /* initSysMsg */
@@ -375,6 +452,7 @@ function initModals(){
 function init(){
 	//interaction demo
 	Scrollers = new initScrollers();
+	ScrollHint = new initScrollHint();
 	initMenus();
 	initMenuFilter();
 	initSubNav();
@@ -385,7 +463,7 @@ function init(){
 	//alert($(window).height());
 }
 /* DOM.ready */
-var Scrollers;
+var Scrollers, ScrollHint;
 $(document).ready(function(){
 	console.log('DOM Ready');
 	initWebFontLoader();

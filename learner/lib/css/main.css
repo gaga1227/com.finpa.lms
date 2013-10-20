@@ -375,7 +375,7 @@ html, body { height:100%; }
 
 	/* -------------------------------------------------------------------------- */
 	/* buttons */
-	#btnSubmitAllAssess { position:absolute; bottom:54px; left:0; }
+	#btnSubmitAllAssess { position:absolute; bottom:54px; left:0; z-index:1; }
 	#btnGroupAssess 	{ position:absolute; bottom:0; left:0; }
 
 	/* -------------------------------------------------------------------------- */
@@ -894,6 +894,68 @@ html, body { height:100%; }
 	#utils .heading { font-size:18px; }
 
 }
+
+/* ==========================================================================
+   common - SCROLLHINT
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* scrollHint */
+.scrollHint {
+	position:absolute; top:auto; bottom:0; left:0; width:100%; height:70px; margin:0; padding:0; overflow:hidden;
+	color:#007aff; text-align:center; font-size:12px; line-height:15px;
+	pointer-events:none; cursor:default;
+	/*background-gradient*/
+	background-color:transparent;
+	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(60%,rgba(255,255,255,1)));
+	background-image:-webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%);
+	background-image:-moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%);
+	background-image:linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 60%);
+	/*transition*/
+	-webkit-transition:all 0.5s ease-in-out;
+	-moz-transition:all 0.5s ease-in-out;
+	transition:all 0.5s ease-in-out;
+	/*transform-origin*/
+	-webkit-transform-origin:50%;
+	-moz-transform-origin:50%;
+	-o-transform-origin:50%;
+	transform-origin:50%; }
+
+	/* icon */
+	.scrollHint i { margin-top:0.5em; font-size:24px; line-height:1em; }
+
+	/* hintLabel */
+	.scrollHint .hintLabel { display:block; margin-top:0.5em; font-weight:700; }
+
+/* inactive */
+.scrollHint.inactive {
+	height:0!important; opacity:0!important; }
+
+	/* icon */
+	.scrollHint.inactive .animatedloop.bounceDownloop {
+		-webkit-animation-name: none;
+		-moz-animation-name: none;
+		-o-animation-name: none;
+		animation-name: none; }
+
+/* disabled */
+.scrollHint.disabled {
+	opacity:0!important;
+	-webkit-transform:scale(0) translate(0, -160px);
+	-moz-transform:scale(0) translate(0, -160px);
+	-o-transform:scale(0) translate(0, -160px);
+	transform:scale(0) translate(0, -160px); }
+
+	/* icon */
+	.scrollHint.disabled .animatedloop.bounceDownloop {
+		-webkit-animation-name: none;
+		-moz-animation-name: none;
+		-o-animation-name: none;
+		animation-name: none; }
+
+/* -------------------------------------------------------------------------- */
+/* custom */
+#navScrollHint { bottom:99px; z-index:8; }
 
 
 /* ==========================================================================
