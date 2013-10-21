@@ -18,7 +18,10 @@ WebFontConfig = {
 };
 WebFontUtils = {
 	onWFLoading: 	function()	{},
-	onWFComplete: 	function()	{},
+	onWFComplete: 	function()	{
+						//start adapting course content frame size
+						adaptCourseContent();
+					},
 	onWFActive: 	function()	{},
 	onWFInactive: 	function()	{}
 }
@@ -259,7 +262,7 @@ function initMenuFilter(){
 			//update scroller
 			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
 			//update scrollHint
-			if (!ScrollHint.disabled) ScrollHint.update();
+			if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 		};
 		onShowAssess = function(e){
 			e.preventDefault();
@@ -269,7 +272,7 @@ function initMenuFilter(){
 			//update scroller
 			if (Scrollers && typeof(Scrollers.update)=='function') Scrollers.update('Nav');
 			//update scrollHint
-			if (!ScrollHint.disabled) ScrollHint.update();
+			if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 		};
 	//bind button behaviour
 	$btnViewAll.on('click', onShowAll);
@@ -306,7 +309,7 @@ function initSubNav(){
 			$listItem.hasClass('assess') ? $btnSubmitAssess.show() : $btnSubmitAssess.hide();
 		}
 		//update scrollHint
-		if (!ScrollHint.disabled) ScrollHint.update();
+		if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 
 		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
 	}
@@ -316,7 +319,7 @@ function initSubNav(){
 		//update DOM
 		$nav.removeClass(subNavActiveCls);
 		//update scrollHint
-		if (!ScrollHint.disabled) ScrollHint.update();
+		if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 
 		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
 	}
@@ -445,6 +448,32 @@ function initModals(){
 			}
 		});
 	});
+}
+/* ------------------------------------------------------------------------------ */
+/* adaptCourseContent */
+/* ------------------------------------------------------------------------------ */
+function adaptCourseContent(){
+	//vars
+	var $content = $('#content'),
+		$sysmsg = $('#sysmsg'),
+		$coursecontentWrapper = $('#coursecontentWrapper'),
+		delay = Platform.android ? 600 : 100,
+		activeCls = 'adapted';
+	//exit
+	if (!$content.length || !$coursecontentWrapper.length) return false;
+	//handler
+	function update(e){
+		setTimeout(function(e){
+			var frameH = $content.height() - ( $sysmsg.length ? $sysmsg.outerHeight() : 0 );
+			$coursecontentWrapper
+				.height(frameH)
+				.addClass(activeCls);
+		}, delay);
+	}
+	//bind resize handler
+	$(window).on('resize.adaptCourseContent', update);
+	//init
+	update();
 }
 /* ------------------------------------------------------------------------------ */
 /* init */

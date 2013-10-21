@@ -38,7 +38,7 @@ function displayDebugInfo(debug){
 		$html = $('html'),
 		on = '',
 		toggle = function() {
-			if ( on == 'true' ) {
+			if ( on ) {
 				$debug.css('opacity', '1');
 				$html.addClass('debug');
 			} else {
@@ -48,12 +48,12 @@ function displayDebugInfo(debug){
 		},
 		update = function(){
 			$debug.attr('data-width',$(window).width());
-			on = $debug.attr('data-on');
+			on = $debug.attr('data-on') ? true : false;
 			toggle();
 		};
 
-	//exit if IE6,7
-	if ($('html').hasClass('ie6') || $('html').hasClass('ie7')) {
+	//exit debug
+	if ($html.hasClass('ie6') || $html.hasClass('ie7') || $debug.attr('data-disabled')) {
 		$debug.remove();
 		return false;
 	}
@@ -61,8 +61,7 @@ function displayDebugInfo(debug){
 	//init and bind event
 	$debug.on('click', function(e){
 		e.preventDefault();
-		var state = '';
-		( on == 'true' ) ? state = 'false' : state = 'true';
+		var state = on ? '' : '1';
 		$debug.attr('data-on', state);
 		update();
 	});

@@ -14,9 +14,9 @@
 
 /* -------------------------------------------------------------------------- */
 /* scrollbars */
-::-webkit-scrollbar 			{ width:6px; height:6px; }
-::-webkit-scrollbar-track 		{  }
-::-webkit-scrollbar-thumb 		{ background:#95a5a6; border-radius:5px; }
+.android ::-webkit-scrollbar 			{ width:6px; height:6px; }
+.android ::-webkit-scrollbar-track 		{  }
+.android ::-webkit-scrollbar-thumb 		{ background:#95a5a6; border-radius:5px; }
 
 
 /* ==========================================================================
@@ -86,8 +86,9 @@ html, body { height:100%; }
 #container,
 	.sidePanel, #main,
 		#header, #utils, #utilsExtra, #sysmsg, #content, #copyright,
-			#player {
-				display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+			#coursecontentWrapper,
+				#coursecontent {
+					display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 
 /* container */
 #container {
@@ -258,7 +259,7 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* container */
 #sysmsg {
-	display:block; position:relative; width:100%; min-width:800px;/*as player*/ height:auto; margin:0; padding:10px 15px; z-index:10;
+	display:block; position:relative; width:100%; height:auto; margin:0; padding:10px 15px; z-index:10;
 	color:#000; text-shadow:0 1px 0 rgba(255,255,255,0.5);
 	font-size:15px; font-weight:600; line-height:18px;
 	/*box-shadow*/-webkit-box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5); box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5);
@@ -297,11 +298,28 @@ html, body { height:100%; }
 #content {
 	position:absolute; top:90px; bottom:0; left:0; width:100%; }
 
+/* debug */
+.debug #content { background:red; }
+
 	/* -------------------------------------------------------------------------- */
-	/* player */
-	#player {
-		position:relative; margin:0 auto; padding:0; overflow:hidden;
-		background:#fff; border:none; }
+	/* coursecontentWrapper */
+	#coursecontentWrapper {
+		width:100%; /*dimension updated by JS*/
+		background:#fff;
+		/*transition*/
+		-webkit-transition:opacity 0.3s ease-in-out;
+		-moz-transition:opacity 0.3s ease-in-out;
+		transition:opacity 0.3s ease-in-out; }
+
+		/* #coursecontent (iframe) */
+		#coursecontent { width:100%; height:100%; border:none; overflow:auto; }
+
+	/* interaction */
+	#coursecontentWrapper 					{ opacity:0; }
+	.oldie #coursecontentWrapper		 	{ display:none; }
+
+	#coursecontentWrapper.adapted 			{ opacity:1; }
+	.oldie #coursecontentWrapper.adapted 	{ display:block; }
 
 
 /* ==========================================================================
@@ -893,6 +911,10 @@ html, body { height:100%; }
 	/* smaller heading */
 	#utils .heading { font-size:18px; }
 
+	/* hide footer links, retain brand */
+	#copyright li { display:none; }
+	#copyright li.brand { display:block; float:none; text-align:center; }
+
 }
 
 /* ==========================================================================
@@ -902,7 +924,7 @@ html, body { height:100%; }
 /* -------------------------------------------------------------------------- */
 /* scrollHint */
 .scrollHint {
-	position:absolute; top:auto; bottom:0; left:0; width:100%; height:70px; margin:0; padding:0; overflow:hidden;
+	position:absolute; top:auto; bottom:0; left:0; width:100%; height:50px; margin:0; padding:0; overflow:hidden;
 	color:#007aff; text-align:center; font-size:12px; line-height:15px;
 	pointer-events:none; cursor:default;
 	/*background-gradient*/
@@ -925,7 +947,7 @@ html, body { height:100%; }
 	.scrollHint i { margin-top:0.5em; font-size:24px; line-height:1em; }
 
 	/* hintLabel */
-	.scrollHint .hintLabel { display:block; margin-top:0.5em; font-weight:700; }
+	.scrollHint .hintLabel { display:none; margin-top:0.5em; font-weight:700; }
 
 /* inactive */
 .scrollHint.inactive {
@@ -1009,8 +1031,8 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* nativeScroller */
-.nativeScroller 		{ overflow:auto!important; }
-.iOS .nativeScroller 	{ -webkit-overflow-scrolling:touch!important; }
+.nativeScroller 			{ overflow:auto!important; }
+.iOS .nativeScroller 		{ -webkit-overflow-scrolling:touch!important; }
 
 /* -------------------------------------------------------------------------- */
 /* IScroll5 */

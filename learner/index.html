@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Viewport optimized -->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <!-- Title -->
 <title>Page 12/20 - Respond to customer complaints</title>
 <!-- CSS:FONT/ICON -->
@@ -32,12 +32,13 @@
 <script src="lib/js/jquery.hammer.min.js"></script>
 <script src="lib/js/iscroll-min.js"></script>
 <!-- JS:SITE -->
+<script src="lib/js/flm.js"></script>
 <script src="lib/js/main.utils.js"></script>
 <script src="lib/js/main.js"></script>
 </head>
 <body>
 <!-- DEBUG -->
-<div id="debugInfo" class="nfp debug" data-on="" data-width=""></div>
+<div id="debugInfo" class="nfp debug" data-disabled="" data-on=""></div>
 <!-- PAGEBG -->
 <div id="pageBg"></div>
 <!-- LOADER -->
@@ -221,7 +222,7 @@
 		<!-- NAVSCROLLHINT -->
 		<div id="navScrollHint" class="scrollHint inactive disabled">
 			<i class="glyphicon glyphicon-arrow-down animatedloop bounceDownloop"></i>
-			<span class="hintLabel">Scroll Down for More Items</span>
+			<!-- <span class="hintLabel">Scroll Down for More Items</span> -->
 		</div><!-- /NAVSCROLLHINT -->
 
 	</div><!-- /NAV -->
@@ -373,7 +374,7 @@
 		</div><!-- /UTILS -->
 
 		<!-- CONTENT -->
-		<div id="content" class="nativeScroller">
+		<div id="content">
 			<!-- SYSMSG -->
 			<div id="sysmsg" class="highlight">
 				<p class="latest"><i class="icon-lock"></i>&nbsp;&nbsp;This question is read only, and you have passed.</p>
@@ -381,8 +382,15 @@
 				<p class="past"><b>14 Aug 2013, Assessor 2:</b> Like your addition, but you still miss something ... blah...</p>
 				<p class="past"><b>10 Aug 2013, Assessor 1:</b> Please provide more details about blah... blah... blah....</p>
 			</div><!-- /SYSMSG -->
-			<!-- COURSE CONTENT PLAYER -->
-			<iframe id="player" src="course-content.html" style="width:800px; height:570px;" frameborder="0"></iframe>
+			<!-- COURSE CONTENT WRAPPER -->
+			<div id="coursecontentWrapper" class="nativeScroller">
+				<!-- COURSE CONTENT -->
+				<iframe src="course-content.html"
+					name="coursecontent" id="coursecontent"
+					frameborder="0" scrolling="auto">
+					Your browser doesn't support iframe.
+				</iframe><!-- /COURSE CONTENT -->
+			</div><!-- /COURSE CONTENT WRAPPER -->
 		</div><!-- /CONTENT -->
 
 	</div><!-- /MAIN -->
