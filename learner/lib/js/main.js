@@ -422,28 +422,30 @@ function initModals(){
 	var $btnModals = $('.btnModal'),
 		activeCls = 'active',
 		animCls = 'animatedloop attnloop';
-	//bind interaction
+	//go through modal buttons
 	$.each($btnModals, function(idx,ele){
-		//vars
-		var $this = $(this),
-			$modal = $($this.attr('data-target')),
-			url = $this.attr('data-remote'),
-			isActive = $this.hasClass(activeCls);
-		//init BS modals
-		$modal.modal({ remote: url, show:false });
 		//bind btn behaviors
-		$this.bind('click', function(e){
+		$(ele).bind('click', function(e){
 			e.preventDefault();
+			//vars
+			var $btn = $(this),
+				$modal = $($btn.attr('data-target')),
+				url = $btn.attr('data-remote'),
+				isActive = $btn.hasClass(activeCls);
+			//init BS modal
+			$modal.modal({ remote: url, show:false });
 			if (!isActive) {
-				$this
+				$btn
 					.addClass(activeCls)
 					.removeClass(animCls);
 				$modal.modal('show');
-				$modal.one('hide.bs.modal', function() {
-					$this.removeClass(activeCls);
+				$modal.one('hide.bs.modal', function(e) {
+					$btn.removeClass(activeCls);
+					//remove existing modal data
+					$(this).removeData('bs.modal');
 				})
 			} else {
-				$this.removeClass(activeCls);
+				$btn.removeClass(activeCls);
 				$modal.modal('hide');
 			}
 		});
