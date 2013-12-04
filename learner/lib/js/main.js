@@ -481,17 +481,17 @@ function adaptCourseContent(){
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
-	//interaction demo
-	Scrollers = new initScrollers();
-	ScrollHint = new initScrollHint();
-	initMenus();
-	initMenuFilter();
-	initSubNav();
-	initModals();
-
+	//course page interactions
+	if ( $('body#course').length ) {
+		Scrollers = new initScrollers();
+		ScrollHint = new initScrollHint();
+		initMenus();
+		initMenuFilter();
+		initSubNav();
+		initModals();
+	};
 	//debug
 	displayDebugInfo('#debugInfo');
-	//alert($(window).height());
 }
 /* DOM.ready */
 var Scrollers, ScrollHint;

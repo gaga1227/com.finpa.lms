@@ -61,7 +61,7 @@
 /* ------------------------------------------------------------------------------ 
    COURSE PAGE 
    ------------------------------------------------------------------------------ */
-   
+
 /* ==========================================================================
    structure - GLOBAL
    ========================================================================== */
@@ -89,7 +89,7 @@ html, body { height:100%; }
 /* blockings */
 #container,
 	.sidePanel, #main,
-		#header, #utils, #utilsExtra, #sysmsg, #content, #copyright,
+		#header, #utils, #utilsExtra, .sysmsg, #content, #copyright,
 			#coursecontentWrapper,
 				#coursecontent {
 					display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
@@ -262,8 +262,8 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#sysmsg {
-	display:block; position:relative; width:100%; height:auto; margin:0; padding:10px 15px; z-index:10;
+.sysmsg {
+	display:block; position:relative; width:100%; height:auto; margin:0 0 5px 0; padding:10px 15px; z-index:10;
 	color:#000; text-shadow:0 1px 0 rgba(255,255,255,0.5);
 	font-size:15px; font-weight:600; line-height:18px;
 	/*box-shadow*/-webkit-box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5); box-shadow:0px 2px 5px 0px rgba(0,0,0,0.5);
@@ -272,26 +272,21 @@ html, body { height:100%; }
 	background-image:-webkit-linear-gradient(top, #ffe051 0%, #f8cf00 100%);
 	background-image:-moz-linear-gradient(top, #ffe051 0%, #f8cf00 100%);
 	background-image:linear-gradient(to bottom, #ffe051 0%, #f8cf00 100%);
-	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00)";
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffe051, endColorstr=#fff8cf00);
 	zoom:1; }
 
-	/* p */
-	#sysmsg p {
+	.sysmsg p {
 		padding:0; margin:0;
-		font-size:16px; }
-
-	/* latest */
-	#sysmsg .latest {
-		padding:0 0 5px 0; }
-
-	/* past */
-	#sysmsg .past {
 		font-size:14px; font-weight:400; line-height:1.2em;
 		text-shadow:none;
-		/*opacity*/
-		opacity:0.70; }
+		opacity:0.70; 
+	}
 
+	.sysmsg p.obvious {
+		font-size:16px; 
+		padding:0 0 5px 0; 
+	}
 
 /* ==========================================================================
    structure - CONTENT
@@ -310,13 +305,19 @@ html, body { height:100%; }
 	#coursecontentWrapper {
 		width:100%; /*dimension updated by JS*/
 		background:#fff;
+		margin: 5px;	/*smaller margin, in case some content is too full*/
 		/*transition*/
 		-webkit-transition:opacity 0.3s ease-in-out;
 		-moz-transition:opacity 0.3s ease-in-out;
 		transition:opacity 0.3s ease-in-out; }
 
-		/* #coursecontent (iframe) */
-		#coursecontent { width:100%; height:100%; border:none; overflow:auto; }
+	/* #coursecontent (iframe) */
+	#coursecontent { width:100%; height:100%; border:none; overflow:auto; }
+
+	/* wrapping for non-iframe content */
+	.nonFrameContent {
+		margin: 10px;
+	}
 
 	/* interaction */
 	#coursecontentWrapper 					{ opacity:0; }
@@ -325,11 +326,21 @@ html, body { height:100%; }
 	#coursecontentWrapper.adapted 			{ opacity:1; }
 	.oldie #coursecontentWrapper.adapted 	{ display:block; }
 
+	.item_title {
+		font-family: arial,verdana,sans-serif;
+		font-weight: bold;
+		line-height: normal;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		color: #CC6633;
+		font-size: 20px;
+	}
 
 /* ==========================================================================
    structure - COPYRIGHT
    ========================================================================== */
-
+			
 /* -------------------------------------------------------------------------- */
 /* container */
 #copyright {
@@ -500,6 +511,7 @@ html, body { height:100%; }
 		/* assessment result */
 		.navList li .status.pass { color:#49bf1f; }
 		.navList li .status.fail { color:#ff3b30; }
+		.navList li .status.completed { color:#49bf1f; }
 
 		/* -------------------------------------------------------------------------- */
 		/* link */
@@ -525,40 +537,41 @@ html, body { height:100%; }
 		/* -------------------------------------------------------------------------- */
 		/* title */
 		.navList li.title { border-bottom-color:#007aff; }
-		.navList li.title .link { background:#fff; text-align:center; }
+		.navList li.title .link { background:#fff; text-align:center;font-weight:600; }
 
 		/* -------------------------------------------------------------------------- */
 		/* link custom */
 
-		/* core content */
-		.navList li.core .link	{ background:#d1eefe; }
+		/* core activity content */
+		.navList li.core .link { background:#d1eefe; }
 
 		/* current */
-		.navList li.current .link			{ color:#fff; background:#007aff; }
-		.no-touch .navList li.current a.link:hover,
+		.navList li.current .link { color:#fff; background:#007aff; }
+
 		.no-touch .navList li.current a.link:focus,
-		.touch .navList li.current a.link:active 	{ background:#2980b9!important; }
+		.touch .navList li.current a.link:active 	{ color:#fff; background:#007aff!important; }
 
 		.navList li.current .status	{ color:#ecf0f1; }
+		.navList li.current a.link:hover .status { color: #007aff;}
+		
+		.navList li.current a.link:hover .status.pass { color:#49bf1f; }
+		.navList li.current a.link:hover .status.fail { color:#ff3b30; }
+		.navList li.current a.link:hover .status.completed { color:#49bf1f; }
 
 		.navList li.current .link .action,
-		.no-touch .navList li.current a.link:hover .action,
 		.no-touch .navList li.current a.link:focus .action,
-		.touch .navList li.current a.link:active .action { color:#fff; border:1px solid #fff; }
+		.touch .navList li.current a.link:active .action { color:#fff; border:1px solid #fff;}
 
 		/* levels/indentations */
-		.navList li.lv1 .link	{ font-weight:700; }
 		.navList li.lv2 .link	{ padding-left:40px; }
 		.navList li.lv3 .link	{ padding-left:50px; }
 		.navList li.lv4 .link	{ padding-left:60px; }
 
-		.navList li.lv2 .link,
-		.navList li.lv3 .link,
-		.navList li.lv4 .link	{ font-size:15px; }
+		/* -------------------------------------------------------------------------- */
+		/* elem */
+		.navList .subNavList { display:none; }
 
-			/* -------------------------------------------------------------------------- */
-			/* elem */
-			.navList .subNavList { display:none; }
+		.hide { visibility: hidden; } /* Hidden, but still occupy the space */
 
 
 /* ==========================================================================
@@ -1045,88 +1058,6 @@ html, body { height:100%; }
 .iScrollIndicator 			{ background-color:#95a5a6!important; border:none!important; }
 
 
-/* ------------------------------------------------------------------------------ 
-   SYS PAGE 
-   ------------------------------------------------------------------------------ */
-
-/* ==========================================================================
-   structure - GLOBAL
-   ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* body */
-body#sys { 
-	height:auto; overflow:auto;
-	background:#2d2d2b; }
-
-/* -------------------------------------------------------------------------- */
-/* pageBg */
-body#sys #pageBg { display:none; }
-
-/* -------------------------------------------------------------------------- */
-/* container */
-body#sys #container {
-	position:relative; top:auto; left:auto; width:auto; height:auto; min-width:300px; max-width:none; max-height:none; margin:0 auto;
-	background:#fff; border-bottom:none;
-	/*transition*/
-	-webkit-transition:none;
-	-moz-transition:none;
-	-ms-transition:none;
-	transition:none; }
-
-/* firefox bug of 100% height equals huge number */
-@-moz-document url-prefix() {
-	.android body#sys #container { max-height:none; }
-}
-
-/* -------------------------------------------------------------------------- */
-/* container */
-body#sys #copyright {
-	display:block; position:relative; left:auto; bottom:auto; min-width:300px; max-width:none; margin:0 auto; }
-
-
-/* ==========================================================================
-   structure - BLOCKINGS
-   ========================================================================== */
-   
-/* common */
-.pageSection,
-.pageSection > .padder {
-	display:block; position:relative; width:auto; min-width:300px; height:auto; margin:0 auto; padding:0; overflow:hidden; }
-	
-	/* padder */
-	.pageSection > .padder { padding:2em 3em; }
-		
-
-/* ==========================================================================
-   structure - PAGE HEADER
-   ========================================================================== */
-   
-/* -------------------------------------------------------------------------- */
-/* container */
-#pageHeader {  }
-
-
-/* ==========================================================================
-   structure - PAGE CONTENT
-   ========================================================================== */
-
-/* -------------------------------------------------------------------------- */
-/* container */
-#pageContent {  }
-
-
-
-
-
-
-
-/* ==========================================================================
-   structure - RESPONSIVE
-   ========================================================================== */
-
-
-
 /* ==========================================================================
    Common Styles
    Author: JX 20120127
@@ -1283,6 +1214,127 @@ body#sys #copyright {
 .padRgt45           { padding-right:45px!important; }
 .padRgt50           { padding-right:50px!important; }
 
+/* ==========================================================================
+   Styles from the old design
+   ========================================================================== */
+
+.block {
+	display:block;
+}
+
+/*top right aligned links*/
+.tlink {
+	text-align:left;
+	color:#5485ca;
+	font-size:11px;
+	line-height:18px !important;
+	height:23px;
+	margin:6px;
+	padding:5px 0 5px 24px;
+	overflow:hidden;
+	background:transparent url(../s.gif) 0 center no-repeat;
+	display:inline;
+	cursor:pointer;
+}
+.tlink a, .tlink a:link, .tlink a:active, .tlink a:visited {
+	color:#5485ca;
+	text-decoration:underline;
+}
+.tlink a:hover {
+	color:#5485ca;
+	text-decoration:underline;
+}
+
+/*icons text for info*/
+.itext {
+	color:#5485ca;
+	font-size:14px;
+	line-height:18px;
+	margin:6px;
+	padding:3px 0 3px 24px;
+	background:transparent url(../s.gif) 0 center no-repeat;
+}
+
+/*message frame*/
+.msgf {
+	border-bottom:1px solid #F4CE66;
+	border-top:1px solid #F4CE66;
+	background-color:#FDFFD9;
+	line-height:30px;
+	margin:0 0 10px 0;
+	padding:0px;
+	color:#444444;
+}
+.msgf .itext {
+	color:#444;
+}
+
+input[type=submit], input[type=button], button {
+	color:#eee;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	width:auto;
+	height:26px;
+	padding:0 10px;
+	overflow:hidden;
+	line-height:26px;
+	border: none;
+	_display:block !important; /*IE6 hack*/
+	display:inline-block;
+	/*border-radius*/
+		-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	/*shadow*/
+		-webkit-box-shadow: #999 0px 1px 2px;
+	-moz-box-shadow: #999 0px 1px 2px;
+	box-shadow: #999 0px 1px 2px;
+	/*bg*/
+		background: #6B7984;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ADB6BD), to(#293842));
+	background: -moz-linear-gradient(#ADB6BD, #293842);
+	background: linear-gradient(#ADB6BD, #293842);
+	-pie-background: linear-gradient(#ADB6BD, #293842);
+	/*IE*/
+		behavior: url(/NS/Asset/css3pie/PIE.htc); /*path relative to page, and cannot use CDN*/
+	position: relative;
+}
+
+.info { background-image:url(../s3/ico1/info_sml.png); }
+.alert { background-image:url(../s3/ico1/alert.png); }
+.download { background-image:url(../s3/ico1/download.png); }
+
+.fleft { float:left; }
+.fright { float:right; }
+.topgapsml { margin-top:5px !important; }
+.btmgapsml { margin-bottom:5px !important; }
+.topgap { margin-top:10px !important; }
+.btmgap { margin-bottom:10px !important; }
+.topgapbig { margin-top:20px !important; }
+.btmgapbig { margin-bottom:20px !important; }
+.outermargin { margin:10px 20px !important; }
+.innerpadding { padding:10px 20px !important; }
+.gap5 { height:5px;
+	line-height:5px;
+	padding:0;
+	margin:0;
+}
+.gap10 { height:10px;
+	line-height:10px;
+	padding:0;
+	margin:0;
+}
+.gap15 { height:15px;
+	line-height:15px;
+	padding:0;
+	margin:0;
+}
+.gap20 { height:20px;
+	line-height:20px;
+	padding:0;
+	margin:0;
+}
 
 /* ==========================================================================
    Helper classes
@@ -1346,25 +1398,25 @@ body#sys #copyright {
 .oldie.debug h3,
 .oldie.debug h4,
 .oldie.debug h5 {
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1900FF00, endColorstr=#1900FF00);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#1900FF00, endColorstr=#1900FF00)";
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#1900FF00, endColorstr=#1900FF00);
     zoom:1; }
 .oldie.debug p,
 .oldie.debug li {
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFF00, endColorstr=#19FFFF00);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFF00, endColorstr=#19FFFF00)";
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFF00, endColorstr=#19FFFF00);
     zoom:1; }
 .oldie.debug a  {
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#190000FF, endColorstr=#190000FF);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#190000FF, endColorstr=#190000FF)";
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#190000FF, endColorstr=#190000FF);
     zoom:1; }
 .oldie.debug span,
 .oldie.debug i  {
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FF0000, endColorstr=#19FF0000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FF0000, endColorstr=#19FF0000)";
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FF0000, endColorstr=#19FF0000);
     zoom:1; }
 .oldie.debug div {
-    -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#07000000, endColorstr=#07000000);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#07000000, endColorstr=#07000000)";
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#07000000, endColorstr=#07000000);
     zoom:1; }
 
