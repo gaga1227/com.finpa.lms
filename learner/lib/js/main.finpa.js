@@ -8,12 +8,12 @@ WebFontConfig = {
 			'Montserrat:400,700:latin'
 		]
 	},
-	loading: 		function() { console.log('[WF] loading'); 	WebFontUtils.onWFLoading(); },
-	active: 		function() { console.log('[WF] active'); 	WebFontUtils.onWFActive(); 	 WebFontUtils.onWFComplete(); },
-	inactive: 		function() { console.log('[WF] inactive'); 	WebFontUtils.onWFInactive(); WebFontUtils.onWFComplete(); },
-	fontloading: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'loading' ); },
-	fontactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'active' ); },
-	fontinactive: 	function( familyName, fvd ) { console.log( '[WF] ' + familyName, fvd, 'inactive' ); },
+	loading: 		function() { FinPa.Debug.log('[WF] loading'); 	WebFontUtils.onWFLoading(); },
+	active: 		function() { FinPa.Debug.log('[WF] active'); 	WebFontUtils.onWFActive(); 	 WebFontUtils.onWFComplete(); },
+	inactive: 		function() { FinPa.Debug.log('[WF] inactive'); 	WebFontUtils.onWFInactive(); WebFontUtils.onWFComplete(); },
+	fontloading: 	function( familyName, fvd ) { FinPa.Debug.log( '[WF] ' + familyName, fvd, 'loading' ); },
+	fontactive: 	function( familyName, fvd ) { FinPa.Debug.log( '[WF] ' + familyName, fvd, 'active' ); },
+	fontinactive: 	function( familyName, fvd ) { FinPa.Debug.log( '[WF] ' + familyName, fvd, 'inactive' ); },
 	timeout: 		5000
 };
 WebFontUtils = {
@@ -290,8 +290,8 @@ function initSubNav(){
 	//vars
 	var $nav = $('#nav'),
 		$navList = $('#navList'),
-		$subNavLists = $navList.find('.subNavList'),
-		$subNavHost = $('#subNavList > .navList'),
+		$subNavLists = $navList.find('> ol > li.subnav > a.link'), // .subnav indicates this li item has sub navigation
+		$subNavHost = $('#subNavHost > .navList'),
 		$btnBack = $('#btnSubNav'),
 		$btnSubmitAssess = $('#btnSubmitAssess'),
 		subNavActiveCls = 'subNavActive',
@@ -301,9 +301,9 @@ function initSubNav(){
 		e.preventDefault();
 		var $trigger = $(this).addClass(currentCls),
 			$listItem = $trigger.parent('li'),
-			$subNavList = $listItem.find('> .subNavList');
+		    itemId = $listItem.attr('data-token');
 		//update DOM
-		$subNavHost.empty().html($subNavList.html());
+		$subNavHost.empty().html(simulateCallbackSubNav(itemId));
 		$nav.addClass(subNavActiveCls);
 		//enable back button
 		$btnBack.one('click', onHideSubNav);
@@ -314,7 +314,7 @@ function initSubNav(){
 		//update scrollHint
 		if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 
-		console.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
+		FinPa.Debug.log('[subNav] of "' + $trigger.text() + '" ACTIVE');
 	}
 	function onHideSubNav(e){
 		e.preventDefault();
@@ -324,12 +324,11 @@ function initSubNav(){
 		//update scrollHint
 		if (ScrollHint.update && !ScrollHint.disabled) ScrollHint.update();
 
-		console.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
+		FinPa.Debug.log('[subNav] of "' + $trigger.text() + '" INACTIVE');
 	}
 	//bind interaction
 	$.each($subNavLists, function(idx, ele){
-		var $trigger = $(ele).parent('li').find('> a.link');
-		$trigger.on('click', onShowSubNav);
+		$(ele).on('click', onShowSubNav);
 	});
 }
 /* ------------------------------------------------------------------------------ */
@@ -500,7 +499,7 @@ function init(){
 /* DOM.ready */
 var Scrollers, ScrollHint;
 $(document).ready(function(){
-	console.log('DOM Ready');
+	FinPa.Debug.log('DOM Ready');
 	initWebFontLoader();
 	Platform.addDOMClass();
 	init();

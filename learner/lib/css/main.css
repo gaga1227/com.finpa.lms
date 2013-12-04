@@ -61,7 +61,7 @@
 /* ------------------------------------------------------------------------------ 
    COURSE PAGE 
    ------------------------------------------------------------------------------ */
-   
+
 /* ==========================================================================
    structure - GLOBAL
    ========================================================================== */
@@ -89,7 +89,7 @@ html, body { height:100%; }
 /* blockings */
 #container,
 	.sidePanel, #main,
-		#header, #utils, #utilsExtra, #sysmsg, #content, #copyright,
+		#header, #utils, #utilsExtra, .sysmsg, #content, #copyright,
 			#coursecontentWrapper,
 				#coursecontent {
 					display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
@@ -262,7 +262,7 @@ html, body { height:100%; }
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#sysmsg {
+.sysmsg {
 	display:block; position:relative; width:100%; height:auto; margin:0; padding:10px 15px; z-index:10;
 	color:#000; text-shadow:0 1px 0 rgba(255,255,255,0.5);
 	font-size:15px; font-weight:600; line-height:18px;
@@ -277,16 +277,16 @@ html, body { height:100%; }
 	zoom:1; }
 
 	/* p */
-	#sysmsg p {
+	.sysmsg p {
 		padding:0; margin:0;
 		font-size:16px; }
 
 	/* latest */
-	#sysmsg .latest {
+	.sysmsg .latest {
 		padding:0 0 5px 0; }
 
 	/* past */
-	#sysmsg .past {
+	.sysmsg .past {
 		font-size:14px; font-weight:400; line-height:1.2em;
 		text-shadow:none;
 		/*opacity*/
@@ -500,6 +500,7 @@ html, body { height:100%; }
 		/* assessment result */
 		.navList li .status.pass { color:#49bf1f; }
 		.navList li .status.fail { color:#ff3b30; }
+		.navList li .status.completed { color:#49bf1f; }
 
 		/* -------------------------------------------------------------------------- */
 		/* link */
