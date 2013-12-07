@@ -1059,6 +1059,9 @@ html, body { height:100%; }
 body#sys { 
 	height:auto; overflow:auto;
 	background:#2d2d2b; }
+	
+/* interaction */
+body#sys.menuActive { overflow:hidden; }
 
 /* -------------------------------------------------------------------------- */
 /* pageBg */
@@ -1067,7 +1070,7 @@ body#sys #pageBg { display:none; }
 /* -------------------------------------------------------------------------- */
 /* container */
 body#sys #container {
-	position:relative; top:auto; left:auto; width:auto; height:auto; min-width:300px; max-width:none; max-height:none; margin:0 auto;
+	position:relative; top:auto; left:auto; width:auto; height:auto; min-width:600px; max-width:none; max-height:none; margin:0 auto;
 	background:#fff; border-bottom:none;
 	/*transition*/
 	-webkit-transition:none;
@@ -1083,7 +1086,26 @@ body#sys #container {
 /* -------------------------------------------------------------------------- */
 /* container */
 body#sys #copyright {
-	display:block; position:relative; left:auto; bottom:auto; min-width:300px; max-width:none; margin:0 auto; }
+	display:block; position:relative; left:auto; bottom:auto; min-width:600px; max-width:none; margin:0 auto; }
+
+
+/* ==========================================================================
+   structure - WEBFONT
+   ========================================================================== */
+   
+/* loading */
+.js #sysmenu {
+	visibility:hidden; opacity:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:opacity 0.3s ease-in-out;
+	-moz-transition:opacity 0.3s ease-in-out;
+	-o-transition:opacity 0.3s ease-in-out;
+	transition:opacity 0.3s ease-in-out; }
+
+/* active */
+.wf-active #sysmenu,
+.wf-inactive #sysmenu { visibility:visible; opacity:1; }
 
 
 /* ==========================================================================
@@ -1093,11 +1115,63 @@ body#sys #copyright {
 /* common */
 .pageSection,
 .pageSection > .padder {
-	display:block; position:relative; width:auto; min-width:300px; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+	display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 	
 	/* padder */
-	.pageSection > .padder { padding:2em 3em; }
+	.pageSection > .padder { min-width:600px; padding:2% 4%; }
 		
+
+/* ==========================================================================
+   structure - SYSMENU
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* container */
+#sysmenu {
+	position:absolute; top:0; right:0; width:300px; height:100%;
+	border-left:1px solid #bdc3c7; }
+
+	/* -------------------------------------------------------------------------- */
+	/* menuList */
+	#sysmenu #menuList { background:#fff; }	
+	
+/* -------------------------------------------------------------------------- */
+/* interaction */
+
+/* common */
+body#sys #container,
+body#sys #copyright { 
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out; }
+
+/* default */
+body#sys #sysmenu { 
+	display:none; }
+body#sys #container,
+body#sys #copyright { 
+	/*transform*/
+	-webkit-transform:translate(0,0);
+	-moz-transform:translate(0,0);
+	-ms-transform:translate(0,0);
+	transform:translate(0,0); }
+
+/* menuActive */
+body#sys.menuActive #sysmenu { 
+	display:block; }
+body#sys.menuActive #container,
+body#sys.menuActive #copyright { 
+	/*transform*/
+	-webkit-transform:translate(-300px,0);
+	-moz-transform:translate(-300px,0);
+	-ms-transform:translate(-300px,0);
+	transform:translate(-300px,0); }
+
+
+
+
 
 /* ==========================================================================
    structure - PAGE HEADER
@@ -1105,8 +1179,67 @@ body#sys #copyright {
    
 /* -------------------------------------------------------------------------- */
 /* container */
-#pageHeader {  }
+#pageHeader { 
+	height:100px;
+	border-bottom:1px solid #bdc3c7; }
 
+	/* padder */
+	#pageHeader .padder { padding-top:0; padding-bottom:0; }
+
+	/* -------------------------------------------------------------------------- */
+	/* brand */
+	#pageHeader .brand { 
+		display:block; width:250px; height:100px; margin:0; padding:0; overflow:hidden; 
+		float:left; clear:left;
+		background:transparent url(../img/logo-lms.png) left center no-repeat; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* topnav */	
+	#topnav { 
+		display:block; position:relative; width:auto; max-width:50%; height:100px; margin:0; padding:22px 0 0 0; overflow:hidden;
+		float:right; clear:right;
+		text-align:right; }
+	
+		/* -------------------------------------------------------------------------- */
+		/* a */
+		#topnav a { 
+			display:inline-block; position:relative; width:auto; height:64px; margin:0 8px; padding:0; overflow:hidden;
+			color:#007aff; text-align:center; }
+		.no-touch #topnav a:hover,
+		.no-touch #topnav a:focus,
+		.touch #topnav a:active {
+			color:#007aff; text-decoration:none; outline:0 none; }
+		
+			/* icon */
+			#topnav a i { 
+				display:block; width:38px; height:38px; margin:0 auto; padding:0; overflow:hidden;
+				border:2px solid #007aff; color:#007aff; font-size:14px; line-height:34px; text-align:center;
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			.no-touch #topnav a:hover i,
+			.no-touch #topnav a:focus i,
+			.touch #topnav a:active i {
+				border-color:transparent; color:#fff; background:#007aff; }
+			
+			/* label */
+			#topnav a .label { 
+				color:#007aff!important; font-size:14px; font-weight:400; line-height:24px; }
+				
+		/* -------------------------------------------------------------------------- */
+		/* a.current */
+		#topnav a.current {
+			color:#fff; pointer-events:none; }
+
+			/* icon */
+			#topnav a.current i,
+			.no-touch #topnav a.current:hover i,
+			.no-touch #topnav a.current:focus i,
+			.touch #topnav a.current:active i {
+				border-color:#007aff; color:#fff; background:#007aff; }
+			
+			/* label */
+			#topnav a.current .label { font-weight:700; }
+			
 
 /* ==========================================================================
    structure - PAGE CONTENT
@@ -1116,16 +1249,49 @@ body#sys #copyright {
 /* container */
 #pageContent {  }
 
-
-
-
-
+	/* padder */
+	#pageContent .padder { padding-bottom:0; }
 
 
 /* ==========================================================================
-   structure - RESPONSIVE
+   common - CONTENT VIEW
    ========================================================================== */
 
+/* -------------------------------------------------------------------------- */
+/* container */
+.contentView {  }
+
+/* -------------------------------------------------------------------------- */
+/* headings */
+.contentView h1,
+.contentView h2,
+.contentView h3 { font-weight:300; }
+
+/* custom */
+.contentView h1 { font-size:45px; color:#007aff; }
+.contentView h2 { color:#333; }
+
+/* -------------------------------------------------------------------------- */
+/* text styles */
+
+/* weights */
+.contentView b 		{ font-weight:600; }
+.contentView strong { font-weight:700; }
+
+/* leaderText */
+.contentView .leaderText { font-size:18px; font-weight:400; }
+
+/* -------------------------------------------------------------------------- */
+/* tableCourse */
+.contentView .tableCourse { margin-bottom:0; }
+	
+	/* td */
+	.contentView .tableCourse td { padding:20px 20px 10px 20px; vertical-align:top; }
+	
+	/* columns */
+	.contentView .tableCourse .alt 	{ background:#f7f7f7; }
+	.contentView .tableCourse .c1 	{ padding-left:4%; }
+	.contentView .tableCourse .c5 	{ padding-right:4%; }
 
 
 /* ==========================================================================

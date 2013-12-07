@@ -24,27 +24,158 @@
 <script src="lib/js/modernizr.all.js"></script>
 <script src="lib/js/jquery-1.8.3.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
+<script src="lib/js/iscroll-min.js"></script>
 <!-- JS:SITE -->
 <script src="lib/js/main.utils.js"></script>
 <script src="lib/js/main.js"></script>
 </head>
-<body id="sys">
+<body id="sys" class="">
 <!-- DEBUG -->
 <div id="debugInfo" class="nfp debug" data-disabled="" data-on=""></div>
 <!-- LOADER -->
 <div id="loader" class="icon icon-spinner icon-spin"></div>
+
+<!-- MENU -->
+<div id="sysmenu" class="sysSidePanel">
+	<!-- HEADER -->
+	<h2 class="menuHeader">System Menu</h2>
+	<!-- MENULIST -->
+	<div id="menuList" class="scrollwrapper" data-token="Sysmenu">
+		<div class="scroller">
+			<ul>
+				<li><a href="#"><i class="icon icon-dashboard"></i>Admin Access</a></li>
+				<li><a href="#"><i class="icon icon-user"></i>My Profile</a></li>
+				<li><a href="#"><i class="icon icon-signout"></i>Logout</a></li>
+			</ul>
+		</div>
+	</div><!-- /MENULIST -->
+</div><!-- /MENU -->
+
 <!-- CONTAINER -->
-<div id="container">
+<div id="container" class="">
 	<!-- HEADER -->
 	<div id="pageHeader" class="pageSection clearfix">
-		header
+		<div class="padder">
+			<!-- BRAND -->
+			<a class="brand" href="#"></a>
+			<!-- TOPNAV -->
+			<div id="topnav"><!--
+				--><a href="index.html" class="current"><i class="icon icon-home"></i><span class="label">Home</span></a><!--
+				--><a href="mylearning.html"><i class="icon icon-folder-open-alt"></i><span class="label">My Learning</span></a><!--
+				--><a id="btnSysmenu" href="#"><i class="icon icon-reorder"></i><span class="label">Menu</span></a><!--
+			--></div><!-- /TOPNAV -->
+		</div>
 	</div><!-- /HEADER -->
 	
 	<!-- CONTENT -->
-	<div id="pageContent" class="pageSection">
+	<div id="pageContent" class="pageSection contentView">
 		<div class="padder">
-			content
-		</div>	
+			<h1>Home</h1>
+			<p class="leaderText"><b>Johnny Welcome</b>,<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit.</p>
+			<h2>My Current Courses</h2>			
+		</div>
+		<!-- DATA GRID-->
+		<table class="table tableCourse">
+			<tr>
+				<td class="c1">
+					<h4 class="lv1"><a href="course.html">
+						<span class="courseCode">BSB30110</span>
+						<span class="courseTitle">Certificate III in Business</span>
+						<i class="action icon icon-angle-right"></i>
+					</a></h4>
+					<p class="discreet">Status: <span class="statusInProgress">In Progress</span></p>
+				</td>
+				<td class="c2 alt">
+					<p class="entry"><span class="discreet title">Start Date: </span><span class="date">2013/10/12</span></p>
+					<p class="entry"><span class="discreet title">Result Date: </span><span class="date">2013/10/12</span></p>
+				</td>
+				<td class="c3">
+					<p class="entry"><span class="discreet title">Score: </span><span class="score">80</span></p>
+					<p class="entry"><span class="discreet title">Results: </span><span class="score">80</span></p>
+				</td>
+				<td class="c4 alt">
+					<p class="entry"><span class="discreet title">Pages Viewed: </span><span class="prgs">8/22 (36%)</span></p>
+					<p class="entry"><span class="discreet title">Questions attempted: </span><span class="prgs">3/29 (10%)</span></p>
+				</td>
+				<td class="c5">
+					<p class="entry list">
+						<span class="discreet title">Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My training plan</a>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My second training plan</a>
+					</p>
+					<p class="entry list">
+						<span class="discreet title">Other Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-text-alt"></i> View / Upload</a>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="c1">
+					<h4 class="lv2"><a href="course.html">
+						<span class="courseCode">BSB30110</span>
+						<span class="courseTitle">Certificate III in Business</span>
+						<i class="action icon icon-angle-right"></i>
+					</a></h4>
+					<p class="discreet">Status: <span class="statusInProgress">In Progress</span></p>
+				</td>
+				<td class="c2 alt">
+					<p class="entry"><span class="discreet title">Start Date: </span><span class="date">2013/10/12</span></p>
+					<p class="entry"><span class="discreet title">Result Date: </span><span class="date">2013/10/12</span></p>
+				</td>
+				<td class="c3">
+					<p class="entry"><span class="discreet title">Score: </span><span class="score">80</span></p>
+					<p class="entry"><span class="discreet title">Results: </span><span class="score">80</span></p>
+				</td>
+				<td class="c4 alt">
+					<p class="entry"><span class="discreet title">Pages Viewed: </span><span class="prgs">8/22 (36%)</span></p>
+					<p class="entry"><span class="discreet title">Questions attempted: </span><span class="prgs">3/29 (10%)</span></p>
+				</td>
+				<td class="c5">
+					<p class="entry list">
+						<span class="discreet title">Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My training plan</a>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My second training plan</a>
+					</p>
+					<p class="entry list">
+						<span class="discreet title">Other Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-text-alt"></i> View / Upload</a>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="c1">
+					<h4 class="lv2"><a href="course.html">
+						<span class="courseCode">BSB30110</span>
+						<span class="courseTitle">Certificate III in Business</span>
+						<i class="action icon icon-angle-right"></i>
+					</a></h4>
+					<p class="discreet">Status: <span class="statusInProgress">In Progress</span></p>
+				</td>
+				<td class="c2 alt">
+					<p class="entry"><span class="discreet title">Start Date: </span><span class="date">2013/10/12</span></p>
+					<p class="entry"><span class="discreet title">Result Date: </span><span class="date">2013/10/12</span></p>
+				</td>
+				<td class="c3">
+					<p class="entry"><span class="discreet title">Score: </span><span class="score">80</span></p>
+					<p class="entry"><span class="discreet title">Results: </span><span class="score">80</span></p>
+				</td>
+				<td class="c4 alt">
+					<p class="entry"><span class="discreet title">Pages Viewed: </span><span class="prgs">8/22 (36%)</span></p>
+					<p class="entry"><span class="discreet title">Questions attempted: </span><span class="prgs">3/29 (10%)</span></p>
+				</td>
+				<td class="c5">
+					<p class="entry list">
+						<span class="discreet title">Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My training plan</a>
+						<a href="#" class="link"><i class="icon icon-file-alt"></i> My second training plan</a>
+					</p>
+					<p class="entry list">
+						<span class="discreet title">Other Documents: </span>
+						<a href="#" class="link"><i class="icon icon-file-text-alt"></i> View / Upload</a>
+					</p>
+				</td>
+			</tr>
+		</table><!-- DATA GRID-->	
 	</div><!-- /CONTENT -->
 </div><!-- /CONTAINER -->
 
