@@ -508,13 +508,13 @@ function initSysmenu(){
 function init(){
 	//common interactions
 	Scrollers = new initScrollers();
+	initModals();
 	//template specific interactions
 	if ( $('body#course').length ) {
 		ScrollHint = new initScrollHint();
 		initMenus();
 		initMenuFilter();
 		initSubNav();
-		initModals();
 	} else {
 		initSysmenu();
 	}

@@ -35,24 +35,25 @@
 <!-- LOADER -->
 <div id="loader" class="icon icon-spinner icon-spin"></div>
 
-<!-- MENU -->
-<div id="sysmenu" class="sysSidePanel">
-	<!-- HEADER -->
-	<h2 class="menuHeader">System Menu</h2>
-	<!-- MENULIST -->
-	<div id="menuList" class="scrollwrapper" data-token="Sysmenu">
-		<div class="scroller">
-			<ul>
-				<li><a href="#"><i class="icon icon-dashboard"></i>Admin Access</a></li>
-				<li><a href="#"><i class="icon icon-user"></i>My Profile</a></li>
-				<li><a href="#"><i class="icon icon-signout"></i>Logout</a></li>
-			</ul>
-		</div>
-	</div><!-- /MENULIST -->
-</div><!-- /MENU -->
-
 <!-- CONTAINER -->
 <div id="container" class="">
+	
+	<!-- SYSMENU -->
+	<div id="sysmenu" class="sysSidePanel">
+		<!-- HEADER -->
+		<h2 class="menuHeader">System Menu</h2>
+		<!-- MENULIST -->
+		<div id="menuList" class="scrollwrapper" data-token="Sysmenu">
+			<div class="scroller">
+				<ul>
+					<li><a href="#"><i class="icon icon-dashboard"></i>Admin Access</a></li>
+					<li><a href="#"><i class="icon icon-user"></i>My Profile</a></li>
+					<li><a href="#"><i class="icon icon-signout"></i>Logout</a></li>
+				</ul>
+			</div>
+		</div><!-- /MENULIST -->
+	</div><!-- /SYSMENU -->
+	
 	<!-- HEADER -->
 	<div id="pageHeader" class="pageSection clearfix">
 		<div class="padder">
@@ -108,7 +109,7 @@
 					</p>
 					<p class="entry list">
 						<span class="discreet title">Other Documents: </span>
-						<a href="#" class="link"><i class="icon icon-copy"></i> View / Upload</a>
+						<a href="#" class="link btnModal" data-target="#modalDocs" data-remote="modal-docs.html"><i class="icon icon-copy"></i> View / Upload</a>
 					</p>
 				</td>
 			</tr>
@@ -141,7 +142,7 @@
 					</p>
 					<p class="entry list">
 						<span class="discreet title">Other Documents: </span>
-						<a href="#" class="link"><i class="icon icon-copy"></i> View / Upload</a>
+						<a href="#" class="link btnModal" data-target="#modalDocs" data-remote="modal-docs.html"><i class="icon icon-copy"></i> View / Upload</a>
 					</p>
 				</td>
 			</tr>
@@ -173,7 +174,7 @@
 					</p>
 					<p class="entry list">
 						<span class="discreet title">Other Documents: </span>
-						<a href="#" class="link"><i class="icon icon-copy"></i> View / Upload</a>
+						<a href="#" class="link btnModal" data-target="#modalDocs" data-remote="modal-docs.html"><i class="icon icon-copy"></i> View / Upload</a>
 					</p>
 				</td>
 			</tr>

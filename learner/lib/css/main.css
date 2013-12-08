@@ -1062,9 +1062,9 @@ html, body { height:100%; }
 body#sys { 
 	height:auto; overflow:auto;
 	background:#2d2d2b; }
-	
-/* interaction */
-body#sys.menuActive { overflow:hidden; }
+
+/* fix width for old IE */
+.oldie body#sys { min-width:960px; }
 
 /* -------------------------------------------------------------------------- */
 /* pageBg */
@@ -1073,7 +1073,7 @@ body#sys #pageBg { display:none; }
 /* -------------------------------------------------------------------------- */
 /* container */
 body#sys #container {
-	position:relative; top:auto; left:auto; width:auto; height:auto; min-width:600px; max-width:none; max-height:none; margin:0 auto;
+	position:relative; top:auto; left:auto; width:auto; height:auto; max-width:none; max-height:none; margin:0 auto;
 	background:#fff; border-bottom:none;
 	/*transition*/
 	-webkit-transition:none;
@@ -1089,7 +1089,7 @@ body#sys #container {
 /* -------------------------------------------------------------------------- */
 /* container */
 body#sys #copyright {
-	display:block; position:relative; left:auto; bottom:auto; min-width:600px; max-width:none; margin:0 auto; }
+	display:block; position:relative; left:auto; bottom:auto; max-width:none; margin:0 auto; }
 
 
 /* ==========================================================================
@@ -1121,7 +1121,7 @@ body#sys #copyright {
 	display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 	
 	/* padder */
-	.pageSection > .padder { min-width:600px; padding:2% 4%; }
+	.pageSection > .padder { padding:2% 4%; }
 		
 
 /* ==========================================================================
@@ -1131,50 +1131,17 @@ body#sys #copyright {
 /* -------------------------------------------------------------------------- */
 /* container */
 #sysmenu {
-	position:absolute; top:0; right:0; width:300px; height:100%;
+	position:absolute; top:0; bottom:25px; right:0; width:300px; height:100%;
 	border-left:1px solid #bdc3c7; }
 
 	/* -------------------------------------------------------------------------- */
 	/* menuList */
-	#sysmenu #menuList { background:#fff; }	
+	#sysmenu .menuHeader { height:100px; line-height:99px; }
+
+	/* -------------------------------------------------------------------------- */
+	/* menuList */
+	#sysmenu #menuList { top:101px; background:#fff; }	
 	
-/* -------------------------------------------------------------------------- */
-/* interaction */
-
-/* common */
-body#sys #container,
-body#sys #copyright { 
-	/*transition*/
-	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:all 0.3s ease-in-out;
-	-moz-transition:all 0.3s ease-in-out;
-	transition:all 0.3s ease-in-out; }
-
-/* default */
-body#sys #sysmenu { 
-	display:none; }
-body#sys #container,
-body#sys #copyright { 
-	/*transform*/
-	-webkit-transform:translate(0,0);
-	-moz-transform:translate(0,0);
-	-ms-transform:translate(0,0);
-	transform:translate(0,0); }
-
-/* menuActive */
-body#sys.menuActive #sysmenu { 
-	display:block; }
-body#sys.menuActive #container,
-body#sys.menuActive #copyright { 
-	/*transform*/
-	-webkit-transform:translate(-300px,0);
-	-moz-transform:translate(-300px,0);
-	-ms-transform:translate(-300px,0);
-	transform:translate(-300px,0); }
-
-
-
-
 
 /* ==========================================================================
    structure - PAGE HEADER
@@ -1184,7 +1151,7 @@ body#sys.menuActive #copyright {
 /* container */
 #pageHeader { 
 	height:100px;
-	border-bottom:1px solid #8cb3f8; }
+	background-color:#fff; border-bottom:1px solid #8cb3f8; }
 
 	/* padder */
 	#pageHeader .padder { padding-top:0; padding-bottom:0; }
@@ -1193,30 +1160,30 @@ body#sys.menuActive #copyright {
 	/* brand */
 	#pageHeader .brand { 
 		display:block; width:250px; height:100px; margin:0; padding:0; overflow:hidden; 
-		float:left; clear:left;
 		background:transparent url(../img/logo-lms.png) left center no-repeat; }
 		
 	/* -------------------------------------------------------------------------- */
 	/* topnav */	
 	#topnav { 
-		display:block; position:relative; width:auto; max-width:50%; height:100px; margin:0; padding:22px 0 0 0; overflow:hidden;
-		float:right; clear:right;
+		display:block; position:absolute; top:22px; right:4%; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		text-align:right; }
 	
 		/* -------------------------------------------------------------------------- */
 		/* a */
 		#topnav a { 
 			display:inline-block; position:relative; width:auto; height:64px; margin:0 0 0 8px; padding:0; overflow:hidden;
-			color:#007aff; text-align:center; }
+			color:#007aff; text-align:center;
+			text-decoration:none!important; outline:0 none!important; }
 		.no-touch #topnav a:hover,
 		.no-touch #topnav a:focus,
 		.touch #topnav a:active {
-			color:#007aff; text-decoration:none; outline:0 none; }
+			color:#007aff; }
 		
 			/* icon */
 			#topnav a i { 
 				display:block; width:38px; height:38px; margin:0 auto; padding:0; overflow:hidden;
 				border:2px solid #007aff; color:#007aff; font-size:14px; line-height:34px; text-align:center;
+				text-decoration:none!important;
 				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 			.no-touch #topnav a:hover i,
@@ -1226,7 +1193,8 @@ body#sys.menuActive #copyright {
 			
 			/* label */
 			#topnav a .label { 
-				color:#007aff!important; font-size:14px; font-weight:400; line-height:24px; }
+				color:#007aff!important; font-size:14px; font-weight:400; line-height:24px;
+				text-decoration:none!important; }
 				
 		/* -------------------------------------------------------------------------- */
 		/* a.current */
@@ -1251,11 +1219,59 @@ body#sys.menuActive #copyright {
 /* -------------------------------------------------------------------------- */
 /* container */
 #pageContent { 
-	background:url(../img/bg-brand.jpg) top right no-repeat; }
+	background:#fff url(../img/bg-brand.jpg) top right no-repeat; }
 
 	/* padder */
 	#pageContent .padder { padding-bottom:0; }
 
+
+/* ==========================================================================
+   structure - MENU INTERACTION
+   ========================================================================== */
+
+/* common */
+body#sys #pageHeader,
+body#sys #pageContent { 
+	/*transition*/
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out; }
+
+/* shrink page conetnt while showing menu */
+
+/* default */
+body#sys #pageHeader,
+body#sys #pageContent { margin-right:0; }
+
+/* menuActive */
+body#sys.menuActive #pageHeader,
+body#sys.menuActive #pageContent { margin-right:300px; }
+	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:1000px) {
+	/* hide page conetnt while showing menu */
+	
+	/* default */
+	body#sys #pageHeader,
+	body#sys #pageContent { 
+		/*transform*/
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
+	
+	/* menuActive */
+	body#sys.menuActive #pageHeader,
+	body#sys.menuActive #pageContent { 
+		margin-right:0;
+		/*transform*/
+		-webkit-transform:translate(-300px,0);
+		-moz-transform:translate(-300px,0);
+		-ms-transform:translate(-300px,0);
+		transform:translate(-300px,0); }
+}
+	
 
 /* ==========================================================================
    common - UTILS
@@ -1394,6 +1410,23 @@ body#sys.menuActive #copyright {
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
 }
+
+
+/* ==========================================================================
+   bootstrap - MODAL
+   ========================================================================== */
+
+/* BS modal interaction */
+body#sys.modal-open { overflow:hidden; }
+
+/* BS modal sizing */
+.oldie body#sys .modal-dialog {
+	right: auto;
+	left: 50%;
+	width: 75%;
+	max-width: 800px;
+	padding-top: 30px;
+	padding-bottom: 30px; }
 
 
 /* ==========================================================================
