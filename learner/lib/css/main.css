@@ -60,6 +60,7 @@
 
 /* ------------------------------------------------------------------------------ 
    COURSE PAGE 
+   This is for the learner course page only
    ------------------------------------------------------------------------------ */
 
 /* ==========================================================================
@@ -1046,8 +1047,10 @@ html, body { height:100%; }
 .iScrollIndicator 			{ background-color:#95a5a6!important; border:none!important; }
 
 
+
 /* ------------------------------------------------------------------------------ 
    SYS PAGE 
+   This is for generic learner pages
    ------------------------------------------------------------------------------ */
 
 /* ==========================================================================
@@ -1181,7 +1184,7 @@ body#sys.menuActive #copyright {
 /* container */
 #pageHeader { 
 	height:100px;
-	border-bottom:1px solid #bdc3c7; }
+	border-bottom:1px solid #8cb3f8; }
 
 	/* padder */
 	#pageHeader .padder { padding-top:0; padding-bottom:0; }
@@ -1203,7 +1206,7 @@ body#sys.menuActive #copyright {
 		/* -------------------------------------------------------------------------- */
 		/* a */
 		#topnav a { 
-			display:inline-block; position:relative; width:auto; height:64px; margin:0 8px; padding:0; overflow:hidden;
+			display:inline-block; position:relative; width:auto; height:64px; margin:0 0 0 8px; padding:0; overflow:hidden;
 			color:#007aff; text-align:center; }
 		.no-touch #topnav a:hover,
 		.no-touch #topnav a:focus,
@@ -1247,10 +1250,30 @@ body#sys.menuActive #copyright {
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#pageContent {  }
+#pageContent { 
+	background:url(../img/bg-brand.jpg) top right no-repeat; }
 
 	/* padder */
 	#pageContent .padder { padding-bottom:0; }
+
+
+/* ==========================================================================
+   common - UTILS
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.utils {
+	position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+	font-size:14px; font-weight:400; }
+	
+	/* btnUtil */
+	.utils .btnUtil 		{ margin:0 8px; text-decoration:none!important; }
+	.utils.fleft .btnUtil 	{ margin:0 16px 0 0; }
+	.utils.fright .btnUtil 	{ margin:0 0 0 16px; }
+	
+		/* icon */
+		.utils .btnUtil i { font-size:14px; }
 
 
 /* ==========================================================================
@@ -1263,13 +1286,11 @@ body#sys.menuActive #copyright {
 
 /* -------------------------------------------------------------------------- */
 /* headings */
-.contentView h1,
-.contentView h2,
-.contentView h3 { font-weight:300; }
-
-/* custom */
-.contentView h1 { font-size:45px; color:#007aff; }
-.contentView h2 { color:#333; }
+.contentView h1 { color:#007aff; font-size:45px; font-weight:300; }
+.contentView h2 { color:#000; font-weight:300; }
+.contentView h3 { color:#383838; font-weight:400; }
+.contentView h4,
+.contentView h5 { color:#333; font-weight:600; }
 
 /* -------------------------------------------------------------------------- */
 /* text styles */
@@ -1279,19 +1300,100 @@ body#sys.menuActive #copyright {
 .contentView strong { font-weight:700; }
 
 /* leaderText */
-.contentView .leaderText { font-size:18px; font-weight:400; }
+.contentView .leaderText { margin-bottom:30px; font-size:18px; font-weight:400; }
+
+/* discreet */
+.contentView .discreet { font-size:13px; color:#666; }
 
 /* -------------------------------------------------------------------------- */
 /* tableCourse */
-.contentView .tableCourse { margin-bottom:0; }
+.contentView .tableCourse { margin:10px auto 0 auto; }
 	
 	/* td */
 	.contentView .tableCourse td { padding:20px 20px 10px 20px; vertical-align:top; }
 	
 	/* columns */
 	.contentView .tableCourse .alt 	{ background:#f7f7f7; }
-	.contentView .tableCourse .c1 	{ padding-left:4%; }
-	.contentView .tableCourse .c5 	{ padding-right:4%; }
+	
+	.contentView .tableCourse .c1 	{ width:29%; padding-left:4%; }
+	.contentView .tableCourse .c2 	{ width:12%; }
+	.contentView .tableCourse .c3 	{ width:10%; }
+	.contentView .tableCourse .c4 	{ width:21%; }
+	.contentView .tableCourse .c5 	{ width:20%; padding-right:4%; }
+	
+	/* levels */
+	.contentView .tableCourse .c1.lv2 { position:relative; width:27%; padding-left:6%; }		
+		
+		/* common */
+		.contentView .tableCourse .entry { margin:5px 0 15px 0; }
+		.contentView .tableCourse .title { display:block; }
+		.contentView .tableCourse .prgs,
+		.contentView .tableCourse .score,
+		.contentView .tableCourse .date,
+		.contentView .tableCourse .link { display:inline-block; white-space:nowrap; line-height:28px; }
+		
+		/* courseHeading */
+		.contentView .tableCourse .courseHeading { position:relative; width:auto; margin-top:0; line-height:1.25em; }
+		.contentView .tableCourse .courseHeading a { display:block; text-decoration:none!important; }
+			
+			.contentView .tableCourse .courseHeading .iconLevel { 
+				display:block; position:absolute; top:4px; left:-23px; width:1em; height:1em;
+				color:#8e8d92; font-size:14px; line-height:1em; text-align:center; }
+			.contentView .tableCourse .courseHeading a .iconLevel { 
+				color:#9ecef6; }
+			
+			.contentView .tableCourse .courseCode { display:block; margin-bottom:5px; text-transform:uppercase; font-size:0.9em; font-weight:300; }
+			.contentView .tableCourse .courseTitle { display:block; margin-bottom:15px; }
+			.contentView .tableCourse .courseTitle i { 
+				display:inline-block; width:18px; height:18px; 
+				border:1px solid #007aff;
+				font-size:14px; line-height:16px; text-align:center;
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			.no-touch .contentView .tableCourse a:hover .courseTitle i,
+			.touch .contentView .tableCourse a:active .courseTitle i { 
+				background:#094e96; color:#fff; border-color:transparent; }
+		
+		/* status */
+		.contentView .tableCourse .status.InProgress { color:#ff9501; }
+		.contentView .tableCourse .status.NotStarted { color:#8e8d92; }
+		.contentView .tableCourse .status.Completed  { color:#49bf1f; }
+
+		/* score */
+		.contentView .tableCourse .score { 
+			width:26px; height:26px; margin:1px auto;
+			color:#fff; background:#ccc; 
+			text-align:center; line-height:26px;
+			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		
+		.contentView .tableCourse .score.pass { background:#49bf1f; }
+		.contentView .tableCourse .score.fail { background:#ff3b30; }
+			
+		/* link */
+		.contentView .tableCourse .link { display:block; text-decoration:none!important; }
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (min-width:1100px) {
+	/* adjust column spacing */
+	.contentView .tableCourse .c1 	{ width:34%; padding-left:4%; }
+	.contentView .tableCourse .c2 	{ width:14%; }
+	.contentView .tableCourse .c3 	{ width:14%; }
+	.contentView .tableCourse .c4 	{ width:14%; }
+	.contentView .tableCourse .c5 	{ width:16%; padding-right:4%; }
+	/* levels */
+	.contentView .tableCourse .c1.lv2 { width:32%; padding-left:6%; }
+	/* adjust iconLevel pos */
+	.contentView .tableCourse .courseHeading .iconLevel { left:-30px; top:0; font-size:21px; }
+}
+@media only screen and (max-width:800px) {
+	/* adjust column spacing */
+	.contentView .tableCourse .c4 	{ width:17%; }
+	.contentView .tableCourse .c5 	{ width:24%; padding-right:4%; }
+	/* adjust iconLevel pos */
+	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
+}
 
 
 /* ==========================================================================
@@ -1543,6 +1645,42 @@ body#sys.menuActive #copyright {
 #debugInfo:before   { content:''; }
 #debugInfo:after    { content:'w: 'attr(data-width); } /*popped by JS*/
 .oldie #debugInfo   { background:#000; }
+
+
+/* ==========================================================================
+   Print styles.
+   Author: JX 201312
+   ========================================================================== */
+@media print {
+    /* hidden elements */
+    #pageHeader, #copyright, 
+	.utils, .action,
+    .nfp { display:none!important; }
+
+    /* simplify printing styles */
+    * { color:#000!important; background:transparent!important; box-shadow:none!important; text-shadow:none!important; }
+
+    /* show link urls */
+    a, a:visited { text-decoration:none; }
+    a[href]:after { content:""; }
+
+    /* show abbr titles */
+    abbr[title]:after { content:""; }
+
+    /* Don't show links for images, or javascript/internal links */
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after { content:""; }
+
+    /* misc content */
+    pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
+    thead { display:table-header-group; /* h5bp.com/t */ }
+    tr, img { page-break-inside:avoid; }
+    img { max-width:100%!important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans:3; widows:3; }
+    h2, h3 { page-break-after:avoid; }
+}
 
 
 /* ==========================================================================
