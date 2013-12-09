@@ -1121,8 +1121,8 @@ body#sys #copyright {
 	display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 	
 	/* padder */
-	.pageSection > .padder { padding:2% 4%; }
-		
+	.pageSection > .padder 			{ padding:2% 4%; }
+	.oldie .pageSection > .padder 	{ padding:20px 40px; }	
 
 /* ==========================================================================
    structure - SYSMENU
@@ -1167,6 +1167,8 @@ body#sys #copyright {
 	#topnav { 
 		display:block; position:absolute; top:22px; right:4%; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		text-align:right; }
+	.oldie #topnav { 
+		right:40px; }
 	
 		/* -------------------------------------------------------------------------- */
 		/* a */
@@ -1241,11 +1243,14 @@ body#sys #pageContent {
 
 /* default */
 body#sys #pageHeader,
-body#sys #pageContent { margin-right:0; }
+body#sys #pageContent 						{ margin-right:0; }
 
 /* menuActive */
 body#sys.menuActive #pageHeader,
-body#sys.menuActive #pageContent { margin-right:300px; }
+body#sys.menuActive #pageContent 			{ margin-right:300px; }
+
+.android body#sys.menuActive #pageHeader,
+.android body#sys.menuActive #pageContent 	{ margin-right:301px; }
 	
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -1270,6 +1275,15 @@ body#sys.menuActive #pageContent { margin-right:300px; }
 		-moz-transform:translate(-300px,0);
 		-ms-transform:translate(-300px,0);
 		transform:translate(-300px,0); }
+	
+	.android body#sys.menuActive #pageHeader,
+	.android body#sys.menuActive #pageContent { 
+		margin-right:0;
+		/*transform*/
+		-webkit-transform:translate(-301px,0);
+		-moz-transform:translate(-301px,0);
+		-ms-transform:translate(-301px,0);
+		transform:translate(-301px,0); }
 }
 	
 
@@ -1323,28 +1337,39 @@ body#sys.menuActive #pageContent { margin-right:300px; }
 
 /* -------------------------------------------------------------------------- */
 /* tableCourse */
-.contentView .tableCourse { margin:10px auto 0 auto; }
+.contentView .tableCourse { margin:10px auto 0 auto; background:#fff; }
 	
 	/* td */
-	.contentView .tableCourse td { padding:20px 20px 10px 20px; vertical-align:top; }
+	.contentView .tableCourse td { padding:20px 2% 10px 2%; vertical-align:top; }
 	
 	/* columns */
 	.contentView .tableCourse .alt 	{ background:#f7f7f7; }
 	
-	.contentView .tableCourse .c1 	{ width:29%; padding-left:4%; }
-	.contentView .tableCourse .c2 	{ width:12%; }
-	.contentView .tableCourse .c3 	{ width:10%; }
-	.contentView .tableCourse .c4 	{ width:21%; }
-	.contentView .tableCourse .c5 	{ width:20%; padding-right:4%; }
+	.contentView .tableCourse .c1 		{ width:33%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:12%; }
+	.contentView .tableCourse .c3 		{ width:10%; }
+	.contentView .tableCourse .c4 		{ width:21%; }
+	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ position:relative; padding-left:6%; }		
 	
-	/* levels */
-	.contentView .tableCourse .c1.lv2 { position:relative; width:27%; padding-left:6%; }		
+	/* oldie */
+	.oldie .contentView .tableCourse td 		{ padding:20px 20px 10px 20px; }
+	.oldie .contentView .tableCourse .c1, 		
+	.oldie .contentView .tableCourse .c2,
+	.oldie .contentView .tableCourse .c3,
+	.oldie .contentView .tableCourse .c4,
+	.oldie .contentView .tableCourse .c5		{ width:auto; }
+	
+	.oldie .contentView .tableCourse .c1 		{ padding-left:40px; }
+	.oldie .contentView .tableCourse .c1.lv2 	{ padding-left:60px; }
+	.oldie .contentView .tableCourse .c5 		{ padding-right:40px; }	
 		
 		/* common */
 		.contentView .tableCourse .entry { margin:5px 0 15px 0; }
 		.contentView .tableCourse .title { display:block; }
 		.contentView .tableCourse .prgs,
 		.contentView .tableCourse .score,
+		.contentView .tableCourse .result,
 		.contentView .tableCourse .date,
 		.contentView .tableCourse .link { display:inline-block; white-space:nowrap; line-height:28px; }
 		
@@ -1371,9 +1396,10 @@ body#sys.menuActive #pageContent { margin-right:300px; }
 				background:#094e96; color:#fff; border-color:transparent; }
 		
 		/* status */
-		.contentView .tableCourse .status.InProgress { color:#ff9501; }
-		.contentView .tableCourse .status.NotStarted { color:#8e8d92; }
-		.contentView .tableCourse .status.Completed  { color:#49bf1f; }
+		.contentView .tableCourse .status 				{ font-weight:600; }
+		.contentView .tableCourse .status.NotStarted 	{ color:#8e8d92; }
+		.contentView .tableCourse .status.InProgress 	{ color:#ff9501; }
+		.contentView .tableCourse .status.Completed  	{ color:#49bf1f; }
 
 		/* score */
 		.contentView .tableCourse .score { 
@@ -1383,9 +1409,16 @@ body#sys.menuActive #pageContent { margin-right:300px; }
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
 		
-		.contentView .tableCourse .score.pass { background:#49bf1f; }
-		.contentView .tableCourse .score.fail { background:#ff3b30; }
-			
+		.contentView .tableCourse .score.excel 	{ background:#49bf1f; }
+		.contentView .tableCourse .score.pass	{ background:#ff9501; }
+		.contentView .tableCourse .score.fail 	{ background:#ff3b30; }
+		
+		/* result */
+		.contentView .tableCourse .result 		{ font-weight:600; line-height:1.428571429; white-space:normal; margin-top:3px; }
+		.contentView .tableCourse .result.excel { color:#49bf1f; }
+		.contentView .tableCourse .result.pass 	{ color:#ff9501; }
+		.contentView .tableCourse .result.fail 	{ color:#ff3b30; }
+		
 		/* link */
 		.contentView .tableCourse .link { display:block; text-decoration:none!important; }
 
@@ -1393,20 +1426,19 @@ body#sys.menuActive #pageContent { margin-right:300px; }
 /* responsive */
 @media only screen and (min-width:1100px) {
 	/* adjust column spacing */
-	.contentView .tableCourse .c1 	{ width:34%; padding-left:4%; }
-	.contentView .tableCourse .c2 	{ width:14%; }
-	.contentView .tableCourse .c3 	{ width:14%; }
-	.contentView .tableCourse .c4 	{ width:14%; }
-	.contentView .tableCourse .c5 	{ width:16%; padding-right:4%; }
-	/* levels */
-	.contentView .tableCourse .c1.lv2 { width:32%; padding-left:6%; }
+	.contentView .tableCourse .c1 		{ width:38%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:14%; }
+	.contentView .tableCourse .c3 		{ width:14%; }
+	.contentView .tableCourse .c4 		{ width:14%; }
+	.contentView .tableCourse .c5 		{ width:20%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-30px; top:0; font-size:21px; }
 }
 @media only screen and (max-width:800px) {
 	/* adjust column spacing */
-	.contentView .tableCourse .c4 	{ width:17%; }
-	.contentView .tableCourse .c5 	{ width:24%; padding-right:4%; }
+	.contentView .tableCourse .c4 		{ width:17%; }
+	.contentView .tableCourse .c5 		{ width:28%; }
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
 }
