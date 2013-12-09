@@ -1718,7 +1718,7 @@ body#sys.modal-open { overflow:hidden; }
    ========================================================================== */
 @media print {
     /* hidden elements */
-    #pageHeader, #copyright, 
+    #pageHeader, #copyright, #sysmenu, 
 	.utils, .action,
     .nfp { display:none!important; }
 
