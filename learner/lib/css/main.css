@@ -1248,9 +1248,6 @@ body#sys #pageContent 						{ margin-right:0; }
 /* menuActive */
 body#sys.menuActive #pageHeader,
 body#sys.menuActive #pageContent 			{ margin-right:300px; }
-
-.android body#sys.menuActive #pageHeader,
-.android body#sys.menuActive #pageContent 	{ margin-right:301px; }
 	
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -1275,15 +1272,6 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 		-moz-transform:translate(-300px,0);
 		-ms-transform:translate(-300px,0);
 		transform:translate(-300px,0); }
-	
-	.android body#sys.menuActive #pageHeader,
-	.android body#sys.menuActive #pageContent { 
-		margin-right:0;
-		/*transform*/
-		-webkit-transform:translate(-301px,0);
-		-moz-transform:translate(-301px,0);
-		-ms-transform:translate(-301px,0);
-		transform:translate(-301px,0); }
 }
 	
 
