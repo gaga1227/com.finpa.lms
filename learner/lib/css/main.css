@@ -1347,8 +1347,8 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 	
 	.contentView .tableCourse .c1 		{ width:33%; padding-left:4%; }
 	.contentView .tableCourse .c2 		{ width:12%; }
-	.contentView .tableCourse .c3 		{ width:10%; }
-	.contentView .tableCourse .c4 		{ width:21%; }
+	.contentView .tableCourse .c3 		{ width:14%; }
+	.contentView .tableCourse .c4 		{ width:17%; }
 	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
 	.contentView .tableCourse .c1.lv2 	{ position:relative; padding-left:6%; }		
 	
@@ -1420,7 +1420,7 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 		.contentView .tableCourse .result.fail 	{ color:#ff3b30; }
 		
 		/* link */
-		.contentView .tableCourse .link { display:block; text-decoration:none!important; }
+		.contentView .tableCourse .link { display:block; text-decoration:none!important; line-height:1.428571429; white-space:normal; margin-top:3px; }
 
 /* -------------------------------------------------------------------------- */
 /* responsive */
@@ -1437,8 +1437,12 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 }
 @media only screen and (max-width:800px) {
 	/* adjust column spacing */
+	.contentView .tableCourse .c1 		{ width:25%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:17%; }
+	.contentView .tableCourse .c3 		{ width:17%; }
 	.contentView .tableCourse .c4 		{ width:17%; }
-	.contentView .tableCourse .c5 		{ width:28%; }
+	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }	
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
 }
