@@ -60,6 +60,7 @@
 
 /* ------------------------------------------------------------------------------ 
    COURSE PAGE 
+   This is for the learner course page only
    ------------------------------------------------------------------------------ */
 
 /* ==========================================================================
@@ -1058,6 +1059,412 @@ html, body { height:100%; }
 .iScrollIndicator 			{ background-color:#95a5a6!important; border:none!important; }
 
 
+
+/* ------------------------------------------------------------------------------ 
+   SYS PAGE 
+   This is for generic learner pages
+   ------------------------------------------------------------------------------ */
+
+/* ==========================================================================
+   structure - GLOBAL
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* body */
+body#sys { 
+	height:auto; overflow:auto;
+	background:#2d2d2b; }
+
+/* fix width for old IE */
+.oldie body#sys { min-width:960px; }
+
+/* -------------------------------------------------------------------------- */
+/* pageBg */
+body#sys #pageBg { display:none; }
+
+/* -------------------------------------------------------------------------- */
+/* container */
+body#sys #container {
+	position:relative; top:auto; left:auto; width:auto; height:auto; max-width:none; max-height:none; margin:0 auto;
+	background:#fff; border-bottom:none;
+	/*transition*/
+	-webkit-transition:none;
+	-moz-transition:none;
+	-ms-transition:none;
+	transition:none; }
+
+/* firefox bug of 100% height equals huge number */
+@-moz-document url-prefix() {
+	.android body#sys #container { max-height:none; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* container */
+body#sys #copyright {
+	display:block; position:relative; left:auto; bottom:auto; max-width:none; margin:0 auto; }
+
+
+/* ==========================================================================
+   structure - WEBFONT
+   ========================================================================== */
+   
+/* loading */
+.js #sysmenu {
+	visibility:hidden; opacity:0;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:opacity 0.3s ease-in-out;
+	-moz-transition:opacity 0.3s ease-in-out;
+	-o-transition:opacity 0.3s ease-in-out;
+	transition:opacity 0.3s ease-in-out; }
+
+/* active */
+.wf-active #sysmenu,
+.wf-inactive #sysmenu { visibility:visible; opacity:1; }
+
+
+/* ==========================================================================
+   structure - BLOCKINGS
+   ========================================================================== */
+   
+/* common */
+.pageSection,
+.pageSection > .padder {
+	display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
+	
+	/* padder */
+	.pageSection > .padder 			{ padding:2% 4%; }
+	.oldie .pageSection > .padder 	{ padding:20px 40px; }	
+
+/* ==========================================================================
+   structure - SYSMENU
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* container */
+#sysmenu {
+	position:absolute; top:0; bottom:25px; right:0; width:300px; height:100%;
+	border-left:1px solid #bdc3c7; }
+
+	/* -------------------------------------------------------------------------- */
+	/* menuList */
+	#sysmenu .menuHeader { height:100px; line-height:99px; }
+
+	/* -------------------------------------------------------------------------- */
+	/* menuList */
+	#sysmenu #menuList { top:101px; background:#fff; }	
+	
+
+/* ==========================================================================
+   structure - PAGE HEADER
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* container */
+#pageHeader { 
+	height:100px;
+	background-color:#fff; border-bottom:1px solid #8cb3f8; }
+
+	/* padder */
+	#pageHeader .padder { padding-top:0; padding-bottom:0; }
+
+	/* -------------------------------------------------------------------------- */
+	/* brand */
+	#pageHeader .brand { 
+		display:block; width:250px; height:100px; margin:0; padding:0; overflow:hidden; 
+		background:transparent url(../img/logo-lms.png) left center no-repeat; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* topnav */	
+	#topnav { 
+		display:block; position:absolute; top:22px; right:4%; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+		text-align:right; }
+	.oldie #topnav { 
+		right:40px; }
+	
+		/* -------------------------------------------------------------------------- */
+		/* a */
+		#topnav a { 
+			display:inline-block; position:relative; width:auto; height:64px; margin:0 0 0 8px; padding:0; overflow:hidden;
+			color:#007aff; text-align:center;
+			text-decoration:none!important; outline:0 none!important; }
+		.no-touch #topnav a:hover,
+		.no-touch #topnav a:focus,
+		.touch #topnav a:active {
+			color:#007aff; }
+		
+			/* icon */
+			#topnav a i { 
+				display:block; width:38px; height:38px; margin:0 auto; padding:0; overflow:hidden;
+				border:2px solid #007aff; color:#007aff; font-size:14px; line-height:34px; text-align:center;
+				text-decoration:none!important;
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			.no-touch #topnav a:hover i,
+			.no-touch #topnav a:focus i,
+			.touch #topnav a:active i {
+				border-color:transparent; color:#fff; background:#007aff; }
+			
+			/* label */
+			#topnav a .label { 
+				color:#007aff!important; font-size:14px; font-weight:400; line-height:24px;
+				text-decoration:none!important; }
+				
+		/* -------------------------------------------------------------------------- */
+		/* a.current */
+		#topnav a.current {
+			color:#fff; pointer-events:none; }
+
+			/* icon */
+			#topnav a.current i,
+			.no-touch #topnav a.current:hover i,
+			.no-touch #topnav a.current:focus i,
+			.touch #topnav a.current:active i {
+				border-color:#007aff; color:#fff; background:#007aff; }
+			
+			/* label */
+			#topnav a.current .label { font-weight:700; }
+			
+
+/* ==========================================================================
+   structure - PAGE CONTENT
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+#pageContent { 
+	background:#fff url(../img/bg-brand.jpg) top right no-repeat; }
+
+	/* padder */
+	#pageContent .padder { padding-bottom:0; }
+
+
+/* ==========================================================================
+   structure - MENU INTERACTION
+   ========================================================================== */
+
+/* common */
+body#sys #pageHeader,
+body#sys #pageContent { 
+	/*transition*/
+	-webkit-transition:all 0.3s ease-in-out;
+	-moz-transition:all 0.3s ease-in-out;
+	transition:all 0.3s ease-in-out; }
+
+/* shrink page conetnt while showing menu */
+
+/* default */
+body#sys #pageHeader,
+body#sys #pageContent 						{ margin-right:0; }
+
+/* menuActive */
+body#sys.menuActive #pageHeader,
+body#sys.menuActive #pageContent 			{ margin-right:300px; }
+	
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (max-width:1000px) {
+	/* hide page conetnt while showing menu */
+	
+	/* default */
+	body#sys #pageHeader,
+	body#sys #pageContent { 
+		/*transform*/
+		-webkit-transform:translate(0,0);
+		-moz-transform:translate(0,0);
+		-ms-transform:translate(0,0);
+		transform:translate(0,0); }
+	
+	/* menuActive */
+	body#sys.menuActive #pageHeader,
+	body#sys.menuActive #pageContent { 
+		margin-right:0;
+		/*transform*/
+		-webkit-transform:translate(-300px,0);
+		-moz-transform:translate(-300px,0);
+		-ms-transform:translate(-300px,0);
+		transform:translate(-300px,0); }
+}
+	
+
+/* ==========================================================================
+   common - UTILS
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.utils {
+	position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+	font-size:14px; font-weight:400; }
+	
+	/* btnUtil */
+	.utils .btnUtil 		{ margin:0 8px; text-decoration:none!important; }
+	.utils.fleft .btnUtil 	{ margin:0 16px 0 0; }
+	.utils.fright .btnUtil 	{ margin:0 0 0 16px; }
+	
+		/* icon */
+		.utils .btnUtil i { font-size:14px; }
+
+
+/* ==========================================================================
+   common - CONTENT VIEW
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.contentView {  }
+
+/* -------------------------------------------------------------------------- */
+/* headings */
+.contentView h1 { color:#007aff; font-size:45px; font-weight:300; }
+.contentView h2 { color:#000; font-weight:300; }
+.contentView h3 { color:#383838; font-weight:400; }
+.contentView h4,
+.contentView h5 { color:#333; font-weight:600; }
+
+/* -------------------------------------------------------------------------- */
+/* text styles */
+
+/* weights */
+.contentView b 		{ font-weight:600; }
+.contentView strong { font-weight:700; }
+
+/* leaderText */
+.contentView .leaderText { margin-bottom:30px; font-size:18px; font-weight:400; }
+
+/* discreet */
+.contentView .discreet { font-size:13px; color:#666; }
+
+/* -------------------------------------------------------------------------- */
+/* tableCourse */
+.contentView .tableCourse { margin:10px auto 0 auto; background:#fff; }
+	
+	/* td */
+	.contentView .tableCourse td { padding:20px 2% 10px 2%; vertical-align:top; }
+	
+	/* columns */
+	.contentView .tableCourse .alt 	{ background:#f7f7f7; }
+	
+	.contentView .tableCourse .c1 		{ width:33%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:12%; }
+	.contentView .tableCourse .c3 		{ width:14%; }
+	.contentView .tableCourse .c4 		{ width:17%; }
+	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ position:relative; padding-left:6%; }		
+	
+	/* oldie */
+	.oldie .contentView .tableCourse td 		{ padding:20px 20px 10px 20px; }
+	.oldie .contentView .tableCourse .c1, 		
+	.oldie .contentView .tableCourse .c2,
+	.oldie .contentView .tableCourse .c3,
+	.oldie .contentView .tableCourse .c4,
+	.oldie .contentView .tableCourse .c5		{ width:auto; }
+	
+	.oldie .contentView .tableCourse .c1 		{ padding-left:40px; }
+	.oldie .contentView .tableCourse .c1.lv2 	{ padding-left:60px; }
+	.oldie .contentView .tableCourse .c5 		{ padding-right:40px; }	
+		
+		/* common */
+		.contentView .tableCourse .entry { margin:5px 0 15px 0; }
+		.contentView .tableCourse .title { display:block; }
+		.contentView .tableCourse .prgs,
+		.contentView .tableCourse .score,
+		.contentView .tableCourse .result,
+		.contentView .tableCourse .date,
+		.contentView .tableCourse .link { display:inline-block; white-space:nowrap; line-height:28px; }
+		
+		/* courseHeading */
+		.contentView .tableCourse .courseHeading { position:relative; width:auto; margin-top:0; line-height:1.25em; }
+		.contentView .tableCourse .courseHeading a { display:block; text-decoration:none!important; }
+			
+			.contentView .tableCourse .courseHeading .iconLevel { 
+				display:block; position:absolute; top:4px; left:-23px; width:1em; height:1em;
+				color:#8e8d92; font-size:14px; line-height:1em; text-align:center; }
+			.contentView .tableCourse .courseHeading a .iconLevel { 
+				color:#9ecef6; }
+			
+			.contentView .tableCourse .courseCode { display:block; margin-bottom:5px; text-transform:uppercase; font-size:0.9em; font-weight:300; }
+			.contentView .tableCourse .courseTitle { display:block; margin-bottom:15px; }
+			.contentView .tableCourse .courseTitle i { 
+				display:inline-block; width:18px; height:18px; 
+				border:1px solid #007aff;
+				font-size:14px; line-height:16px; text-align:center;
+				/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+				/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			.no-touch .contentView .tableCourse a:hover .courseTitle i,
+			.touch .contentView .tableCourse a:active .courseTitle i { 
+				background:#094e96; color:#fff; border-color:transparent; }
+		
+		/* status */
+		.contentView .tableCourse .status 				{ font-weight:600; }
+		.contentView .tableCourse .status.NotStarted 	{ color:#8e8d92; }
+		.contentView .tableCourse .status.InProgress 	{ color:#ff9501; }
+		.contentView .tableCourse .status.Completed  	{ color:#49bf1f; }
+
+		/* score */
+		.contentView .tableCourse .score { 
+			width:26px; height:26px; margin:1px auto;
+			color:#fff; background:#ccc; 
+			text-align:center; line-height:26px;
+			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		
+		.contentView .tableCourse .score.excel 	{ background:#49bf1f; }
+		.contentView .tableCourse .score.pass	{ background:#ff9501; }
+		.contentView .tableCourse .score.fail 	{ background:#ff3b30; }
+		
+		/* result */
+		.contentView .tableCourse .result 		{ font-weight:600; line-height:1.428571429; white-space:normal; margin-top:3px; }
+		.contentView .tableCourse .result.excel { color:#49bf1f; }
+		.contentView .tableCourse .result.pass 	{ color:#ff9501; }
+		.contentView .tableCourse .result.fail 	{ color:#ff3b30; }
+		
+		/* link */
+		.contentView .tableCourse .link { display:block; text-decoration:none!important; line-height:1.428571429; white-space:normal; margin-top:3px; }
+
+/* -------------------------------------------------------------------------- */
+/* responsive */
+@media only screen and (min-width:1100px) {
+	/* adjust column spacing */
+	.contentView .tableCourse .c1 		{ width:38%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:14%; }
+	.contentView .tableCourse .c3 		{ width:14%; }
+	.contentView .tableCourse .c4 		{ width:14%; }
+	.contentView .tableCourse .c5 		{ width:20%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }
+	/* adjust iconLevel pos */
+	.contentView .tableCourse .courseHeading .iconLevel { left:-30px; top:0; font-size:21px; }
+}
+@media only screen and (max-width:800px) {
+	/* adjust column spacing */
+	.contentView .tableCourse .c1 		{ width:25%; padding-left:4%; }
+	.contentView .tableCourse .c2 		{ width:17%; }
+	.contentView .tableCourse .c3 		{ width:17%; }
+	.contentView .tableCourse .c4 		{ width:17%; }
+	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }	
+	/* adjust iconLevel pos */
+	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
+}
+
+
+/* ==========================================================================
+   bootstrap - MODAL
+   ========================================================================== */
+
+/* BS modal interaction */
+body#sys.modal-open { overflow:hidden; }
+
+/* BS modal sizing */
+.oldie body#sys .modal-dialog {
+	right: auto;
+	left: 50%;
+	width: 75%;
+	max-width: 800px;
+	padding-top: 30px;
+	padding-bottom: 30px; }
+
+
 /* ==========================================================================
    Common Styles
    Author: JX 20120127
@@ -1428,6 +1835,42 @@ input[type=submit], input[type=button], button {
 #debugInfo:before   { content:''; }
 #debugInfo:after    { content:'w: 'attr(data-width); } /*popped by JS*/
 .oldie #debugInfo   { background:#000; }
+
+
+/* ==========================================================================
+   Print styles.
+   Author: JX 201312
+   ========================================================================== */
+@media print {
+    /* hidden elements */
+    #pageHeader, #copyright, #sysmenu, 
+	.utils, .action,
+    .nfp { display:none!important; }
+
+    /* simplify printing styles */
+    * { color:#000!important; background:transparent!important; box-shadow:none!important; text-shadow:none!important; }
+
+    /* show link urls */
+    a, a:visited { text-decoration:none; }
+    a[href]:after { content:""; }
+
+    /* show abbr titles */
+    abbr[title]:after { content:""; }
+
+    /* Don't show links for images, or javascript/internal links */
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after { content:""; }
+
+    /* misc content */
+    pre, blockquote { border:1px solid #999; page-break-inside:avoid; }
+    thead { display:table-header-group; /* h5bp.com/t */ }
+    tr, img { page-break-inside:avoid; }
+    img { max-width:100%!important; }
+    @page { margin: 0.5cm; }
+    p, h2, h3 { orphans:3; widows:3; }
+    h2, h3 { page-break-after:avoid; }
+}
 
 
 /* ==========================================================================

@@ -481,18 +481,42 @@ function adaptCourseContent(){
 	update();
 }
 /* ------------------------------------------------------------------------------ */
+/* initSysmenu */
+/* ------------------------------------------------------------------------------ */
+function initSysmenu(){
+	//vars
+	var $body = $('body'),
+		$container = $('#container'),
+		$copyright = $('#copyright'),
+		$btnSysmenu = $('#btnSysmenu'),
+		//state classes
+		menuActiveCls = 'menuActive';
+	//exit
+	if ($body.attr('id') == 'course') return false;
+	//button handler
+	function toggleMenu(e) {
+		e.preventDefault();
+		$body.toggleClass(menuActiveCls);
+	}
+	//bind side menu interaction
+	$btnSysmenu.on('click', toggleMenu);
+}
+/* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
 function init(){
-	//course page interactions
+	//common interactions
+	Scrollers = new initScrollers();
+	initModals();
+	//template specific interactions
 	if ( $('body#course').length ) {
-		Scrollers = new initScrollers();
 		ScrollHint = new initScrollHint();
 		initMenus();
 		initMenuFilter();
 		initSubNav();
-		initModals();
-	};
+	} else {
+		initSysmenu();
+	}
 	//debug
 	displayDebugInfo('#debugInfo');
 }
