@@ -1061,10 +1061,14 @@ html, body { height:100%; }
 /* body */
 body#sys { 
 	height:auto; overflow:auto;
-	background:#2d2d2b; }
+	background:#fff; }
 
 /* fix width for old IE */
 .oldie body#sys { min-width:960px; }
+
+/* -------------------------------------------------------------------------- */
+/* loader */
+body#sys #loader { color:#555; } 
 
 /* -------------------------------------------------------------------------- */
 /* pageBg */
@@ -1087,7 +1091,7 @@ body#sys #container {
 }
 
 /* -------------------------------------------------------------------------- */
-/* container */
+/* copyright */
 body#sys #copyright {
 	display:block; position:relative; left:auto; bottom:auto; max-width:none; margin:0 auto; }
 
@@ -1095,7 +1099,7 @@ body#sys #copyright {
 /* ==========================================================================
    structure - WEBFONT
    ========================================================================== */
-   
+
 /* loading */
 .js #sysmenu {
 	visibility:hidden; opacity:0;
@@ -1330,9 +1334,12 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 	/* td */
 	.contentView .tableCourse td { padding:20px 2% 10px 2%; vertical-align:top; }
 	
-	/* columns */
-	.contentView .tableCourse .alt 	{ background:#f7f7f7; }
+	/* columns bg */
+	.contentView .tableCourse .alt 				{ background:#f7f7f7; }
+	.contentView .tableCourse .highlight td 	{ background:#e7f5fe; border-top-color:#b4def8; }
+	.contentView .tableCourse .highlight .alt 	{ background:#d1eefe; }
 	
+	/* columns layout */
 	.contentView .tableCourse .c1 		{ width:33%; padding-left:4%; }
 	.contentView .tableCourse .c2 		{ width:12%; }
 	.contentView .tableCourse .c3 		{ width:14%; }
