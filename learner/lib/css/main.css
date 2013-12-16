@@ -1125,8 +1125,14 @@ body#sys #copyright {
 	display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; overflow:hidden; }
 	
 	/* padder */
-	.pageSection > .padder 			{ padding:2% 4%; }
-	.oldie .pageSection > .padder 	{ padding:20px 40px; }	
+	.pageSection > .padder 			{ padding:20px 40px; }
+
+/* responsive */
+@media only screen and (max-width:800px) {
+	/* adjust spacing */
+	.pageSection > .padder 			{ padding:10px 20px; }
+}
+
 
 /* ==========================================================================
    structure - SYSMENU
@@ -1169,10 +1175,14 @@ body#sys #copyright {
 	/* -------------------------------------------------------------------------- */
 	/* topnav */	
 	#topnav { 
-		display:block; position:absolute; top:22px; right:4%; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+		display:block; position:absolute; top:22px; right:40px; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
 		text-align:right; }
-	.oldie #topnav { 
-		right:40px; }
+
+	/* responsive */
+	@media only screen and (max-width:800px) {
+		/* adjust spacing */
+		#topnav { right:20px; }
+	}
 	
 		/* -------------------------------------------------------------------------- */
 		/* a */
@@ -1332,32 +1342,27 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 .contentView .tableCourse { margin:10px auto 0 auto; background:#fff; }
 	
 	/* td */
-	.contentView .tableCourse td { padding:20px 2% 10px 2%; vertical-align:top; }
+	.contentView .tableCourse td { padding:20px 20px 10px 20px; vertical-align:top; }
 	
 	/* columns bg */
-	.contentView .tableCourse .alt 				{ background:#f7f7f7; }
-	.contentView .tableCourse .highlight td 	{ background:#e7f5fe; border-top-color:#b4def8; }
-	.contentView .tableCourse .highlight .alt 	{ background:#d1eefe; }
+	.contentView .tableCourse .alt			{ background:#f7f7f7; }
+	.contentView .tableCourse .level1 td 	{ background:#e7f5fe; border-top-color:#b4def8; }
+	.contentView .tableCourse .level1 .alt 	{ background:#d1eefe; }
 	
 	/* columns layout */
-	.contentView .tableCourse .c1 		{ width:33%; padding-left:4%; }
-	.contentView .tableCourse .c2 		{ width:12%; }
-	.contentView .tableCourse .c3 		{ width:14%; }
-	.contentView .tableCourse .c4 		{ width:17%; }
-	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
-	.contentView .tableCourse .c1.lv2 	{ position:relative; padding-left:6%; }		
+	.contentView .tableCourse .c1 		{ width:33%; padding-left:40px; }
+	.contentView .tableCourse .c2 		{ width:14%; }
+	.contentView .tableCourse .c3 		{ width:16%; }
+	.contentView .tableCourse .c4 		{ width:19%; }
+	.contentView .tableCourse .c5 		{ width:18%; padding-right:40px; }
+	.contentView .tableCourse .c1.lv2 	{ position:relative; padding-left:60px; }		
 	
 	/* oldie */
-	.oldie .contentView .tableCourse td 		{ padding:20px 20px 10px 20px; }
 	.oldie .contentView .tableCourse .c1, 		
 	.oldie .contentView .tableCourse .c2,
 	.oldie .contentView .tableCourse .c3,
 	.oldie .contentView .tableCourse .c4,
-	.oldie .contentView .tableCourse .c5		{ width:auto; }
-	
-	.oldie .contentView .tableCourse .c1 		{ padding-left:40px; }
-	.oldie .contentView .tableCourse .c1.lv2 	{ padding-left:60px; }
-	.oldie .contentView .tableCourse .c5 		{ padding-right:40px; }	
+	.oldie .contentView .tableCourse .c5 { width:auto; }
 		
 		/* common */
 		.contentView .tableCourse .entry { margin:5px 0 15px 0; }
@@ -1421,23 +1426,24 @@ body#sys.menuActive #pageContent 			{ margin-right:300px; }
 /* responsive */
 @media only screen and (min-width:1100px) {
 	/* adjust column spacing */
-	.contentView .tableCourse .c1 		{ width:38%; padding-left:4%; }
+	.contentView .tableCourse .c1 		{ width:38%; }
 	.contentView .tableCourse .c2 		{ width:14%; }
 	.contentView .tableCourse .c3 		{ width:14%; }
 	.contentView .tableCourse .c4 		{ width:14%; }
-	.contentView .tableCourse .c5 		{ width:20%; padding-right:4%; }
-	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }
+	.contentView .tableCourse .c5 		{ width:20%; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:65px; }
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-30px; top:0; font-size:21px; }
 }
 @media only screen and (max-width:800px) {
 	/* adjust column spacing */
-	.contentView .tableCourse .c1 		{ width:25%; padding-left:4%; }
+	.contentView .tableCourse td 		{ padding:10px 10px 0 10px; }
+	.contentView .tableCourse .c1 		{ width:25%; padding-left:20px; }
 	.contentView .tableCourse .c2 		{ width:17%; }
 	.contentView .tableCourse .c3 		{ width:17%; }
 	.contentView .tableCourse .c4 		{ width:17%; }
-	.contentView .tableCourse .c5 		{ width:24%; padding-right:4%; }
-	.contentView .tableCourse .c1.lv2 	{ padding-left:6%; }	
+	.contentView .tableCourse .c5 		{ width:24%; padding-right:20px; }
+	.contentView .tableCourse .c1.lv2 	{ padding-left:35px; }
 	/* adjust iconLevel pos */
 	.contentView .tableCourse .courseHeading .iconLevel { left:-18px; }
 }
